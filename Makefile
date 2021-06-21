@@ -14,6 +14,7 @@
 #
 # ============================================================================
 
+BASEURL := /pandoc-markdown-css-theme
 
 SOURCES := $(shell find src -type f -name '*.md')
 TARGETS := $(patsubst src/%.md,docs/%.html,$(SOURCES))
@@ -46,8 +47,8 @@ docs/%.html: src/%.md template.html5 Makefile
 		--filter pandoc-sidenote \
 		--to html5+smart \
 		--template=template \
-		--css=/css/theme.css \
-		--css=/css/skylighting-solarized-theme.css \
+		--css=$(BASEURL)/css/theme.css \
+		--css=$(BASEURL)/css/skylighting-solarized-theme.css \
 		--toc \
 		--output $@ \
 		$<

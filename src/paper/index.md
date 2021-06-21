@@ -1,8 +1,8 @@
 ---
 title: "Sample"
 header-includes:
-- '<link rel="stylesheet" href="/css/paper.css">'
-- '<link rel="stylesheet" href="/css/skylighting-paper-theme.css">'
+- '<link rel="stylesheet" href="../css/paper.css">'
+- '<link rel="stylesheet" href="../css/skylighting-paper-theme.css">'
 ---
 
 <!-- TODO(jez) Implement the paper page -->

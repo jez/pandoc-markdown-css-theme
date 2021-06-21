@@ -14,8 +14,6 @@
 #
 # ============================================================================
 
-BASEURL := /pandoc-markdown-css-theme
-
 SOURCES := $(shell find src -type f -name '*.md')
 TARGETS := $(patsubst src/%.md,docs/%.html,$(SOURCES))
 
@@ -39,18 +37,7 @@ docs: docs/.nojekyll
 # Generalized rule: how to build a .html file from each .md
 # Note: you will need pandoc 2 or greater for this to work
 # TODO(jez) --css options will break on GitHub Pages
-docs/%.html: src/%.md template.html5 Makefile
-	mkdir -p $$(dirname $@) && \
-	pandoc \
-		--katex \
-		--from markdown+tex_math_single_backslash \
-		--filter pandoc-sidenote \
-		--to html5+smart \
-		--template=template \
-		--css=$(BASEURL)/css/theme.css \
-		--css=$(BASEURL)/css/skylighting-solarized-theme.css \
-		--toc \
-		--output $@ \
-		$<
+docs/%.html: src/%.md template.html5 Makefile docs/.nojekyll tools/build.sh
+	tools/build.sh "$<" "$@"
 
 

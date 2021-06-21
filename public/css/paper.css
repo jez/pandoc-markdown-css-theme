@@ -2,84 +2,84 @@
 
 @font-face {
     font-family: 'AtlasGrotesk-editor';
-    src: url('/fonts/AtlasGrotesk-Regular-190618-Web.woff2') format('woff2');
+    src: url('../fonts/AtlasGrotesk-Regular-190618-Web.woff2') format('woff2');
     font-weight: normal;
     font-style: normal
 }
 
 @font-face {
     font-family: 'AtlasGrotesk-editor';
-    src: url('/fonts/AtlasGrotesk-RegularItalic-190618-Web.woff2') format('woff2');
+    src: url('../fonts/AtlasGrotesk-RegularItalic-190618-Web.woff2') format('woff2');
     font-weight: normal;
     font-style: italic
 }
 
 @font-face {
     font-family: 'AtlasGrotesk-editor';
-    src: url('/fonts/AtlasGrotesk-Medium-190618-Web.woff2') format('woff2');
+    src: url('../fonts/AtlasGrotesk-Medium-190618-Web.woff2') format('woff2');
     font-weight: bold;
     font-style: normal
 }
 
 @font-face {
     font-family: 'AtlasGrotesk-editor';
-    src: url('/fonts/AtlasGrotesk-MediumItalic-190618-Web.woff2') format('woff2');
+    src: url('../fonts/AtlasGrotesk-MediumItalic-190618-Web.woff2') format('woff2');
     font-weight: bold;
     font-style: italic
 }
 
 @font-face {
     font-family: 'AtlasGrotesk-editor-heading';
-    src: url('/fonts/AtlasGrotesk-Semi-190618-Web.woff2') format('woff2');
+    src: url('../fonts/AtlasGrotesk-Semi-190618-Web.woff2') format('woff2');
     font-weight: normal;
     font-style: normal
 }
 
 @font-face {
     font-family: 'AtlasGrotesk-editor-heading';
-    src: url('/fonts/AtlasGrotesk-SemiItalic-190618-Web.woff2') format('woff2');
+    src: url('../fonts/AtlasGrotesk-SemiItalic-190618-Web.woff2') format('woff2');
     font-weight: normal;
     font-style: italic
 }
 
 @font-face {
     font-family: 'AtlasGrotesk-editor-heading';
-    src: url('/fonts/AtlasGrotesk-Bold-190618-Web.woff2') format('woff2');
+    src: url('../fonts/AtlasGrotesk-Bold-190618-Web.woff2') format('woff2');
     font-weight: bold;
     font-style: normal
 }
 
 @font-face {
     font-family: 'AtlasGrotesk-editor-heading';
-    src: url('/fonts/AtlasGrotesk-BoldItalic-190618-Web.woff2') format('woff2');
+    src: url('../fonts/AtlasGrotesk-BoldItalic-190618-Web.woff2') format('woff2');
     font-weight: bold;
     font-style: italic
 }
 
 @font-face {
     font-family: 'SourceCodePro';
-    src: url('/fonts/SourceCodePro-Regular-2030.otf.woff2') format('woff2');
+    src: url('../fonts/SourceCodePro-Regular-2030.otf.woff2') format('woff2');
     font-weight: normal;
     font-style: normal
 }
 
 @font-face {
     font-family: 'SourceCodePro';
-    src: url('/fonts/SourceCodePro-It-1050.otf.woff2') format('woff2');
+    src: url('../fonts/SourceCodePro-It-1050.otf.woff2') format('woff2');
     font-weight: normal;
     font-style: italic
 }
 
 @font-face {
     font-family: 'SourceCodePro';
-    src: url('/fonts/SourceCodePro-Bold-2030.otf.woff2') format('woff2');
+    src: url('../fonts/SourceCodePro-Bold-2030.otf.woff2') format('woff2');
     font-weight: bold;
     font-style: normal
 }
 
 @font-face {
     font-family: 'SourceCodePro';
-    src: url('/fonts/SourceCodePro-BoldIt-1050.otf.woff2') format('woff2');
+    src: url('../fonts/SourceCodePro-BoldIt-1050.otf.woff2') format('woff2');
     font-weight: bold;
     font-style: italic
 }

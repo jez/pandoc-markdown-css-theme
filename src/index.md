@@ -85,12 +85,13 @@ Before getting started, install these two depencencies:
 
 - [ ] [Pandoc]
 - [ ] [`pandoc-sidenote`]
+- [ ] `realpath` from [GNU coreutils]
 
 See the links above for installation instructions for your platform. If you're
 using macOS, installation is as easy as:
 
 ```{.numberLines}
-brew install pandoc
+brew install pandoc coreutils
 brew tap jez/formulae
 brew install pandoc-sidenote
 ```
@@ -141,7 +142,6 @@ HTML markup required to render Tufte CSS-style side notes.
   and many alternatives.
 
 [tufte-css-sidenotes]: https://edwardtufte.github.io/tufte-css/#sidenotes
-[`pandoc-sidenote`]: https://github.com/jez/pandoc-sidenote
 
 While the idea for side notes comes entirely from Tufte CSS, the implementation
 at this point is almost completely different. Tufte CSS uses relative widths
@@ -180,6 +180,8 @@ my [Tufte Pandoc CSS] project.
 
 [Pandoc]: https://pandoc.org/
 [Pandoc filter]: https://pandoc.org/filters.html
+[`pandoc-sidenote`]: https://github.com/jez/pandoc-sidenote
+[GNU coreutils]: https://www.gnu.org/software/coreutils/coreutils.html
 [KaTeX]: https://katex.org/
 [Tufte CSS]: https://edwardtufte.github.io/tufte-css/
 [Dropbox Paper]: https://www.dropbox.com/paper

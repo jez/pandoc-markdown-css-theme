@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="$lang$" xml:lang="$lang$"$if(dir)$ dir="$dir$"$endif$>
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+$for(author-meta)$
+  <meta name="author" content="$author-meta$" />
+$endfor$
+$if(date-meta)$
+  <meta name="dcterms.date" content="$date-meta$" />
+$endif$
+$if(keywords)$
+  <meta name="keywords" content="$for(keywords)$$keywords$$sep$, $endfor$" />
+$endif$
+$if(description-meta)$
+  <meta name="description" content="$description-meta$" />
+$endif$
+  <title>$if(title-prefix)$$title-prefix$ – $endif$$pagetitle$</title>
+$for(css)$
+  <link rel="stylesheet" href="$css$" />
+$endfor$
+$if(math)$
+  $math$
+$endif$
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+$for(header-includes)$
+  $header-includes$
+$endfor$
+</head>
+<body>
+$for(include-before)$
+$include-before$
+$endfor$
+
+$if(toc)$
+<nav id="$idprefix$TOC" role="doc-toc">
+  <strong class="nav-title">Contents</strong>
+  <label for="contents" class="nav-title">⊕</label>
+  <input type="checkbox" id="contents">
+  $table-of-contents$
+</nav>
+$endif$
+
+<main>
+<h1 class="title">$title$</h1>
+<blockquote class="metadata">
+$if(subtitle)$
+<p class="subtitle">$subtitle$</p>
+$endif$
+$if(author)$
+<p class="author">
+  $if(author_url)$
+    <a href="$author_url$">$author$</a>
+  $else$
+    $author$
+  $endif$
+</p>
+$endif$
+$if(date)$
+<p class="date"><time datetime="$date$">$date$</time></p>
+$endif$
+</blockquote>
+$body$
+</main>
+<script>
+;(function() {
+  // Non-essential if user has JavaScript off. Just makes checkboxes look nicer.
+  var selector = '.task-list > li > input[type="checkbox"]:disabled';
+  var checkboxes = document.querySelectorAll(selector);
+  Array.from(checkboxes).forEach((checkbox) => {
+    var wasChecked = checkbox.checked;
+    checkbox.disabled = false;
+    checkbox.addEventListener('click', (ev) => {ev.target.checked = wasChecked});
+  });
+})();
+</script>
+$for(include-after)$
+$include-after$
+$endfor$
+</body>
+</html>

@@ -5,7 +5,6 @@
 #
 # make                  Prepare docs/ folder (all markdown & assets)
 # make docs/index.html  Recompile just docs/index.html
-# make docs             Copy all public/ assets into docs/
 #
 # make watch            Start a local HTTP server and rebuild on changes
 # PORT=4242 make watch  Like above, but use port 4242

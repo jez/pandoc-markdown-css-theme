@@ -19,10 +19,10 @@ title: "Features"
 
 # Images
 
-![Sugarloaf Hill, San Mateo, CA, April 2021](img/sugarloaf-hill-forest-green.jpg)
+![Sugarloaf Hill, San Mateo, CA, April 2021](../img/sugarloaf-hill-forest-green.jpg)
 
 :::{.wide .extra-wide}
-![Sugarloaf Hill, San Mateo, CA. Left: April 2021, right: June 2021](img/sugarloaf-hill-trail-april-june.jpg)
+![Sugarloaf Hill, San Mateo, CA. Left: April 2021, right: June 2021](../img/sugarloaf-hill-trail-april-june.jpg)
 :::
 
 # Side notes and margin notes

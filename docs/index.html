@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <meta name="author" content="@jez" />
+  <meta name="dcterms.date" content="2021-06-20" />
+  <title>Pandoc Markdown CSS Theme</title>
+  <link rel="stylesheet" href="/css/theme.css" />
+  <link rel="stylesheet" href="/css/skylighting-solarized-theme.css" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.11.1/katex.min.js"></script>
+  <script>document.addEventListener("DOMContentLoaded", function () {
+   var mathElements = document.getElementsByClassName("math");
+   var macros = [];
+   for (var i = 0; i < mathElements.length; i++) {
+    var texText = mathElements[i].firstChild;
+    if (mathElements[i].tagName == "SPAN") {
+     katex.render(texText.data, mathElements[i], {
+      displayMode: mathElements[i].classList.contains('display'),
+      throwOnError: false,
+      macros: macros,
+      fleqn: false
+     });
+  }}});
+  </script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.11.1/katex.min.css" />
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+</head>
+<body>
+
+<nav id="TOC" role="doc-toc">
+  <strong class="nav-title">Contents</strong>
+  <label for="contents" class="nav-title">⊕</label>
+  <input type="checkbox" id="contents">
+  <ul>
+  <li><a href="#usage">Usage</a></li>
+  <li><a href="#credits">Credits</a></li>
+  <li><a href="#see-also">See also</a></li>
+  </ul>
+</nav>
+
+<main>
+<h1 class="title">Pandoc Markdown CSS Theme</h1>
+<blockquote class="metadata">
+<p class="subtitle">Starter files for generating HTML from Pandoc Markdown</p>
+<p class="author">
+      <a href="https://github.com/jez"><span class="citation" data-cites="jez">@jez</span></a>
+  </p>
+<p class="date"><time datetime="2021-06-20">2021-06-20</time></p>
+</blockquote>
+<div class="note yellow">
+<table>
+<colgroup>
+<col style="width: 100%" />
+</colgroup>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">⚠️ <strong>This project is in progress!</strong></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Please pardon the TODOs and broken links. It’ll be ready soon.</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>This project provides a couple CSS files and templates for using Pandoc<span class="sidenote-wrapper"><label for="sn-0" class="margin-toggle sidenote-number"></label><input type="checkbox" id="sn-0" class="margin-toggle"/><span class="sidenote">Pandoc is a “universal document converter.” It is particularly good at generating HTML and <span class="math inline">\LaTeX</span> from Markdown.<br />
+<br />
+</span></span> to generate standalone HTML files. It supports most features Pandoc Markdown has to offer, and some extras. A short list of headline features:</p>
+<ul>
+<li><a href="features/#code-blocks">Code blocks</a>, including:
+<ul>
+<li>Syntax themes</li>
+<li>Line numbers</li>
+<li>Line highlights</li>
+<li>Captions</li>
+<li>Extra wide and full-width options</li>
+</ul></li>
+<li><a href="features/#side-notes-and-margin-notes">Side notes and margin notes</a></li>
+<li><a href="features/#images">Images</a> and <a href="features/#tables">Tables</a>, including:
+<ul>
+<li>Extra wide and full-width options</li>
+<li>Captions</li>
+</ul></li>
+<li><a href="features/#table-of-contents">Table of contents</a></li>
+<li><a href="features/#colored-note-callouts">Colored note callouts</a></li>
+<li><a href="features/#assorted-prose-elements">Assorted prose elements</a></li>
+<li><a href="features/#latex-math"><span class="math inline">\LaTeX</span> math</a>, rendered via <a href="https://katex.org/"><span class="math inline">\KaTeX</span></a> in the browser</li>
+</ul>
+<p>For the complete feature set, see the documentation. You might also want to browse the gallery of sample pages, or view the “kitchen sink” page that is useful when developing:</p>
+<p><a href="features/">→ Documentation</a><br />
+<a href="gallery/">→ Gallery</a><br />
+<a href="kitchen-sink/">→ Kitchen Sink</a></p>
+<p>The theme is fully responsive,<span class="sidenote-wrapper"><label for="sn-1" class="margin-toggle sidenote-number"></label><input type="checkbox" id="sn-1" class="margin-toggle"/><span class="sidenote">As should be expected!<br />
+<br />
+</span></span> including phones, tablets, laptops, and wide desktop screens. Side notes and the table of contents display inline on small screen sizes, and in the margins on wide enough screens. Extra wide images, tables, and code blocks shrink when space isn’t available. CSS <code>@media print</code> styles declare first-class print styles.</p>
+<p>The theme’s source code designed to be extremely tweakable.<span class="sidenote-wrapper"><label for="sn-2" class="margin-toggle sidenote-number"></label><input type="checkbox" id="sn-2" class="margin-toggle"/><span class="sidenote">When changing things like the font family or font size, the thing that matters is to pay special attention to alignment. Different fonts have different x-heights and widths. Most layouting can be agnostic of these things, but there are explicit variables for places where it matters.<br />
+<br />
+</span></span> Nearly all styles are derived from a relatively small set of CSS variables, so things like fonts, colors, and certain margins can be readily tweaked with little fuss. Of course, the code is open source: you’re welcome to copy the theme files and overhaul them if desired. As a proof of concept, see <a href="paper/">this page</a>, which tweaks the default theme slightly.</p>
+<p>The theme is almost entirely HTML and CSS. It doesn’t use custom fonts by default, and only uses JavaScript for two things:</p>
+<ul>
+<li>Rendering math (via <a href="https://katex.org/"><span class="math inline">\KaTeX</span></a>), only if used.</li>
+<li>Slightly tweaking the appearance of checklist items. (Pandoc emits them as disabled, but they look better when enabled in my opinion.) This is entirely presentational.</li>
+</ul>
+<p>Placement of side notes, the table of contents, and code block line highlights are all controlled with CSS. See the <a href="#credits">credits</a> below for more background on the techniques used.</p>
+<h1 id="usage">Usage</h1>
+<p>Before getting started, install these two depencencies:</p>
+<ul class="task-list">
+<li><input type="checkbox" disabled="" />
+<a href="https://pandoc.org/">Pandoc</a></li>
+<li><input type="checkbox" disabled="" />
+<a href="https://github.com/jez/pandoc-sidenote"><code>pandoc-sidenote</code></a></li>
+</ul>
+<p>See the links above for installation instructions for your platform. If you’re using macOS, installation is as easy as:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode numberSource numberLines"><code class="sourceCode"><span id="cb1-1"><a href="#cb1-1"></a>brew install pandoc</span>
+<span id="cb1-2"><a href="#cb1-2"></a>brew tap jez/formulae</span>
+<span id="cb1-3"><a href="#cb1-3"></a>brew install pandoc-sidenote</span></code></pre></div>
+<p>This project merely provides a Pandoc HTML5 template, CSS files, and Makefile. You can clone this project and get using them right away:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode numberSource numberLines"><code class="sourceCode"><span id="cb2-1"><a href="#cb2-1"></a>git clone https://github.com/jez/pandoc-markdown-css-theme</span>
+<span id="cb2-2"><a href="#cb2-2"></a>cd pandoc-markdown-css-theme</span>
+<span id="cb2-3"><a href="#cb2-3"></a>make watch</span></code></pre></div>
+<p>You can then visit <a href="http://127.0.0.1:8000/" class="uri">http://127.0.0.1:8000/</a> and view the rendered files.</p>
+<p>The imporant files that you might want to copy out to start your own project:</p>
+<ul>
+<li><a href="https://github.com/jez/pandoc-markdown-css-theme/blob/master/public/css/theme.css"><code>public/css/theme.css</code></a>, the core CSS implementing theme</li>
+<li><a href="https://github.com/jez/pandoc-markdown-css-theme/blob/master/template.html5"><code>template.html5</code></a>, the Pandoc template that renders Markdown to HTML</li>
+<li><a href="https://github.com/jez/pandoc-markdown-css-theme/blob/master/Makefile"><code>Makefile</code></a>, showcasing the Pandoc flags required to get things to build</li>
+<li><a href="https://github.com/jez/pandoc-markdown-css-theme/blob/master/src/index.md"><code>src/index.md</code></a>, the source code for this page</li>
+</ul>
+<p>If you’d like a more seamless experience, I’ve also packaged up these files as a <a href="#todo">Jekyll theme</a>.</p>
+<!-- TODO(jez) Link to the Jekyll theme here -->
+<h1 id="credits">Credits</h1>
+<p>First, thanks to <a href="https://pandoc.org/">Pandoc</a>, by John MacFarlane, for being an all-around awesome tool, especially for Markdown.</p>
+<p>The core technique for laying out side notes<span class="sidenote-wrapper"><label for="sn-3" class="margin-toggle">&#8853;</label><input type="checkbox" id="sn-3" class="margin-toggle"/><span class="marginnote"> Gwern has a great survey post that discusses <a href="https://edwardtufte.github.io/tufte-css/#sidenotes">Sidenotes In Web Design</a>, covering the techniques in Tufte CSS as well as the limitations, and many alternatives.<br />
+<br />
+</span></span> I learned from <a href="https://edwardtufte.github.io/tufte-css/">Tufte CSS</a>, by Dave Liepmann. The technique is <a href="https://edwardtufte.github.io/tufte-css/#sidenotes">described in detail here</a>. I then wrote <a href="https://github.com/jez/pandoc-sidenote"><code>pandoc-sidenote</code></a>, a <a href="https://pandoc.org/filters.html">Pandoc filter</a> that traverses Pandoc’s internal AST and converts Markdown footnoes into the HTML markup required to render Tufte CSS-style side notes.</p>
+<p>While the idea for side notes comes entirely from Tufte CSS, the implementation at this point is almost completely different. Tufte CSS uses relative widths everywhere, but I wanted a body with a constant width at all but the smallest screen sizes. Tufte CSS renders the main body off center. This adds complexity in the implemtation.</p>
+<p>The inspiration for code block line highlights comes from a change I contributed to <a href="https://github.com/owickstrom/pandoc-emphasize-code"><code>pandoc-emphasize-code</code></a>, by Oskar Wickström (another Pandoc filter). I decided against using it for this project because it forces a choice of either line highlights or syntax highlighting per code block (unless you tack on a JavaScript-based syntax highlighter, like Highlight.js). I thought of a <a href="features/#line-highlight-limit">clever technique</a> using CSS clases to avoid this.</p>
+<p>Considerable design inspiration comes from <a href="https://www.dropbox.com/paper">Dropbox Paper</a>, a gorgeous and powerful tool. (In fact, the theme is customizable enough to <a href="paper/">recreate the look of Paper</a>. This is provided for educational purposes only, under Fair Use.)</p>
+<h1 id="see-also">See also</h1>
+<p>If you’d like to use Tufte CSS with Pandoc in your own project, feel free to use my <a href="https://jez.io/tufte-pandoc-css/">Tufte Pandoc CSS</a> project.</p>
+<!-- TODO(jez) Link to this Jekyll theme -->
+<!-- TODO(jez) Link to Tufte CSS Jekyll theme -->
+<p class="signoff">
+<a href="/">↑ Back to the top</a>
+</p>
+</main>
+<script>
+;(function() {
+  // Non-essential if user has JavaScript off. Just makes checkboxes look nicer.
+  var selector = '.task-list > li > input[type="checkbox"]:disabled';
+  var checkboxes = document.querySelectorAll(selector);
+  Array.from(checkboxes).forEach((checkbox) => {
+    var wasChecked = checkbox.checked;
+    checkbox.disabled = false;
+    checkbox.addEventListener('click', (ev) => {ev.target.checked = wasChecked});
+  });
+})();
+</script>
+</body>
+</html>

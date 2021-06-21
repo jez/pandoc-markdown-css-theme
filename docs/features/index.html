@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Features</title>
+  <link rel="stylesheet" href="/css/theme.css" />
+  <link rel="stylesheet" href="/css/skylighting-solarized-theme.css" />
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+</head>
+<body>
+
+<nav id="TOC" role="doc-toc">
+  <strong class="nav-title">Contents</strong>
+  <label for="contents" class="nav-title">⊕</label>
+  <input type="checkbox" id="contents">
+  <ul>
+  <li><a href="#metadata">Metadata</a></li>
+  <li><a href="#code-blocks">Code blocks</a>
+  <ul>
+  <li><a href="#line-highlight-limit">Line highlight limit</a></li>
+  </ul></li>
+  <li><a href="#images">Images</a></li>
+  <li><a href="#side-notes-and-margin-notes">Side notes and margin notes</a></li>
+  <li><a href="#colored-note-callouts">Colored note callouts</a></li>
+  <li><a href="#assorted-prose-elements">Assorted prose elements</a></li>
+  <li><a href="#table-of-contents">Table of contents</a></li>
+  <li><a href="#latex-math">LaTeX math</a></li>
+  </ul>
+</nav>
+
+<main>
+<h1 class="title">Features</h1>
+<blockquote class="metadata">
+</blockquote>
+<h1 id="metadata">Metadata</h1>
+<ul>
+<li>subtitle</li>
+<li>author</li>
+<li>author_url</li>
+<li>date</li>
+</ul>
+<h1 id="code-blocks">Code blocks</h1>
+<h2 id="line-highlight-limit">Line highlight limit</h2>
+<ul>
+<li>Max line highlight</li>
+</ul>
+<h1 id="images">Images</h1>
+<figure>
+<img src="img/sugarloaf-hill-forest-green.jpg" alt="Sugarloaf Hill, San Mateo, CA, April 2021" /><figcaption aria-hidden="true">Sugarloaf Hill, San Mateo, CA, April 2021</figcaption>
+</figure>
+<div class="wide extra-wide">
+<figure>
+<img src="img/sugarloaf-hill-trail-april-june.jpg" alt="Sugarloaf Hill, San Mateo, CA. Left: April 2021, right: June 2021" /><figcaption aria-hidden="true">Sugarloaf Hill, San Mateo, CA. Left: April 2021, right: June 2021</figcaption>
+</figure>
+</div>
+<h1 id="side-notes-and-margin-notes">Side notes and margin notes</h1>
+<p>tip: sidenotes look best when you attach them to the first ~500px of the text (that’s when the line will break on tablets).</p>
+<h1 id="colored-note-callouts">Colored note callouts</h1>
+<h1 id="assorted-prose-elements">Assorted prose elements</h1>
+<ul>
+<li><p>Links</p></li>
+<li><p>Block quotes</p></li>
+<li><p>Bulleted lists, numbered lists, check lists</p></li>
+<li><p>Inline mark highlights</p></li>
+<li><p>Small caps</p></li>
+<li><p>Underline</p></li>
+<li><p>Horizontal rules</p></li>
+</ul>
+<h1 id="table-of-contents">Table of contents</h1>
+<p>Use the <code>--toc</code> flag</p>
+<h1 id="latex-math">LaTeX math</h1>
+<p class="signoff">
+<a href="..">← Return home</a>
+</p>
+</main>
+<script>
+;(function() {
+  // Non-essential if user has JavaScript off. Just makes checkboxes look nicer.
+  var selector = '.task-list > li > input[type="checkbox"]:disabled';
+  var checkboxes = document.querySelectorAll(selector);
+  Array.from(checkboxes).forEach((checkbox) => {
+    var wasChecked = checkbox.checked;
+    checkbox.disabled = false;
+    checkbox.addEventListener('click', (ev) => {ev.target.checked = wasChecked});
+  });
+})();
+</script>
+</body>
+</html>

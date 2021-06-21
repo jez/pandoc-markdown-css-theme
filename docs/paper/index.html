@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Sample</title>
+  <link rel="stylesheet" href="/css/theme.css" />
+  <link rel="stylesheet" href="/css/skylighting-solarized-theme.css" />
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+  <link rel="stylesheet" href="/css/paper.css">
+  <link rel="stylesheet" href="/css/skylighting-paper-theme.css">
+</head>
+<body>
+
+<nav id="TOC" role="doc-toc">
+  <strong class="nav-title">Contents</strong>
+  <label for="contents" class="nav-title">⊕</label>
+  <input type="checkbox" id="contents">
+  <ul>
+  <li><a href="#hello-world">Hello, world!</a></li>
+  </ul>
+</nav>
+
+<main>
+<h1 class="title">Sample</h1>
+<blockquote class="metadata">
+</blockquote>
+<!-- TODO(jez) Implement the paper page -->
+<p>Hello, world!</p>
+<h1 id="hello-world">Hello, world!</h1>
+<p>Considerable design inspiration comes from Dropbox Paper, a gorgeous and powerful tool. (In fact, the theme is customizable enough to recreate the look of Paper. This is provided for educational purposes only, under Fair Use.)</p>
+<p class="signoff">
+<a href="..">← Return home</a>
+</p>
+</main>
+<script>
+;(function() {
+  // Non-essential if user has JavaScript off. Just makes checkboxes look nicer.
+  var selector = '.task-list > li > input[type="checkbox"]:disabled';
+  var checkboxes = document.querySelectorAll(selector);
+  Array.from(checkboxes).forEach((checkbox) => {
+    var wasChecked = checkbox.checked;
+    checkbox.disabled = false;
+    checkbox.addEventListener('click', (ev) => {ev.target.checked = wasChecked});
+  });
+})();
+</script>
+</body>
+</html>

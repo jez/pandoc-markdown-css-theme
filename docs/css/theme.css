@@ -765,7 +765,7 @@ nav#TOC > input:checked + ul {
 }
 
 /* }}} */
-/* ----- Horizontal layouting (main and side notes) -------------------- {{{ */
+/* ----- Horizontal layouting (main, side notes, extra-wide) ----------- {{{ */
 
 .sidenote,
 .marginnote {
@@ -853,10 +853,19 @@ nav#TOC > input:checked + ul {
   .wide.extra-wide {
     margin-left: calc(-1 * var(--line-height));
     width: calc(100vw - 2 * var(--line-height));
+    max-width: calc(1.5 * var(--main-width));
+  }
+
+  .wide.full-width {
+    margin-left: calc(-1 * var(--line-height));
+    width: calc(100vw - 2 * var(--line-height));
+    max-width: calc(100vw - 2 * var(--line-height));
   }
 
   .wide.extra-wide figcaption,
-  .wide.extra-wide table > caption {
+  .wide.extra-wide table > caption,
+  .wide.full-width figcaption,
+  .wide.full-width table > caption {
     text-align: left;
     margin-left: var(--line-height);
     max-width: var(--main-width);
@@ -883,7 +892,8 @@ nav#TOC > input:checked + ul {
     overflow-x: scroll;
   }
 
-  .wide.extra-wide {
+  .wide.extra-wide,
+  .wide.full-width {
     width: calc(100vw - 2 * var(--line-height));
   }
 

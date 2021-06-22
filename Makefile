@@ -21,7 +21,7 @@ all: docs/.nojekyll $(TARGETS)
 
 .PHONY: clean
 clean:
-	rm -rf $(TARGETS)
+	rm -rf docs
 
 .PHONY: watch
 watch:

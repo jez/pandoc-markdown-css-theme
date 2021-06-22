@@ -33,6 +33,7 @@
   <label for="contents" class="nav-title">⊕</label>
   <input type="checkbox" id="contents">
   <ul>
+  <li><a href="#features">Features</a></li>
   <li><a href="#usage">Usage</a></li>
   <li><a href="#credits">Credits</a></li>
   <li><a href="#see-also">See also</a></li>
@@ -48,6 +49,8 @@
   </p>
 <p class="date"><time datetime="2021-06-20">2021-06-20</time></p>
 </blockquote>
+<a href="https://github.com/jez/pandoc-markdown-css-theme" class="github-corner" aria-label="View source on GitHub"><svg width="80" height="80" viewBox="0 0 250 250" style="fill:#151513; color:#fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a>
+<style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
 <div class="note yellow">
 <table>
 <colgroup>
@@ -55,7 +58,7 @@
 </colgroup>
 <tbody>
 <tr class="odd">
-<td style="text-align: left;">⚠️ <strong>This project is in progress!</strong></td>
+<td style="text-align: left;">🚧 <strong>This project is in progress!</strong></td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">Please pardon the TODOs and broken links. It’ll be ready soon.</td>
@@ -63,47 +66,57 @@
 </tbody>
 </table>
 </div>
-<p>This project provides CSS files and a template for using Pandoc<span class="sidenote-wrapper"><label for="sn-0" class="margin-toggle sidenote-number"></label><input type="checkbox" id="sn-0" class="margin-toggle"/><span class="sidenote"><a href="https://pandoc.org/">Pandoc</a> is a “universal document converter.” It is particularly good at generating HTML and <span class="math inline">\LaTeX</span> from Markdown.<br />
+<p>This project provides CSS files and a template for using Pandoc<span class="sidenote-wrapper"><label for="sn-0" class="margin-toggle">&#8853;</label><input type="checkbox" id="sn-0" class="margin-toggle"/><span class="marginnote"> <a href="https://pandoc.org/">Pandoc</a> is a “universal document converter.” It is particularly good at generating HTML and <span class="math inline">\LaTeX</span> from Markdown.<br />
 <br />
-</span></span> to generate standalone HTML files. It supports most features Pandoc Markdown has to offer, and some extras. A short list of headline features:</p>
+</span></span> to generate standalone HTML files. It supports most features Pandoc Markdown has to offer, and some extras. The default look can be tweaked via CSS variables, and it does not need JavaScript, even for side notes.</p>
+<h1 id="features">Features</h1>
+<p>A short list of headline features:</p>
 <ul>
 <li><a href="features/#code-blocks">Code blocks</a>, including:
 <ul>
 <li>Syntax themes</li>
-<li>Line numbers</li>
-<li>Line highlights</li>
-<li>Captions</li>
+<li>Line numbers and line highlights</li>
 <li>Extra wide and full-width options</li>
+<li>Captions</li>
 </ul></li>
-<li><a href="features/#side-notes-and-margin-notes">Side notes and margin notes</a></li>
 <li><a href="features/#images">Images</a> and <a href="features/#tables">Tables</a>, including:
 <ul>
 <li>Extra wide and full-width options</li>
 <li>Captions</li>
 </ul></li>
-<li><a href="features/#table-of-contents">Table of contents</a></li>
-<li><a href="features/#colored-note-callouts">Colored note callouts</a></li>
-<li><a href="features/#assorted-prose-elements">Assorted prose elements</a></li>
+<li><a href="features/#side-notes-and-margin-notes">Side notes and margin notes</a></li>
+<li><a href="features/#table-of-contents">Floating table of contents</a></li>
 <li><a href="features/#latex-math"><span class="math inline">\LaTeX</span> math</a>, rendered via <a href="https://katex.org/"><span class="math inline">\KaTeX</span></a> in the browser</li>
 </ul>
 <p>For the complete feature set, see the documentation. You might also want to browse the gallery of sample pages, or view the “kitchen sink” page that is useful when developing:</p>
 <p><a href="features/">→ Documentation</a><br />
 <a href="gallery/">→ Gallery</a><br />
 <a href="kitchen-sink/">→ Kitchen Sink</a></p>
-<p>The theme is fully responsive,<span class="sidenote-wrapper"><label for="sn-1" class="margin-toggle sidenote-number"></label><input type="checkbox" id="sn-1" class="margin-toggle"/><span class="sidenote">As should be expected!<br />
+<p>The theme is fully responsive, including phones, tablets, laptops, and wide desktop screens. Side notes and the table of contents display inline on small screen sizes, and in the margins on wide enough screens. Extra wide images, tables, and code blocks shrink when space isn’t available. CSS <code>@media print</code> styles declare first-class print styles.</p>
+<div class="wide extra-wide">
+<figure>
+<img src="img/mobile-responsive.png" alt="Only right margin at tablet width, and no margins on mobile" /><figcaption aria-hidden="true">Only right margin at tablet width, and no margins on mobile</figcaption>
+</figure>
+</div>
+<p>The source code is extremely tweakable.<span class="sidenote-wrapper"><label for="sn-1" class="margin-toggle">&#8853;</label><input type="checkbox" id="sn-1" class="margin-toggle"/><span class="marginnote"> When changing things like the font family or font size, the thing that matters is to pay special attention to alignment. Different fonts have different x-heights and widths. Most layouting can be agnostic of these things, but there are explicit variables for places where it matters.<br />
 <br />
-</span></span> including phones, tablets, laptops, and wide desktop screens. Side notes and the table of contents display inline on small screen sizes, and in the margins on wide enough screens. Extra wide images, tables, and code blocks shrink when space isn’t available. CSS <code>@media print</code> styles declare first-class print styles.</p>
-<p>The theme’s source code designed to be extremely tweakable.<span class="sidenote-wrapper"><label for="sn-2" class="margin-toggle sidenote-number"></label><input type="checkbox" id="sn-2" class="margin-toggle"/><span class="sidenote">When changing things like the font family or font size, the thing that matters is to pay special attention to alignment. Different fonts have different x-heights and widths. Most layouting can be agnostic of these things, but there are explicit variables for places where it matters.<br />
-<br />
-</span></span> Nearly all styles are derived from a relatively small set of CSS variables, so things like fonts, colors, and certain margins can be readily tweaked with little fuss. Of course, the code is open source: you’re welcome to copy the theme files and overhaul them if desired. As a proof of concept, see <a href="paper/">this page</a>, which tweaks the default theme slightly.</p>
-<p>The theme is almost entirely HTML and CSS. It doesn’t use custom fonts by default, and only uses JavaScript for two things:</p>
+</span></span> A small set of CSS variables control a large number of font and color settings: you don’t have to hunt down all the places that need to be changed to tweak the design.</p>
+<p>And of course, you’re not limited to these variables. The code is open source, and you’re welcome to copy the theme files and overhaul them if desired. As a proof of concept, see <a href="paper/">this page</a>, which tweaks the default theme slightly.</p>
+<p>And finally, it’s basically only HTML and CSS. It doesn’t use custom fonts by default, and only uses JavaScript for two things:</p>
 <ul>
 <li>Rendering math (via <a href="https://katex.org/"><span class="math inline">\KaTeX</span></a>), only if used.</li>
 <li>Slightly tweaking the appearance of checklist items. (Pandoc emits them as disabled, but they look better when enabled in my opinion.) This is entirely presentational.</li>
 </ul>
 <p>Placement of side notes, the table of contents, and code block line highlights are all controlled with CSS. See the <a href="#credits">credits</a> below for more background on the techniques used.</p>
 <h1 id="usage">Usage</h1>
-<p>Before getting started, install these two depencencies:</p>
+<p>This project merely provides a CSS files and a standalone HTML template to give to Pandoc. The imporant files that you might want to copy out to start your own project:</p>
+<ul>
+<li><a href="https://github.com/jez/pandoc-markdown-css-theme/blob/master/public/css/theme.css"><code>public/css/theme.css</code></a>, the core CSS implementing theme</li>
+<li><a href="https://github.com/jez/pandoc-markdown-css-theme/blob/master/template.html5"><code>template.html5</code></a>, the Pandoc template that renders Markdown to HTML</li>
+<li><a href="https://github.com/jez/pandoc-markdown-css-theme/blob/master/Makefile"><code>Makefile</code></a>, showcasing the Pandoc flags required to get things to build</li>
+<li><a href="https://github.com/jez/pandoc-markdown-css-theme/blob/master/src/index.md"><code>src/index.md</code></a>, the source code for this page</li>
+</ul>
+<p>To see things in action, try rebuilding this site locally. First, you’ll need a few command line programs:</p>
 <ul class="task-list">
 <li><input type="checkbox" disabled="" />
 <a href="https://pandoc.org/">Pandoc</a></li>
@@ -111,28 +124,30 @@
 <a href="https://github.com/jez/pandoc-sidenote"><code>pandoc-sidenote</code></a></li>
 <li><input type="checkbox" disabled="" />
 <code>realpath</code> from <a href="https://www.gnu.org/software/coreutils/coreutils.html">GNU coreutils</a></li>
+<li><input type="checkbox" disabled="" />
+(optional) <a href="https://facebook.github.io/watchman/"><code>watchman</code></a>, for rebuilding when files change</li>
 </ul>
-<p>See the links above for installation instructions for your platform. If you’re using macOS, installation is as easy as:</p>
+<p>Follow the installation instructions for your platform. If you’re using macOS, installation is as easy as:</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode numberSource numberLines"><code class="sourceCode"><span id="cb1-1"><a href="#cb1-1"></a>brew install pandoc coreutils</span>
 <span id="cb1-2"><a href="#cb1-2"></a>brew tap jez/formulae</span>
 <span id="cb1-3"><a href="#cb1-3"></a>brew install pandoc-sidenote</span></code></pre></div>
-<p>This project merely provides a Pandoc HTML5 template, CSS files, and Makefile. You can clone this project and get using them right away:</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode numberSource numberLines"><code class="sourceCode"><span id="cb2-1"><a href="#cb2-1"></a>git clone https://github.com/jez/pandoc-markdown-css-theme</span>
-<span id="cb2-2"><a href="#cb2-2"></a>cd pandoc-markdown-css-theme</span>
-<span id="cb2-3"><a href="#cb2-3"></a>make watch</span></code></pre></div>
-<p>You can then visit <a href="http://127.0.0.1:8000/" class="uri">http://127.0.0.1:8000/</a> and view the rendered files.</p>
-<p>The imporant files that you might want to copy out to start your own project:</p>
-<ul>
-<li><a href="https://github.com/jez/pandoc-markdown-css-theme/blob/master/public/css/theme.css"><code>public/css/theme.css</code></a>, the core CSS implementing theme</li>
-<li><a href="https://github.com/jez/pandoc-markdown-css-theme/blob/master/template.html5"><code>template.html5</code></a>, the Pandoc template that renders Markdown to HTML</li>
-<li><a href="https://github.com/jez/pandoc-markdown-css-theme/blob/master/Makefile"><code>Makefile</code></a>, showcasing the Pandoc flags required to get things to build</li>
-<li><a href="https://github.com/jez/pandoc-markdown-css-theme/blob/master/src/index.md"><code>src/index.md</code></a>, the source code for this page</li>
-</ul>
-<p>If you’d like a more seamless experience, I’ve also packaged up these files as a <a href="#todo">Jekyll theme</a>.</p>
+<p>Then you can clone this project and run <code>make watch</code>:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode numberSource bash numberLines hl-7 hl-10"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1"></a><span class="fu">git</span> clone https://github.com/jez/pandoc-markdown-css-theme</span>
+<span id="cb2-2"><a href="#cb2-2"></a><span class="bu">cd</span> pandoc-markdown-css-theme</span>
+<span id="cb2-3"><a href="#cb2-3"></a></span>
+<span id="cb2-4"><a href="#cb2-4"></a><span class="co"># Test everything by forcing a clean build</span></span>
+<span id="cb2-5"><a href="#cb2-5"></a><span class="co"># (the generated comes with the clone)</span></span>
+<span id="cb2-6"><a href="#cb2-6"></a><span class="fu">make</span> clean</span>
+<span id="cb2-7"><a href="#cb2-7"></a><span class="fu">make</span></span>
+<span id="cb2-8"><a href="#cb2-8"></a></span>
+<span id="cb2-9"><a href="#cb2-9"></a><span class="co"># If you installed watchman</span></span>
+<span id="cb2-10"><a href="#cb2-10"></a><span class="fu">make</span> watch</span></code></pre></div>
+<p>Running <code>make</code> will build everything in the site.</p>
+<p>Running <code>make watch</code> will start a webserver at <a href="http://127.0.0.1:8000/" class="uri">http://127.0.0.1:8000/</a>, open that URL in a web browser, and watch files for changes in the background.</p>
 <!-- TODO(jez) Link to the Jekyll theme here -->
 <h1 id="credits">Credits</h1>
 <p>First, thanks to <a href="https://pandoc.org/">Pandoc</a>, by John MacFarlane, for being an all-around awesome tool, especially for Markdown.</p>
-<p>The core technique for laying out side notes<span class="sidenote-wrapper"><label for="sn-3" class="margin-toggle">&#8853;</label><input type="checkbox" id="sn-3" class="margin-toggle"/><span class="marginnote"> Gwern has a great survey post that discusses <a href="https://edwardtufte.github.io/tufte-css/#sidenotes">Sidenotes In Web Design</a>, covering the techniques in Tufte CSS as well as the limitations, and many alternatives.<br />
+<p>The core technique for laying out side notes<span class="sidenote-wrapper"><label for="sn-2" class="margin-toggle">&#8853;</label><input type="checkbox" id="sn-2" class="margin-toggle"/><span class="marginnote"> Gwern has a great survey post that discusses <a href="https://edwardtufte.github.io/tufte-css/#sidenotes">Sidenotes In Web Design</a>, covering the techniques in Tufte CSS as well as the limitations, and many alternatives.<br />
 <br />
 </span></span> I learned from <a href="https://edwardtufte.github.io/tufte-css/">Tufte CSS</a>, by Dave Liepmann. The technique is <a href="https://edwardtufte.github.io/tufte-css/#sidenotes">described in detail here</a>. I then wrote <a href="https://github.com/jez/pandoc-sidenote"><code>pandoc-sidenote</code></a>, a <a href="https://pandoc.org/filters.html">Pandoc filter</a> that traverses Pandoc’s internal AST and converts Markdown footnoes into the HTML markup required to render Tufte CSS-style side notes.</p>
 <p>While the idea for side notes comes entirely from Tufte CSS, the implementation at this point is almost completely different. Tufte CSS uses relative widths everywhere, but I wanted a body with a constant width at all but the smallest screen sizes. Tufte CSS renders the main body off center. This adds complexity in the implemtation.</p>

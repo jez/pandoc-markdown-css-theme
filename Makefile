@@ -36,7 +36,7 @@ docs: docs/.nojekyll
 # Generalized rule: how to build a .html file from each .md
 # Note: you will need pandoc 2 or greater for this to work
 # TODO(jez) --css options will break on GitHub Pages
-docs/%.html: src/%.md template.html5 Makefile docs/.nojekyll tools/build.sh
+docs/%.html: src/%.md template.html5 Makefile tools/build.sh
 	tools/build.sh "$<" "$@"
 
 

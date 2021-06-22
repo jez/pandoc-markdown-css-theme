@@ -14,9 +14,9 @@ Please pardon the TODOs and broken links. It'll be ready soon.
 ------------------------------------------------------------------------
 :::
 
-This project provides a couple CSS files and templates for using Pandoc[^pandoc]
-to generate standalone HTML files. It supports most features Pandoc Markdown has
-to offer, and some extras. A short list of headline features:
+This project provides CSS files and a template for using Pandoc[^pandoc] to
+generate standalone HTML files. It supports most features Pandoc Markdown has to
+offer, and some extras. A short list of headline features:
 
 [^pandoc]:
   [Pandoc] is a "universal document converter." It is particularly good at

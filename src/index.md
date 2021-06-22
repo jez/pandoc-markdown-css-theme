@@ -19,7 +19,7 @@ to generate standalone HTML files. It supports most features Pandoc Markdown has
 to offer, and some extras. A short list of headline features:
 
 [^pandoc]:
-  Pandoc is a "universal document converter." It is particularly good at
+  [Pandoc] is a "universal document converter." It is particularly good at
   generating HTML and \(\LaTeX\) from Markdown.
 
 - [Code blocks](features/#code-blocks), including:

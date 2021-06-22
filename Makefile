@@ -28,7 +28,7 @@ watch:
 	./tools/serve.sh --watch
 
 docs/.nojekyll: $(wildcard public/*) public/.nojekyll
-	rm -vrf docs && mkdir -p docs && shopt -s nullglob && cp -vr public/.nojekyll public/* docs
+	rm -vrf docs && mkdir -p docs && cp -vr public/.nojekyll public/* docs
 
 .PHONY: docs
 docs: docs/.nojekyll

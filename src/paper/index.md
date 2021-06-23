@@ -7,6 +7,20 @@ header-includes:
 
 [← Return home](..)
 
+:::{.note .blue}
+------------------------------------------------------------------------
+ℹ️ This page is designed to look similar to a Dropbox Paper document.
+
+It is provided here for educational purposes only. The design of Dropbox Paper
+belongs to Dropbox. If you'd like to use the font featured on this page (Atlas
+Grotesk), you will need to obtain a (paid) license to do so—the open source
+license covering source code in this project does not extend to fonts.
+
+[→ More information](https://github.com/jez/pandoc-markdown-css-theme/#license)
+------------------------------------------------------------------------
+
+:::
+
 This project provides CSS files and a template for using Pandoc to generate
 standalone HTML files. It supports most features Pandoc Markdown has to offer,
 and some extras. The default look can be tweaked via CSS variables, and it does

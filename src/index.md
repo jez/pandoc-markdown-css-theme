@@ -41,10 +41,11 @@ A short list of headline features:
   the browser
 
 For the complete feature set, see the documentation. You might also want to
-view the "kitchen sink" page that is useful when developing:
+view the "kitchen sink" page that is useful when developing, or the source code:
 
 [→ Documentation](features/)\
-[→ Kitchen Sink](kitchen-sink/)
+[→ Kitchen Sink](kitchen-sink/)\
+[→ Source on GitHub](https://github.com/jez/pandoc-markdown-css-theme)
 
 The theme is fully responsive, including phones, tablets, laptops, and wide
 desktop screens. Side notes and the table of contents display inline on small

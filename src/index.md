@@ -62,7 +62,10 @@ styles declare first-class print styles.
 
 The source code is extremely tweakable.[^tweakable] A small set of CSS variables
 control a large number of font and color settings: you don't have to hunt down
-all the places that need to be changed to tweak the design.
+all the places that need to be changed to tweak the design. As a proof of
+concept, see [this page](paper/), which tweaks the default theme slightly. Of
+course, the code is open source and you're welcome to copy the theme files and
+completely overhaul them if desired.
 
 [^tweakable]:
   {-} When changing things like the font family or font size, the thing that
@@ -70,13 +73,9 @@ all the places that need to be changed to tweak the design.
   different x-heights and widths. Most layouting can be agnostic of these
   things, but there are explicit variables for places where it matters.
 
-And of course, you're not limited to these variables. The code is open source,
-and you're welcome to copy the theme files and overhaul them if desired. As a
-proof of concept, see [this page](paper/), which tweaks the default theme
-slightly.
 
-And finally, it's basically only HTML and CSS. It doesn't use custom fonts by
-default, and only uses JavaScript for two things:
+And finally, there's basically only HTML and CSS. The theme doesn't use custom
+fonts by default, and only uses JavaScript for two things:
 
 - Rendering math (via [\(\KaTeX\)][KaTeX]), only if used.
 - Slightly tweaking the appearance of checklist items. (Pandoc emits them as
@@ -149,23 +148,24 @@ tool, especially for Markdown.
 
 The core technique for laying out side notes[^gwern] I learned from [Tufte CSS],
 by Dave Liepmann. The technique is [described in detail
-here][tufte-css-sidenotes]. I then wrote [`pandoc-sidenote`], a [Pandoc filter]
-that traverses Pandoc's internal AST and converts Markdown footnoes into the
-HTML markup required to render Tufte CSS-style side notes.
+here][tufte-css-sidenotes]. Tufte CSS suggests writing the HTML for sidenotes by
+hand, but I wanted to use Markdown. I wrote [`pandoc-sidenote`], a [Pandoc
+filter] that traverses Pandoc's internal AST and converts footnote nodes into
+the HTML side note markup for Tufte CSS-style side notes.
 
 [^gwern]:
-  {-} Gwern has a great survey post that discusses
-  <a href="https://edwardtufte.github.io/tufte-css/#sidenotes">Sidenotes In Web
-  Design</a>, covering the techniques in Tufte CSS as well as the limitations,
-  and many alternatives.
+  {-} Gwern has a great survey post that discusses [Sidenotes In Web Design],
+  covering the techniques in Tufte CSS as well as the limitations, and many
+  alternatives.
 
 [tufte-css-sidenotes]: https://edwardtufte.github.io/tufte-css/#sidenotes
+[Sidenotes In Web Design]: https://www.gwern.net/Sidenotes
 
 While the idea for side notes comes entirely from Tufte CSS, the implementation
 at this point is almost completely different. Tufte CSS uses relative widths
 everywhere, but I wanted a body with a constant width at all but the smallest
-screen sizes. Tufte CSS renders the main body off center. This adds complexity
-in the implemtation.
+screen sizes. Tufte CSS renders the main body off center. Rendering centered
+when possible and off center when not adds complexity in the implementation.
 
 The inspiration for code block line highlights comes from a change I contributed
 to [`pandoc-emphasize-code`], by Oskar Wickström (another Pandoc filter). I

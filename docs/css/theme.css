@@ -260,10 +260,21 @@ h3 + *, h3 + p                         { margin-top: 0; }
 /* }}} */
 /* ----- Prose --------------------------------------------------------- {{{ */
 
-p, main > ul, main > ol, div.sourceCode, main > pre, img, table {
+/* p, main > ul, main > ol, div.sourceCode, main > pre, img, table { */
+.wide, p, ul, ol, div.sourceCode, :not(.sourceCode) > pre, img, table {
   margin-top: var(--line-height);
   margin-bottom: var(--line-height)
 }
+
+.wide > p, .wide > table, .wide > figure, .wide > div.sourceCode, .wide > pre, .wide > img, .wide > p > img, .wide > figure > img {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+li > ul:first-of-type { margin-top: 0; }
+li > ul:last-of-type { margin-bottom: 0; }
+li > ol:first-of-type { margin-top: 0; }
+li > ol:last-of-type { margin-bottom: 0; }
 
 ul:not(.task-list) {
   margin-left: var(--ul-indent-size);

@@ -328,6 +328,11 @@ block quotes:
 
 > - This is a list in a block quote.
 > - This is a list in a block quote.
+>
+> <!-- -->
+>
+> - This is a list in a block quote.
+> - This is a list in a block quote.
 
 # Colored notes
 
@@ -456,13 +461,17 @@ close to the image.
 We can also do extra wide and full width images:
 
 :::{.wide .extra-wide}
-![Sugarloaf Hill, San Mateo, CA. Left: April 2021, right: June 2021](../img/sugarloaf-hill-trail-april-june.jpg)
+![](../img/sugarloaf-hill-trail-april-june.jpg)
 :::
 
 This project provides CSS files and a template for using Pandoc to generate
 standalone HTML files. It supports most features Pandoc Markdown has to offer,
 and some extras. The default look can be tweaked via CSS variables, and it does
 not need JavaScript, even for side notes.
+
+:::{.wide .extra-wide}
+![Sugarloaf Hill, San Mateo, CA. Left: April 2021, right: June 2021](../img/sugarloaf-hill-trail-april-june.jpg)
+:::
 
 This project provides CSS files and a template for using Pandoc to generate
 standalone HTML files. It supports most features Pandoc Markdown has to offer,

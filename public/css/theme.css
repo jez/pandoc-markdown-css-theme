@@ -485,6 +485,7 @@ pre.tight-code {
   padding-top: var(--tight-code-padding-top);
 }
 
+pre.tight-code code,
 .tight-code pre code {
   line-height: var(--tight-code-line-height);
 }

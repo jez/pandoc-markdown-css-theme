@@ -41,11 +41,9 @@ A short list of headline features:
   the browser
 
 For the complete feature set, see the documentation. You might also want to
-browse the gallery of sample pages, or view the "kitchen sink" page that is
-useful when developing:
+view the "kitchen sink" page that is useful when developing:
 
 [→ Documentation](features/)\
-[→ Gallery](gallery/)\
 [→ Kitchen Sink](kitchen-sink/)
 
 The theme is fully responsive, including phones, tablets, laptops, and wide

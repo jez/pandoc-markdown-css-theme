@@ -2,6 +2,8 @@
 title: "Kitchen Sink"
 ---
 
+[← Return home](..)
+
 This project provides CSS files and a template for using Pandoc to generate
 standalone HTML files. It supports most features Pandoc Markdown has to offer,
 and some extras. The default look can be tweaked via CSS variables, and it does
@@ -585,5 +587,5 @@ This is a really wide column using pandoc's fancy tables.    This is narrow.
 | No header | Still works |
 
 <p class="signoff">
-  <a href="/">← Return home</a>
+  [← Return home](..)
 </p>

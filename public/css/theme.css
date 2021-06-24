@@ -68,7 +68,6 @@
 
   --ul-indent-size: 23px;
   --ol-indent-size: 19px;
-  --task-list-margin-right: 5px;
   --ol-li-padding-left: 4px;
 
   --hr-margin-top: 18px;
@@ -274,11 +273,17 @@ ol {
 
 ul.task-list {
   list-style: none;
-  padding-inline-start: var(--ul-indent-size);
-  text-indent: calc(-1 * var(--ul-indent-size));
+  margin-left: var(--ul-indent-size);
 }
+
+ul.task-list > li {
+  position: relative;
+}
+
 ul.task-list > li > input[type="checkbox"] {
-  margin-right: var(--task-list-margin-right);
+  position: absolute;
+  left: calc(-1 * var(--ul-indent-size));
+  height: var(--line-height);
 }
 
 ol > li {

@@ -3,9 +3,9 @@ title: "Paper Kitchen Sink"
 header-includes:
 - '<link rel="stylesheet" href="../css/paper.css">'
 - '<link rel="stylesheet" href="../css/skylighting-paper-theme.css">'
+return_url: '..'
+return_text: '← Return home'
 ---
-
-[← Return home](..)
 
 :::{.note .blue}
 ------------------------------------------------------------------------
@@ -602,5 +602,3 @@ This is a really wide column using pandoc's fancy tables.    This is narrow.
 |           |             |
 | ---       | ---         |
 | No header | Still works |
-
-[← Return home](..)

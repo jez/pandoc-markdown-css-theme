@@ -32,16 +32,7 @@ $for(include-before)$
 $include-before$
 $endfor$
 
-$if(toc)$
-<nav id="$idprefix$TOC" role="doc-toc">
-  <strong class="nav-title">Contents</strong>
-  <label for="contents" class="nav-title">⊕</label>
-  <input type="checkbox" id="contents">
-  $table-of-contents$
-</nav>
-$endif$
-
-<main>
+<header>
 <h1 class="title">$title$</h1>
 <blockquote class="metadata">
 $if(subtitle)$
@@ -57,10 +48,30 @@ $if(author)$
 </p>
 $endif$
 $if(date)$
-<p class="date"><time datetime="$date$">$date$</time></p>
+<p class="date $if(toc)$before-toc$endif$"><time datetime="$date$">$date$</time></p>
 $endif$
 </blockquote>
+</header>
+
+$if(toc)$
+<nav id="$idprefix$TOC" role="doc-toc">
+  $if(return_url)$
+  <a href="$return_url$">$if(return_text)$$return_text$$else$← Return$endif$</a><br>
+  $endif$
+  <strong>Contents</strong><label for="contents">⊕</label>
+  <input type="checkbox" id="contents">
+  $table-of-contents$
+</nav>
+$endif$
+
+<main>
 $body$
+
+$if(return_url)$
+<p class="signoff">
+  <a href="$return_url$">$if(return_text)$$return_text$$else$← Return$endif$</a>
+</p>
+$endif$
 </main>
 <script>
 ;(function() {

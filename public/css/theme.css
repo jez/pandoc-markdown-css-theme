@@ -689,8 +689,12 @@ table > caption code {
 /* }}} */
 /* ----- Table of contents --------------------------------------------- {{{ */
 
+.date.before-toc {
+  padding-bottom: var(--line-height);
+}
+
 nav#TOC {
-  margin-bottom: calc(var(--title-margin-top) - var(--line-height));
+  margin-bottom: var(--line-height);
   border-left: 1px solid var(--color-text-secondary);
   padding-left: 1.5rem;
 }
@@ -719,6 +723,14 @@ nav#TOC > input:checked + ul {
 }
 
 @media screen and (min-width: 1364px) {
+  header {
+    margin-bottom: var(--line-height);
+  }
+
+  .date.before-toc {
+    padding-bottom: initial;
+  }
+
   nav#TOC {
     /* Unset some styles for small screen width */
     margin-bottom: initial;
@@ -726,7 +738,7 @@ nav#TOC > input:checked + ul {
     padding-left: initial;
 
     position: sticky;
-    margin-top: calc(var(--title-line-height) + 3 * var(--line-height));
+    margin-top: calc(var(--nav-toc-baseline-offset));
     float: left;
     top: var(--line-height);
 
@@ -738,11 +750,6 @@ nav#TOC > input:checked + ul {
     max-width: calc((100vw - var(--main-width)) / 2 - 2 * var(--line-height));
     max-height: calc(100vh - 2 * var(--line-height));
     overflow-y: scroll;
-
-  }
-
-  nav#TOC .nav-title {
-    margin-top: var(--nav-toc-baseline-offset);
   }
 
   nav#TOC label {
@@ -790,10 +797,12 @@ nav#TOC > input:checked + ul {
 
 @media screen and (min-width: 1365px) {
   nav#TOC,
+  header,
   main {
     max-width: var(--main-width);
   }
 
+  header,
   main {
     margin-left: auto;
     margin-right: auto;
@@ -838,6 +847,7 @@ nav#TOC > input:checked + ul {
 
 @media screen and (min-width: 1101px) and (max-width: 1364px) {
   nav#TOC,
+  header,
   main {
     margin-left: calc(2 * var(--line-height));
     max-width: var(--main-width);
@@ -880,6 +890,7 @@ nav#TOC > input:checked + ul {
 
 @media screen and (min-width: 797px) and (max-width: 1100px) {
   nav#TOC,
+  header,
   main {
     margin-left: var(--line-height);
     max-width: var(--main-width-narrow);
@@ -915,6 +926,7 @@ nav#TOC > input:checked + ul {
 
 @media screen and (max-width: 798px) {
   nav#TOC,
+  header,
   main {
     margin-left: var(--line-height);
     margin-right: var(--line-height);
@@ -958,6 +970,7 @@ nav#TOC > input:checked + ul {
   }
 
   nav#TOC,
+  header,
   main {
     width: 5.25in;
     margin-right: auto;

@@ -1,8 +1,12 @@
 ---
-title: "Kitchen Sink"
+title: 'Kitchen Sink'
+subtitle: '"Everything but the kitchen sink."'
+author: '@jez'
+author_url: 'https://github.com/jez'
+date: '2021-06-25'
+return_url: '..'
+return_text: '← Return home'
 ---
-
-[← Return home](..)
 
 This project provides CSS files and a template for using Pandoc to generate
 standalone HTML files. It supports most features Pandoc Markdown has to offer,
@@ -594,7 +598,3 @@ This is a really wide column using pandoc's fancy tables.    This is narrow.
 |           |             |
 | ---       | ---         |
 | No header | Still works |
-
-<p class="signoff">
-  [← Return home](..)
-</p>

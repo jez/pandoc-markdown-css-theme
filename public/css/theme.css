@@ -172,6 +172,10 @@ sup {
   top: var(--side-note-sup-offset);
 }
 
+sup {
+  font-weight: inherit;
+}
+
 /* Make the superscript hang. */
 .sidenote:before { left: var(--side-note-number-hang-left); }
 /* Get first first column of first row to line up with other rows. */

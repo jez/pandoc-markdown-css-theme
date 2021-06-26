@@ -375,6 +375,12 @@ span.mark.purple, mark.purple { background-color: var(--highlight-purple); }
 span.smallcaps{ font-variant: small-caps; }
 span.underline{ text-decoration: underline; }
 
+/* KaTeX Math classes */
+.katex-display {
+  overflow-x: scroll;
+  overflow-y: hidden;
+}
+
 /* }}} */
 /* ----- Code ---------------------------------------------------------- {{{ */
 

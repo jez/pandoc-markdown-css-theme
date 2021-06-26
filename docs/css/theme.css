@@ -73,6 +73,8 @@
   --hr-margin-top: 18px;
   --hr-margin-bottom: calc(var(--line-height) - var(--hr-margin-top) - 1px);
 
+  --extra-wide-scale-factor: 1.5;
+
   --figcaption-line-height: 21px;
   --figcaption-font-size: 14px;
   --figcaption-code-font-size: 13px;
@@ -188,7 +190,10 @@ label.sidenote-number {
     display: inline;
 }
 
-@media screen and (max-width: 796px) {
+/* Unfortunately, variables aren't in scope here.
+ * See calculations in Horizontal layouting.
+ */
+@media screen and (max-width: calc(26px + 550px + 26px + 169px + 26px - 1px)) {
   .margin-toggle:checked + .sidenote,
   .margin-toggle:checked + .marginnote {
     margin-top: var(--side-note-line-height);
@@ -601,7 +606,10 @@ figcaption code {
   font-size: var(--figcaption-code-font-size);
 }
 
-@media screen and (min-width: 769px) {
+/* Unfortunately, variables aren't in scope here.
+ * See calculations in Horizontal layouting.
+ */
+@media screen and (min-width: calc(26px + 550px + 26px + 169px + 26px)) {
   figcaption {
     text-align: center;
   }
@@ -660,7 +668,10 @@ table > caption code {
   font-size: var(--figcaption-code-font-size);
 }
 
-@media screen and (min-width: 769px) {
+/* Unfortunately, variables aren't in scope here.
+ * See calculations in Horizontal layouting.
+ */
+@media screen and (min-width: calc(26px + 550px + 26px + 169px + 26px)) {
   table > caption {
     text-align: center;
   }
@@ -722,7 +733,12 @@ nav#TOC > input:checked + ul {
   }
 }
 
-@media screen and (min-width: 1364px) {
+/* Unfortunately, variables aren't in scope here.
+ * 745px = --main-width
+ * 52px = 2 * --line-height
+ * 206px = side note min width
+ */
+@media screen and (min-width: calc(745px + 2 * (52px + 206px + 52px) - 1px)) {
   header {
     margin-bottom: var(--line-height);
   }
@@ -795,7 +811,12 @@ nav#TOC > input:checked + ul {
 
 /* --- Side notes always visible --- {{{ */
 
-@media screen and (min-width: 1365px) {
+/* Unfortunately, variables aren't in scope here.
+ * 745px = --main-width
+ * 52px = 2 * --line-height
+ * 206px = side note min width
+ */
+@media screen and (min-width: calc(745px + 2 * (52px + 206px + 52px))) {
   nav#TOC,
   header,
   main {
@@ -821,8 +842,8 @@ nav#TOC > input:checked + ul {
   }
 
   .wide.extra-wide {
-    margin-left: -25%;
-    width: 150%;
+    margin-left: calc((1 - var(--extra-wide-scale-factor)) / 2 * 100%);
+    width: calc(var(--extra-wide-scale-factor) * 100%);
   }
 
   .wide.full-width {
@@ -832,9 +853,9 @@ nav#TOC > input:checked + ul {
 
   .wide.extra-wide figcaption,
   .wide.extra-wide table > caption {
-    margin-left: calc(0.25 * var(--main-width));
+    margin-left: calc(((var(--extra-wide-scale-factor) - 1) / 2) * var(--main-width));
     max-width: var(--main-width);
-    margin-right: calc(100% - var(--main-width) - (0.25 * var(--main-width)));
+    margin-right: calc(100% - var(--main-width) - (((var(--extra-wide-scale-factor) - 1) / 2) * var(--main-width)));
   }
 
   .wide.full-width figcaption,
@@ -845,7 +866,12 @@ nav#TOC > input:checked + ul {
   }
 }
 
-@media screen and (min-width: 1101px) and (max-width: 1364px) {
+/* Unfortunately, variables aren't in scope here.
+ * 745px = --main-width
+ * 52px = 2 * --line-height
+ * 206px = side note min width
+ */
+@media screen and (min-width: calc(52px + 745px + 52px + 206px + 52px)) and (max-width: calc(745px + 2 * (52px + 206px + 52px) - 1px)) {
   nav#TOC,
   header,
   main {
@@ -869,7 +895,7 @@ nav#TOC > input:checked + ul {
   .wide.extra-wide {
     margin-left: calc(-1 * var(--line-height));
     width: calc(100vw - 2 * var(--line-height));
-    max-width: calc(1.5 * var(--main-width));
+    max-width: calc(var(--extra-wide-scale-factor) * var(--main-width));
   }
 
   .wide.full-width {
@@ -888,7 +914,12 @@ nav#TOC > input:checked + ul {
   }
 }
 
-@media screen and (min-width: 797px) and (max-width: 1100px) {
+/* Unfortunately, variables aren't in scope here.
+ * 550px = --main-width-narrow
+ * 26px = --line-height
+ * 169px = side note min width narrow
+ */
+@media screen and (min-width: calc(26px + 550px + 26px + 169px + 26px)) and (max-width: calc(52px + 745px + 52px + 206px + 52px - 1px)) {
   nav#TOC,
   header,
   main {
@@ -924,7 +955,10 @@ nav#TOC > input:checked + ul {
 /* }}} */
 /* --- Side notes collapsed --- {{{ */
 
-@media screen and (max-width: 798px) {
+/* Unfortunately, variables aren't in scope here.
+ * See calculations above.
+ */
+@media screen and (max-width: calc(26px + 550px + 26px + 169px + 26px - 1px)) {
   nav#TOC,
   header,
   main {

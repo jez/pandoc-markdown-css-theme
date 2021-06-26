@@ -434,6 +434,11 @@ pre > code {
   padding: 0 var(--code-block-side-padding);
 }
 
+code.sourceCode::selection {
+  /* Prevent bug where far right edge of text box shows as selected. */
+  background: transparent;
+}
+
 .wide > pre, .wide > div.sourceCode {
   /* Put this in front of the table of contents */
   transform: translateZ(0px);

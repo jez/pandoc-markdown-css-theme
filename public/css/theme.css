@@ -379,12 +379,6 @@ span.mark.purple, mark.purple { background-color: var(--highlight-purple); }
 span.smallcaps{ font-variant: small-caps; }
 span.underline{ text-decoration: underline; }
 
-/* KaTeX Math classes */
-.katex-display {
-  overflow-x: scroll;
-  overflow-y: hidden;
-}
-
 /* }}} */
 /* ----- Code ---------------------------------------------------------- {{{ */
 
@@ -613,25 +607,16 @@ figcaption {
   font-size: var(--figcaption-font-size);
   line-height: var(--figcaption-line-height);
   font-style: italic;
-  text-align: left;
+  text-align: center;
   color: var(--color-text-secondary);
+}
+
+.left-align-caption figcaption {
+  text-align: left;
 }
 
 figcaption code {
   font-size: var(--figcaption-code-font-size);
-}
-
-/* Unfortunately, variables aren't in scope here.
- * See calculations in Horizontal layouting.
- */
-@media screen and (min-width: calc(26px + 550px + 26px + 169px + 26px)) {
-  figcaption {
-    text-align: center;
-  }
-
-  .left-align-caption figcaption {
-    text-align: left;
-  }
 }
 
 /* }}} */
@@ -675,25 +660,16 @@ table > caption {
   font-size: var(--figcaption-font-size);
   line-height: var(--figcaption-line-height);
   font-style: italic;
-  text-align: left;
+  text-align: center;
   color: var(--color-text-secondary);
+}
+
+.left-align-caption table > caption {
+  text-align: left;
 }
 
 table > caption code {
   font-size: var(--figcaption-code-font-size);
-}
-
-/* Unfortunately, variables aren't in scope here.
- * See calculations in Horizontal layouting.
- */
-@media screen and (min-width: calc(26px + 550px + 26px + 169px + 26px)) {
-  table > caption {
-    text-align: center;
-  }
-
-  .left-align-caption table > caption {
-    text-align: left;
-  }
 }
 
 /* --- Notes are just single cell tables --- */
@@ -905,6 +881,7 @@ nav#TOC > input:checked + ul {
   .wide {
     width: 100%;
     overflow-x: scroll;
+    overflow-y: hidden;
   }
 
   .wide.extra-wide {
@@ -917,6 +894,19 @@ nav#TOC > input:checked + ul {
     margin-left: calc(-1 * var(--line-height));
     width: calc(100vw - 2 * var(--line-height));
     max-width: calc(100vw - 2 * var(--line-height));
+  }
+
+  .wide.extra-wide .katex-display,
+  .wide.full-width .katex-display {
+    padding-left: var(--line-height);
+    padding-right: var(--line-height);
+  }
+
+  .wide.extra-wide .katex-display,
+  .wide.extra-wide .katex-display > .katex,
+  .wide.full-width .katex-display,
+  .wide.full-width .katex-display > .katex {
+    text-align: left;
   }
 
   .wide.extra-wide figcaption,
@@ -953,17 +943,23 @@ nav#TOC > input:checked + ul {
   .wide {
     width: var(--main-width);
     overflow-x: scroll;
+    overflow-y: hidden;
   }
 
-  .wide.extra-wide,
-  .wide.full-width {
-    width: calc(100vw - 2 * var(--line-height));
+  .wide .katex-display,
+  .wide .katex-display > .katex {
+    text-align: left;
   }
 
   .wide figcaption,
   .wide table > caption {
     text-align: left;
     max-width: var(--main-width-narrow);
+  }
+
+  .wide.extra-wide,
+  .wide.full-width {
+    width: calc(100vw - 2 * var(--line-height));
   }
 }
 
@@ -998,10 +994,17 @@ nav#TOC > input:checked + ul {
   .wide {
     width: 100%;
     overflow-x: scroll;
+    overflow-y: hidden;
+  }
+
+  .wide .katex-display,
+  .wide .katex-display > .katex {
+    text-align: left;
   }
 
   .wide figcaption,
   .wide table > caption {
+    text-align: left;
     max-width: calc(100vw - 2 * var(--line-height));
   }
 }
@@ -1034,6 +1037,12 @@ nav#TOC > input:checked + ul {
   .wide {
     width: 7.5in;
     overflow-x: hidden;
+    overflow-y: hidden;
+  }
+
+  .wide .katex-display,
+  .wide .katex-display > .katex {
+    text-align: left;
   }
 
   .wide figcaption,

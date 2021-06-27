@@ -1,5 +1,5 @@
 ---
-title: 'Kitchen Sink'
+title: 'Kitchen Sink `code`'
 subtitle: '"Everything but the kitchen sink."'
 author: '@jez'
 author-url: 'https://github.com/jez'
@@ -146,7 +146,7 @@ template for using Pandoc to generate standalone HTML files. It supports most
 features Pandoc Markdown has to offer, and some extras. The default look can be
 tweaked via CSS variables, and it does not need JavaScript, even for side notes.
 
-### Even smaller heading
+### Even smaller heading `code`
 
 This is some body text between headings. This project provides CSS files and a
 template for using Pandoc to generate standalone HTML files. It supports most
@@ -155,9 +155,9 @@ tweaked via CSS variables, and it does not need JavaScript, even for side notes.
 
 #### There is no level 4 heading
 
-# Level 1 heading
+# Level 1 heading `code`
 
-## Level 2 heading
+## Level 2 heading `code`
 
 This is some body text between headings. This project provides CSS files and a
 template for using Pandoc to generate standalone HTML files. It supports most

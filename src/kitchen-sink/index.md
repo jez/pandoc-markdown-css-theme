@@ -48,7 +48,9 @@ Horizontal rules, too!
 
 - - - - -
 
-And last there's inline math: \(a^2 + b^2 = c^2\), and block math:
+# Math
+
+There's inline math: \(a^2 + b^2 = c^2\), and block math:
 
 $$60 \, \frac{\textrm{seconds}}{\textrm{minute}} \cdot 60 \, \frac{\textrm{minutes}}{\textrm{hour}} = 3,600 \, \frac{\textrm{seconds}}{\textrm{hour}}$$
 
@@ -57,6 +59,78 @@ $$\frac{
 }{
   \Delta \, \Gamma \vdash e[c] : [c/u]\tau
 }$$
+
+<figure class="wide">
+
+\[\frac{
+  \Delta \, \Gamma, e : \forall (u :: \kappa). \tau \qquad \Delta \vdash c :: \kappa
+}{
+  \Delta \, \Gamma \vdash e[c] : [c/u]\tau
+}\]
+
+<figcaption>Typing rule for ∀ types</figcaption>
+</figure>
+
+<figure class="wide extra-wide">
+
+\[\frac{
+  \Delta, u :: \kappa \vdash c :: \kappa’
+}{
+  \Delta \vdash \lambda(u :: \kappa). \, c :: \kappa \to \kappa’
+}\;(\texttt{lambda-kind}) \quad \frac{
+  \Delta, u :: \kappa \vdash c :: *
+}{
+  \Delta \vdash \forall(u :: \kappa). \, c :: *
+}\;(\texttt{forall-kind})\]
+
+<figcaption>Kind rules for two type constructors in System F<sub>ω</sub>. This
+text is long enough that it wraps on some screens.</figcaption>
+</figure>
+
+<figure class="wide extra-wide left-align-caption">
+
+\[\frac{
+  \Delta, u :: \kappa \vdash c :: \kappa’
+}{
+  \Delta \vdash \lambda(u :: \kappa). \, c :: \kappa \to \kappa’
+}\;(\texttt{lambda-kind}) \quad \frac{
+  \Delta, u :: \kappa \vdash c :: *
+}{
+  \Delta \vdash \forall(u :: \kappa). \, c :: *
+}\;(\texttt{forall-kind})\]
+
+<figcaption>This caption will be forcibly left-aligned.</figcaption>
+</figure>
+
+<figure class="wide full-width">
+
+\[\frac{
+  \Delta, u :: \kappa_1 \vdash c_2 :: \kappa_2 \qquad \Delta \vdash c_1
+  :: \kappa_1
+}{
+  \Delta \vdash (\lambda(u :: \kappa_1). \, c_2)(c_1) \equiv  [c_1/u]c_2 :: \kappa_2
+} \quad \frac{
+  \Delta, u :: \kappa_1 \vdash c_2 :: \kappa_2 \qquad \Delta \vdash c_1
+  :: \kappa_1
+}{
+  \Delta \vdash (\lambda(u :: \kappa_1). \, c_2)(c_1) \equiv  [c_1/u]c_2 :: \kappa_2
+} \quad \frac{
+  \Delta, u :: \kappa_1 \vdash c_2 :: \kappa_2 \qquad \Delta \vdash c_1
+  :: \kappa_1
+}{
+  \Delta \vdash (\lambda(u :: \kappa_1). \, c_2)(c_1) \equiv  [c_1/u]c_2 :: \kappa_2
+} \\ \quad \\ \frac{
+  \Delta \, \Gamma, e : \forall (u :: \kappa). \tau \qquad \Delta \vdash c :: \kappa
+}{
+  \Delta \, \Gamma \vdash e[c] : [c/u]\tau
+} \quad \frac{
+  \quad
+}{
+  (\Lambda u. \, e)[\tau] \mapsto [\tau / u]e
+}\]
+
+<figcaption>Assorted rules from statics and dynamics of System<sub>ω</sub></figcaption>
+</figure>
 
 # Headings
 

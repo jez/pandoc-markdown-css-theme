@@ -2,10 +2,10 @@
 title: 'Kitchen Sink'
 subtitle: '"Everything but the kitchen sink."'
 author: '@jez'
-author_url: 'https://github.com/jez'
+author-url: 'https://github.com/jez'
 date: '2021-06-25'
-return_url: '..'
-return_text: '← Return home'
+return-url: '..'
+return-text: '← Return home'
 ---
 
 This project provides CSS files and a template for using Pandoc to generate

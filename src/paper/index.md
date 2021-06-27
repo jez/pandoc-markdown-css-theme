@@ -3,8 +3,8 @@ title: "Paper Kitchen Sink"
 header-includes:
 - '<link rel="stylesheet" href="../css/paper.css">'
 - '<link rel="stylesheet" href="../css/skylighting-paper-theme.css">'
-return_url: '..'
-return_text: '← Return home'
+return-url: '..'
+return-text: '← Return home'
 ---
 
 :::{.note .blue}

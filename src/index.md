@@ -2,7 +2,7 @@
 title: "Pandoc Markdown CSS Theme"
 subtitle: "Starter files for generating HTML from Pandoc Markdown"
 author: "@jez"
-author_url: 'https://github.com/jez'
+author-url: 'https://github.com/jez'
 date: "2021-06-20"
 ---
 

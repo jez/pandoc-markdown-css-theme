@@ -40,8 +40,8 @@ $if(subtitle)$
 $endif$
 $if(author)$
 <p class="author">
-  $if(author_url)$
-    <a href="$author_url$">$author$</a>
+  $if(author-url)$
+    <a href="$author-url$">$author$</a>
   $else$
     $author$
   $endif$
@@ -55,8 +55,8 @@ $endif$
 
 $if(toc)$
 <nav id="$idprefix$TOC" role="doc-toc">
-  $if(return_url)$
-  <a href="$return_url$">$if(return_text)$$return_text$$else$← Return$endif$</a><br>
+  $if(return-url)$
+  <a href="$return-url$">$if(return-text)$$return-text$$else$← Return$endif$</a><br>
   $endif$
   <strong>Contents</strong><label for="contents">⊕</label>
   <input type="checkbox" id="contents">
@@ -67,9 +67,9 @@ $endif$
 <main>
 $body$
 
-$if(return_url)$
+$if(return-url)$
 <p class="signoff">
-  <a href="$return_url$">$if(return_text)$$return_text$$else$← Return$endif$</a>
+  <a href="$return-url$">$if(return-text)$$return-text$$else$← Return$endif$</a>
 </p>
 $endif$
 </main>

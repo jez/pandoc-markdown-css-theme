@@ -32,7 +32,7 @@
   --line-height: 26px;
   --font-size: 17px;
 
-  --inline-code-font-size: 16px;
+  --inline-code-font-size: 15px;
   --code-block-font-size: 14px;
   --code-block-side-padding: 8px;
   --line-numbers-font-size: 12px;
@@ -139,6 +139,11 @@ body {
 
   /* Align first baseline to body. */
   margin-top: var(--side-note-baseline-offset);
+}
+
+.sidenote code,
+.marginnote code {
+  color: var(--color-sidenote);
 }
 
 body {
@@ -378,6 +383,11 @@ span.mark.purple, mark.purple { background-color: var(--highlight-purple); }
 /* Pandoc utility classes */
 span.smallcaps{ font-variant: small-caps; }
 span.underline{ text-decoration: underline; }
+
+.katex-display {
+  background: white;
+  transform: translateZ(0px);
+}
 
 /* }}} */
 /* ----- Code ---------------------------------------------------------- {{{ */

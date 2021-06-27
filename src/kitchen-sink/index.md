@@ -475,10 +475,11 @@ Might make sense to do these in terms of like divs but for now they're tables.
 
 # Side notes
 
-Markdown footnotes become side notes.[^1] Versus sup.<sup>1</sup> It would be
-neat to associate a range of text with a footnote, rather than a single point.
-The **second side note baseline** will not line up. If we wrap this third line
-all the way around, we can see how it behaves for longer lines as well.
+Markdown footnotes become side notes.[^1] Versus
+sup.<strong><sup>1</sup></strong> It would be neat to associate a range of text
+with a footnote, rather than a single point.  The **second side note baseline**
+will not line up. If we wrap this third line all the way around, we can see how
+it behaves for longer lines as well. First: 1<sup>st</sup>
 
 [^1]: Is the beginning aligned?\
 Is the beginning aligned?

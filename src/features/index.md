@@ -8,8 +8,6 @@ return-url: '..'
 return-text: '← Return home'
 ---
 
-<!-- TODO(jez) Double check all heading links from home page -->
-
 This theme supports many Pandoc Markdown features. Some features work as
 expected out of the box, and some require a particular markup structure. This
 page documents those feature and the required document structure.
@@ -272,8 +270,6 @@ the `header-includes` variable:
 
 [more lines like this]: https://github.com/jez/pandoc-markdown-css-theme/blob/27d0aa58bfc6eafe296e2cef1900a39c9c2507a7/public/css/theme.css#L539-L578
 
-<!-- TODO(jez) Bug: wide / extra-wide at small widths -->
-
 ```yaml
 ---
 # ...
@@ -356,7 +352,7 @@ automatically include the necessary CSS and JavaScript files to render the math.
 
 [katex]: https://katex.org/
 
-# Image, table, and code block captions
+# Images, tables, and captioned code blocks
 
 Pandoc Markdown has special syntax for images and tables, and their captions.
 For example:
@@ -508,12 +504,6 @@ On large screens, the captions will generally be center aligned. This can look s
 | ℹ️ You probably want to wrap all math and tables in `.wide` unless they're less than ~300px. It will never display wider than the main body, but the `overflow-x` property on `.wide` ensures that it scrolls just the figure, not the whole page body. |
 
 :::
-
-
-
-<!-- TODO(jez) table example -->
-<!-- TODO(jez) code example -->
-<!-- TODO(jez) math example -->
 
 # Colored note callouts
 

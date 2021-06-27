@@ -59,7 +59,7 @@
   <li><a href="#tight-code-blocks">Tight code blocks</a></li>
   </ul></li>
   <li><a href="#math">Math</a></li>
-  <li><a href="#image-table-and-code-block-captions">Image, table, and code block captions</a></li>
+  <li><a href="#images-tables-and-captioned-code-blocks">Images, tables, and captioned code blocks</a></li>
   <li><a href="#wide-extra-wide-and-full-width">Wide, extra-wide, and full-width</a></li>
   <li><a href="#colored-note-callouts">Colored note callouts</a></li>
   <li><a href="#table-of-contents">Table of contents</a></li>
@@ -69,7 +69,6 @@
 </nav>
 
 <main>
-<!-- TODO(jez) Double check all heading links from home page -->
 <p>This theme supports many Pandoc Markdown features. Some features work as expected out of the box, and some require a particular markup structure. This page documents those feature and the required document structure.</p>
 <p>You might also be interested in the <a href="../kitchen-sink/">Kitchen Sink</a> page, which is more comprehensive in terms of exercising edge cases, but has almost zero explanation of what is going on.</p>
 <h1 id="document-metadata">Document metadata</h1>
@@ -229,7 +228,6 @@ This is another line.
 <p>The <code>.numberLines</code> class is required for these line highlights to render correctly.</p>
 <h3 id="line-highlight-limit">Line highlight limit</h3>
 <p>A quick note on line highlights: this feature is implemented in CSS, and is currently limited to a max line highlight of the 40<sup>th</sup> line. More lines can always be specified by adding <a href="https://github.com/jez/pandoc-markdown-css-theme/blob/27d0aa58bfc6eafe296e2cef1900a39c9c2507a7/public/css/theme.css#L539-L578">more lines like this</a> using the <code>header-includes</code> variable:</p>
-<!-- TODO(jez) Bug: wide / extra-wide at small widths -->
 <div class="sourceCode" id="cb15"><pre class="sourceCode yaml"><code class="sourceCode yaml"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="pp">---</span></span>
 <span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a><span class="co"># ...</span></span>
 <span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a><span class="fu">header-includes</span><span class="kw">:</span></span>
@@ -276,7 +274,7 @@ So is this: <span class="math inline">F = ma</span>.</p>
   \Delta \, \Gamma \vdash e[c] : [c/u]\tau
 }</span></p>
 <p>The math is rendered with <a href="https://katex.org/"><span class="math inline">\KaTeX</span></a>. If a page uses math, Pandoc will automatically include the necessary CSS and JavaScript files to render the math.</p>
-<h1 id="image-table-and-code-block-captions">Image, table, and code block captions</h1>
+<h1 id="images-tables-and-captioned-code-blocks">Images, tables, and captioned code blocks</h1>
 <p>Pandoc Markdown has special syntax for images and tables, and their captions. For example:</p>
 <pre><code>![Sugarloaf Hill, San Mateo, CA, April 2021](../img/sugarloaf-hill-forest-green.jpg)</code></pre>
 <figure>
@@ -450,9 +448,6 @@ Typing rules for System F, From PFPL Chapter 16
 </tbody>
 </table>
 </div>
-<!-- TODO(jez) table example -->
-<!-- TODO(jez) code example -->
-<!-- TODO(jez) math example -->
 <h1 id="colored-note-callouts">Colored note callouts</h1>
 <p>As you just saw, an extra feature of this theme is colored note callouts. The syntax takes advantage of Pandoc’s <code>fenced_divs</code> feature:</p>
 <pre><code>:::{.note .blue}

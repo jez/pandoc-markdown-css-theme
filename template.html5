@@ -66,13 +66,15 @@ $endif$
 
 <main>
 $body$
+</main>
 
 $if(return-url)$
+<footer>
 <p class="signoff">
   <a href="$return-url$">$if(return-text)$$return-text$$else$← Return$endif$</a>
 </p>
+</footer>
 $endif$
-</main>
 <script>
 ;(function() {
   // Non-essential if user has JavaScript off. Just makes checkboxes look nicer.

@@ -840,14 +840,16 @@ nav#TOC > input:checked + ul {
  * 206px = side note min width
  */
 @media screen and (min-width: calc(745px + 2 * (52px + 206px + 52px))) {
-  nav#TOC,
   header,
-  main {
+  nav#TOC,
+  main,
+  footer {
     max-width: var(--main-width);
   }
 
   header,
-  main {
+  main,
+  footer {
     margin-left: auto;
     margin-right: auto;
   }
@@ -895,9 +897,10 @@ nav#TOC > input:checked + ul {
  * 206px = side note min width
  */
 @media screen and (min-width: calc(52px + 745px + 52px + 206px + 52px)) and (max-width: calc(745px + 2 * (52px + 206px + 52px) - 1px)) {
-  nav#TOC,
   header,
-  main {
+  nav#TOC,
+  main,
+  footer {
     margin-left: calc(2 * var(--line-height));
     max-width: var(--main-width);
     margin-right: auto;
@@ -957,9 +960,10 @@ nav#TOC > input:checked + ul {
  * 169px = side note min width narrow
  */
 @media screen and (min-width: calc(26px + 550px + 26px + 169px + 26px)) and (max-width: calc(52px + 745px + 52px + 206px + 52px - 1px)) {
-  nav#TOC,
   header,
-  main {
+  nav#TOC,
+  main,
+  footer {
     margin-left: var(--line-height);
     max-width: var(--main-width-narrow);
     margin-right: auto;
@@ -1002,9 +1006,10 @@ nav#TOC > input:checked + ul {
  * See calculations above.
  */
 @media screen and (max-width: calc(26px + 550px + 26px + 169px + 26px - 1px)) {
-  nav#TOC,
   header,
-  main {
+  nav#TOC,
+  main,
+  footer {
     margin-left: var(--line-height);
     margin-right: var(--line-height);
   }
@@ -1053,9 +1058,10 @@ nav#TOC > input:checked + ul {
     padding-top: 0;
   }
 
-  nav#TOC,
   header,
-  main {
+  nav#TOC,
+  main,
+  footer {
     width: 5.25in;
     margin-right: auto;
   }

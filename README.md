@@ -2,6 +2,17 @@
 
 <https://jez.io/pandoc-markdown-css-theme/>
 
+## Developing
+
+```
+make
+make watch
+```
+
+More instructions in the [Usage][Usage] section of the website above.
+
+[Usage]: https://jez.io/pandoc-markdown-css-theme/#usage
+
 ## License
 
 HTML, CSS, and and JavaScript code is licensed under the Blue Oak Model License.

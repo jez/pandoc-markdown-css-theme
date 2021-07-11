@@ -393,7 +393,8 @@ span.mark.purple, mark.purple { background-color: var(--highlight-purple); }
   margin-bottom: 0;
 }
 .signoff {
-  margin: calc(4 * var(--line-height)) 0;
+  margin-top: calc(4 * var(--line-height));
+  margin-bottom: calc(4 * var(--line-height));
 }
 
 /* Pandoc utility classes */
@@ -531,7 +532,9 @@ pre.tight-code {
 }
 
 pre.tight-code code,
-.tight-code pre code {
+.tight-code pre code,
+.tight-code pre > code.sourceCode > span,
+pre.tight-code > code.sourceCode > span {
   line-height: var(--tight-code-line-height);
 }
 

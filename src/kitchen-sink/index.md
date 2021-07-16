@@ -502,7 +502,7 @@ the way around, we can see how it behaves for longer lines as well.
 
 Markdown footnotes become side notes.[^long] After the note. This paragraph is
 not short, but the margin note next to us is much longer, which pushes the
-subsequent notes further away from their anchor.
+subsequent notes further away from their anchor. But also, footnotes.[^foot]
 
 [^long]:
   {-} In this margin note, we've got quite a bit of text. It spans multiple so
@@ -510,6 +510,12 @@ subsequent notes further away from their anchor.
   \
   It can have line breaks too. This should be a test of what happens when the
   margin note is more lines than the paragraph it's commenting on.
+
+[^foot]:
+  {.} Use a prefix of `{.}` to leave it as a footnote. Unfortunately, side notes
+  and margin notes don't share the same namespace. If you want to mix side notes
+  and footnotes in the same document, you might want to use margin notes, so
+  that there is only one kind of numbered note.
 
 > Without doing anything else,[^3] side notes that attach to text inside a block
 > quote would magically become italic, because they'd inherit the styles of the

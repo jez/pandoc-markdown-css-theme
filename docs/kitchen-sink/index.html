@@ -465,7 +465,7 @@ Is the beginning aligned?<br />
 <br />
 It can have line breaks too. This should be a test of what happens when the margin note is more lines than the paragraph it’s commenting on.<br />
 <br />
-</span></span> After the note. This paragraph is not short, but the margin note next to us is much longer, which pushes the subsequent notes further away from their anchor.</p>
+</span></span> After the note. This paragraph is not short, but the margin note next to us is much longer, which pushes the subsequent notes further away from their anchor. But also, footnotes.<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a></p>
 <blockquote>
 <p>Without doing anything else,<span class="sidenote-wrapper"><label for="sn-4" class="margin-toggle sidenote-number"></label><input type="checkbox" id="sn-4" class="margin-toggle"/><span class="sidenote">This side note attaches to a <code>blockquote</code>. Why would that be any different? Not sure. We reset the <code>font-style</code> and that’s it.<br />
 <br />
@@ -901,6 +901,12 @@ Meanwhile, <code>wide</code> will expand past the right column when the center c
 </tr>
 </tbody>
 </table>
+<section class="footnotes" role="doc-endnotes">
+<hr />
+<ol>
+<li id="fn1" role="doc-endnote"><p>Use a prefix of <code>{.}</code> to leave it as a footnote. Unfortunately, side notes and margin notes don’t share the same namespace. If you want to mix side notes and footnotes in the same document, you might want to use margin notes, so that there is only one kind of numbered note.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
+</section>
 </main>
 
 <footer>

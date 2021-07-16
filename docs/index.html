@@ -54,7 +54,7 @@
 </nav>
 
 <main>
-<p>This project provides CSS files and a template for using Pandoc<span class="sidenote-wrapper"><label for="sn-0" class="margin-toggle">&#8853;</label><input type="checkbox" id="sn-0" class="margin-toggle"/><span class="marginnote"> <a href="https://pandoc.org/">Pandoc</a> is a “universal document converter.” It is particularly good at generating HTML and <span class="math inline">\LaTeX</span> from Markdown.<br />
+<p>This project provides CSS files and a template for using Pandoc<span class="sidenote-wrapper"><label for="sn-0" class="margin-toggle">&#8853;</label><input type="checkbox" id="sn-0" class="margin-toggle"/><span class="marginnote"><a href="https://pandoc.org/">Pandoc</a> is a “universal document converter.” It is particularly good at generating HTML and <span class="math inline">\LaTeX</span> from Markdown.<br />
 <br />
 </span></span> to generate standalone HTML files. It supports most features Pandoc Markdown has to offer, and some extras. The default look can be tweaked via CSS variables, and it does not need JavaScript, even for side notes.</p>
 <h1 id="features">Features</h1>
@@ -86,7 +86,7 @@
 <img src="img/mobile-responsive.png" alt="Only right margin at tablet width, and no margins on mobile" /><figcaption aria-hidden="true">Only right margin at tablet width, and no margins on mobile</figcaption>
 </figure>
 </div>
-<p>The source code is extremely tweakable.<span class="sidenote-wrapper"><label for="sn-1" class="margin-toggle">&#8853;</label><input type="checkbox" id="sn-1" class="margin-toggle"/><span class="marginnote"> When changing things like the font family or font size, the thing that matters is to pay special attention to alignment. Different fonts have different x-heights and widths. Most layouting can be agnostic of these things, but there are explicit variables for places where it matters.<br />
+<p>The source code is extremely tweakable.<span class="sidenote-wrapper"><label for="sn-1" class="margin-toggle">&#8853;</label><input type="checkbox" id="sn-1" class="margin-toggle"/><span class="marginnote">When changing things like the font family or font size, the thing that matters is to pay special attention to alignment. Different fonts have different x-heights and widths. Most layouting can be agnostic of these things, but there are explicit variables for places where it matters.<br />
 <br />
 </span></span> A small set of CSS variables control a large number of font and color settings: you don’t have to hunt down all the places that need to be changed to tweak the design. As a proof of concept, see <a href="paper/">this page</a>, which tweaks the default theme slightly. Of course, the code is open source and you’re welcome to copy the theme files and completely overhaul them if desired.</p>
 <p>And finally, there’s basically only HTML and CSS. The theme doesn’t use custom fonts by default, and only uses JavaScript for two things:</p>
@@ -137,7 +137,7 @@
 <p>Check the project above for installation and usage instructions with Jekyll.</p>
 <h1 id="credits">Credits</h1>
 <p>First, thanks to <a href="https://pandoc.org/">Pandoc</a>, by John MacFarlane, for being an all-around awesome tool, especially for Markdown.</p>
-<p>The core technique for laying out side notes<span class="sidenote-wrapper"><label for="sn-2" class="margin-toggle">&#8853;</label><input type="checkbox" id="sn-2" class="margin-toggle"/><span class="marginnote"> Gwern has a great survey post that discusses <a href="https://www.gwern.net/Sidenotes">Sidenotes In Web Design</a>, covering the techniques in Tufte CSS as well as the limitations, and many alternatives.<br />
+<p>The core technique for laying out side notes<span class="sidenote-wrapper"><label for="sn-2" class="margin-toggle">&#8853;</label><input type="checkbox" id="sn-2" class="margin-toggle"/><span class="marginnote">Gwern has a great survey post that discusses <a href="https://www.gwern.net/Sidenotes">Sidenotes In Web Design</a>, covering the techniques in Tufte CSS as well as the limitations, and many alternatives.<br />
 <br />
 </span></span> I learned from <a href="https://edwardtufte.github.io/tufte-css/">Tufte CSS</a>, by Dave Liepmann. The technique is <a href="https://edwardtufte.github.io/tufte-css/#sidenotes">described in detail here</a>. Tufte CSS suggests writing the HTML for sidenotes by hand, but I wanted to use Markdown. I wrote <a href="https://github.com/jez/pandoc-sidenote"><code>pandoc-sidenote</code></a>, a <a href="https://pandoc.org/filters.html">Pandoc filter</a> that traverses Pandoc’s internal AST and converts footnote nodes into the HTML side note markup for Tufte CSS-style side notes.</p>
 <p>While the idea for side notes comes entirely from Tufte CSS, the implementation at this point is almost completely different. Tufte CSS uses relative widths everywhere, but I wanted a body with a constant width at all but the smallest screen sizes. Tufte CSS renders the main body off center. Rendering centered when possible and off center when not adds complexity in the implementation.</p>

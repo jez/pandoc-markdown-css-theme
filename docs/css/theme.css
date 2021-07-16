@@ -168,6 +168,7 @@ nav#TOC label,
 label.margin-toggle:not(.sidenote-number),
 .sidenote-number:after,
 .sidenote:before,
+.footnote-ref sup,
 sup {
   font-size: var(--side-note-font-size);
   font-weight: 700;

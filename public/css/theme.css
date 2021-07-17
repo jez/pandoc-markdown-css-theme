@@ -89,6 +89,7 @@
 
   --table-line-height: 21px;
   --table-font-size: 14px;
+  --table-code-font-size: 13px;
 
   --nav-toc-font-size: 12px;
   --nav-toc-code-font-size: 12px;
@@ -691,6 +692,14 @@ table {
   table {
     background-color: initial;
   }
+}
+
+table code {
+  font-size: var(--table-code-font-size);
+}
+
+table pre code {
+  font-size: inherit;
 }
 
 .wide table {

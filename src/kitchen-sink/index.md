@@ -575,10 +575,10 @@ there's an extra div around it. But maybe that's actually a feature not a bug.
 
 # Tables
 
-| **Column 1**       | **Column 2**       |
-| ------------------ | ------------------ |
-| This is some text. | This is some text. |
-| This is some text. | This is some text. |
+| **Column 1**         | **Column 2**       |
+| -------------------- | ------------------ |
+| This is `some` text. | This is some text. |
+| This is some text.   | This is some text. |
 
 | **Column 1**       | **Column 2**       |
 | ------------------ | ------------------ |

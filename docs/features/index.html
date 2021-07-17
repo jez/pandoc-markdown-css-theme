@@ -70,7 +70,7 @@
 
 <main>
 <p>This theme supports many Pandoc Markdown features. Some features work as expected out of the box, and some require a particular markup structure. This page documents those feature and the required document structure.</p>
-<p>You might also be interested in the <a href="../kitchen-sink/">Kitchen Sink</a> page, which is more comprehensive in terms of exercising edge cases, but has almost zero explanation of what is going on.</p>
+<p>You might also be interested in the <a href="../kitchen-sink/">Kitchen Sink</a> page, which is more comprehensive in terms of exercising edge cases, but has almost zero explanation of what is going on. There is also a <a href="../tufte/">Kitchen Sink Tufte</a> page which showcases one example of how to re-skin the theme using the existing customization features.</p>
 <h1 id="document-metadata">Document metadata</h1>
 <p>Pandoc allows setting <a href="https://pandoc.org/MANUAL.html#variables">variables</a> in the preamble of a Markdown document with a YAML metadata block, like this:</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode numberSource yaml numberLines"><code class="sourceCode yaml"><span id="cb1-1"><a href="#cb1-1"></a><span class="pp">---</span></span>
@@ -518,6 +518,7 @@ Typing rules for System F, From PFPL Chapter 16
 <li>Side note text sizes and alignment</li>
 <li>The main width, including at narrow screen sizes.</li>
 </ul>
+<p>As an example, see the <a href="../tufte/">Kitchen Sink Tufte</a> page, which tweaks these CSS variables to approximate the look of <a href="https://edwardtufte.github.io/tufte-css/">Tufte CSS</a>.</p>
 <p>It’s also easy to change the syntax theme used for code highlights, because it lives in a separate file. The default theme is Solarized Light, which can be found in <a href="https://github.com/jez/pandoc-markdown-css-theme/blob/27d0aa58bfc6eafe296e2cef1900a39c9c2507a7/public/css/skylighting-solarized-theme.css#L1">skylighting-solarized-theme.css</a>.</p>
 <h1 id="print-styles">Print styles</h1>
 <p>As a reminder, this theme has custom print styles for U.S. Letter size paper. The print styles look similar to a somewhat narrow desktop screen, with enough room for a right margin with sidenotes, but not quite enough width to support the full 745px that the main body would normally take up. There is no large left margin, so the table of contents is shown at the top of the page (expanded).</p>

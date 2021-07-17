@@ -14,7 +14,9 @@ page documents those feature and the required document structure.
 
 You might also be interested in the [Kitchen Sink](../kitchen-sink/) page, which
 is more comprehensive in terms of exercising edge cases, but has almost zero
-explanation of what is going on.
+explanation of what is going on. There is also a [Kitchen Sink Tufte](../tufte/)
+page which showcases one example of how to re-skin the theme using the existing
+customization features.
 
 # Document metadata
 
@@ -587,6 +589,9 @@ As mentioned multiple times above, this theme is very configurable. See
 - Font sizes, including body copy, code, and headings
 - Side note text sizes and alignment
 - The main width, including at narrow screen sizes.
+
+As an example, see the [Kitchen Sink Tufte](../tufte/) page, which tweaks these
+CSS variables to approximate the look of [Tufte CSS].
 
 It's also easy to change the syntax theme used for code highlights, because it
 lives in a separate file. The default theme is Solarized Light, which can be

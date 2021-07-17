@@ -4,6 +4,8 @@
 :root {
   /* --- Colors --- */
 
+  --background-color: #fff;
+
   --color-text: #1b2733;
   --color-text-secondary: #637282;
   --color-link: #0070e0;
@@ -127,6 +129,14 @@ body {
   padding: 0;
   padding-top: var(--title-margin-top);
   width: 100%;
+
+  background-color: var(--background-color);
+}
+
+@media print {
+  body {
+    background-color: initial;
+  }
 }
 
 /* }}} */
@@ -403,8 +413,14 @@ span.smallcaps{ font-variant: small-caps; }
 span.underline{ text-decoration: underline; }
 
 .katex-display {
-  background: white;
+  background: var(--background-color);
   transform: translateZ(0px);
+}
+
+@media print {
+  .katex-display {
+    background-color: initial;
+  }
 }
 
 /* }}} */
@@ -666,7 +682,13 @@ table {
   width: 100%;
 
   /* Solid background to occlude table of contents */
-  background: white;
+  background-color: var(--background-color);
+}
+
+@media print {
+  table {
+    background-color: initial;
+  }
 }
 
 .wide table {

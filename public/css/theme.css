@@ -142,6 +142,17 @@ body {
   }
 }
 
+/* Detail/summary */
+summary {
+  cursor: pointer;
+}
+
+summary:hover,
+summary:focus {
+  background: var(--color-border);
+}
+
+
 /* }}} */
 /* ----- Side notes and margin notes ----------------------------------- {{{ */
 /* --- Side note text and numbering --- {{{ */

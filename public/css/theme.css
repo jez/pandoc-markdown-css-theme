@@ -112,6 +112,7 @@
 }
 
 html {
+  scroll-behavior: smooth;
   /* https://github.com/edwardtufte/tufte-css/issues/81#issuecomment-261953409 */
   -webkit-text-size-adjust: 100%;
 }

@@ -381,6 +381,18 @@ L
 ```
 :::
 
+```diff
+❯ diff -u old.txt new.txt
+--- old.txt     2022-02-27 22:15:29.475037186 -0800
++++ new.txt     2022-02-27 22:15:48.423040037 -0800
+@@ -1,3 +1,3 @@
+-This is some text that we're going to diff.
+-This is another line of text.
++This is some text that we're going to run diff on.
+ This is the last line of text in the file.
++Just kidding, this is the actual last line of the file.
+```
+
 # Block quotes
 
 > Block quote, right under heading.

@@ -37,3 +37,9 @@ code span.an { color: #93a1a1; font-weight: normal; font-style: italic; } /* Ann
 code span.cv { color: #93a1a1; font-weight: normal; font-style: italic; } /* CommentVar */
 code span.in { color: #93a1a1; font-weight: normal; font-style: italic; } /* Information */
 a.sourceLine::before { text-decoration: none; }
+
+/* pandoc diff mode */
+code.diff span.kw { color: #b58900; font-weight: normal; font-style: normal; } /* --- lines */
+code.diff span.dt { color: #268bd2; font-weight: normal; font-style: normal; } /* +++ lines, @@ ... @@ lines */
+code.diff span.st { color: #dc322f; font-weight: normal; font-style: normal; } /* - lines */
+code.diff span.va { color: #859900; font-weight: normal; font-style: normal; } /* + lines */

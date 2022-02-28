@@ -11,6 +11,8 @@ set -euo pipefail
 cd docs/
 python3 -m http.server "${PORT:-8000}" &
 http_server_pid="$!"
+trap 'kill "$http_server_pid"' EXIT
+
 cd -
 
 if [ "$(uname)" = "Darwin" ]; then
@@ -20,4 +22,3 @@ else
 fi
 
 watchman-make -p 'src/*' 'public/*' '*.html5' 'Makefile' -r 'make'
-kill "$http_server_pid"

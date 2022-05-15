@@ -98,8 +98,6 @@
   --color-border: #e6e8eb;
   --color-border-heavy: #c1c7cd;
 
-  --color-table-heading: #f3f3fb;
-
   --font-family-prose: 'AtlasGrotesk-editor',-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen,Ubuntu,Cantarell,"Open Sans","Helvetica Neue",sans-serif;
   --font-family-heading: 'AtlasGrotesk-editor-heading',-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen,Ubuntu,Cantarell,"Open Sans","Helvetica Neue",sans-serif;
   --font-family-code: SourceCodePro, Menlo, monospace;
@@ -121,4 +119,14 @@
   --ul-indent-size: 24px;
 
   --task-list-margin-right: 6px;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --highlight-red: #644744;
+    --highlight-yellow: #5c4e24;
+    --highlight-green: #495315;
+    --highlight-blue: #4b5058;
+    --highlight-purple: #544a60;
+  }
 }

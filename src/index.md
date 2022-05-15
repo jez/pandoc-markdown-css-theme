@@ -32,6 +32,7 @@ A short list of headline features:
 - [Floating table of contents](features/#table-of-contents)
 - [\(\LaTeX\) math](features/#math), rendered via [\(\KaTeX\)][KaTeX] in
   the browser
+- Dark mode, based on the user's default color scheme preference
 
 For the complete feature set, see the documentation. You might also want to
 view the "kitchen sink" page that is useful when developing, or the source code:
@@ -55,7 +56,8 @@ styles declare first-class print styles.
 The source code is extremely tweakable.[^tweakable] A small set of CSS variables
 control a large number of font and color settings: you don't have to hunt down
 all the places that need to be changed to tweak the design. As a proof of
-concept, see [this page](paper/), which tweaks the default theme slightly. Of
+concept, see [this page](paper/), which tweaks the default theme slightly. These
+same CSS variables power the light- and dark-mode versions of the theme. Of
 course, the code is open source and you're welcome to copy the theme files and
 completely overhaul them if desired.
 

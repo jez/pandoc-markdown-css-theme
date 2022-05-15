@@ -130,6 +130,23 @@
   --nav-toc-indent: 16px;
 }
 
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background-color: #111;
+
+    --color-text: #fffff8;
+    --color-text-secondary: #fffff8;
+    --color-link: inherit;
+    --color-sidenote: #fffff8;
+
+    --color-inline-code: #fffff8;
+    --color-inline-code-bg: inherit;
+
+    --color-border: inherit;
+    --color-border-heavy: #fff;
+  }
+}
+
 h1:not(.title), h2 {
   font-style: italic;
 }

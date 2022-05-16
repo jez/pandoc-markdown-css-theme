@@ -1112,6 +1112,8 @@ nav#TOC > input:checked + ul {
 @page {
   size: letter;
   margin: 0.5in;
+  /* To make room for line numbers in left margin. */
+  margin-left: 0.25in;
 }
 
 @media print {
@@ -1175,6 +1177,8 @@ nav#TOC > input:checked + ul {
 
   body {
     padding-top: 0;
+    /* To make room for line numbers in left margin. */
+    padding-left: 0.25in;
   }
 
   header,

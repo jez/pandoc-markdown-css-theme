@@ -860,6 +860,12 @@ nav#TOC > input:checked + ul {
     margin-left: 0;
   }
 
+  nav#TOC li {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
   nav#TOC code {
     font-size: var(--nav-toc-code-font-size);
   }

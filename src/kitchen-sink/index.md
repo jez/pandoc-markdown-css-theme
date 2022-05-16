@@ -295,6 +295,20 @@ template for using Pandoc to generate standalone HTML files.
 [→ Looks like a list](#)\
 [→ Not actually a list](#)
 
+## List after heading
+
+- First list item
+- Middle list item
+- Last list item
+
+## Paragraph list after heading
+
+- First list item
+
+- Middle list item
+
+- Last list item
+
 # Code blocks
 
 Ah yes, who could forget about the code blocks.

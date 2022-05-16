@@ -1121,13 +1121,13 @@ nav#TOC > input:checked + ul {
     --line-height: 18px;
     --font-size: 12px;
 
-    --inline-code-font-size: 12.5px;
-    --code-block-font-size: 11.5px;
+    --inline-code-font-size: 11px;
+    --code-block-font-size: 10px;
     --code-block-side-padding: 6px;
     --line-numbers-font-size: 8.5px;
 
-    --tight-code-line-height: 15px;
-    --tight-code-padding-top: 1px;
+    --tight-code-line-height: 12.5px;
+    --tight-code-padding-top: 2px;
 
     --side-note-line-height: 14px;
     --side-note-font-size: 9px;

@@ -903,7 +903,6 @@ nav#TOC > input:checked + ul {
  */
 @media screen and (min-width: calc(745px + 2 * (52px + 206px + 52px))) {
   header,
-  nav#TOC,
   main,
   footer {
     max-width: var(--main-width);

@@ -153,6 +153,10 @@ template for using Pandoc to generate standalone HTML files. It supports most
 features Pandoc Markdown has to offer, and some extras. The default look can be
 tweaked via CSS variables, and it does not need JavaScript, even for side notes.
 
+### Really long heading that takes up nearly the full main width of the page.
+
+This heading can make the side nav bar overflow the container.
+
 #### There is no level 4 heading
 
 # Level 1 heading `code`

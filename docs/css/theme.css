@@ -99,7 +99,14 @@
   /* --- Layout --- */
 
   --main-width: 745px;
+  /* The name doesn't indicate it, but this variable actually specifies an
+   * effective minimum width. (It didn't previously behave this way, but the
+   * change to do so was made in a backwards-compatible way, so the variable
+   * was not renamed.)
+   **/
   --main-width-narrow: 550px;
+  --side-note-max-width: 300px;
+
 }
 
 @media (prefers-color-scheme: dark) {
@@ -893,14 +900,12 @@ nav#TOC > input:checked + ul {
   clear: right;
   position: relative;
 
-  --side-note-max-width: 300px;
-
   width: var(--computed-width);
   max-width: var(--side-note-max-width);
   margin-right: calc(-1 * min(var(--computed-width), var(--side-note-max-width)) - var(--margin-left));
 }
 
-/* --- Side notes always visible --- {{{ */
+/* --- Side notes and table of contents always visible --- {{{ */
 
 /* Unfortunately, variables aren't in scope here.
  * 745px = --main-width
@@ -957,6 +962,9 @@ nav#TOC > input:checked + ul {
     margin-right: calc(100% - var(--main-width) - ((100vw - var(--main-width)) / 2 - var(--line-height)));
   }
 }
+
+/* }}} */
+/* --- Side notes visibile, table of contents collapsed, double-wide margins --- {{{ */
 
 /* Unfortunately, variables aren't in scope here.
  * 745px = --main-width
@@ -1021,6 +1029,9 @@ nav#TOC > input:checked + ul {
   }
 }
 
+/* }}} */
+/* --- Side notes visibile, table of contents collapsed --- {{{ */
+
 /* Unfortunately, variables aren't in scope here.
  * 550px = --main-width-narrow
  * 26px = --line-height
@@ -1032,7 +1043,7 @@ nav#TOC > input:checked + ul {
   main,
   footer {
     margin-left: var(--line-height);
-    max-width: var(--main-width-narrow);
+    max-width: calc(max(var(--main-width-narrow), 100vw - (3 * var(--line-height)) - var(--side-note-max-width)));
     margin-right: auto;
   }
 
@@ -1067,7 +1078,7 @@ nav#TOC > input:checked + ul {
 }
 
 /* }}} */
-/* --- Side notes collapsed --- {{{ */
+/* --- Side notes and table of contents collapsed --- {{{ */
 
 /* Unfortunately, variables aren't in scope here.
  * See calculations above.

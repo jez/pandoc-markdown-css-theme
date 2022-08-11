@@ -128,5 +128,12 @@
     --highlight-green: #495315;
     --highlight-blue: #4b5058;
     --highlight-purple: #544a60;
+
+    --color-inline-code-bg: #242121;
+
+    --color-border: #393635;
+    --color-border-heavy: #524f4d;
+
+    --color-table-heading: #242121;
   }
 }

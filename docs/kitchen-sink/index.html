@@ -9,22 +9,22 @@
   <title>Kitchen Sink code</title>
   <link rel="stylesheet" href="../css/theme.css" />
   <link rel="stylesheet" href="../css/skylighting-solarized-theme.css" />
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.11.1/katex.min.js"></script>
+  <script defer="" src="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.js"></script>
   <script>document.addEventListener("DOMContentLoaded", function () {
-   var mathElements = document.getElementsByClassName("math");
-   var macros = [];
-   for (var i = 0; i < mathElements.length; i++) {
-    var texText = mathElements[i].firstChild;
-    if (mathElements[i].tagName == "SPAN") {
-     katex.render(texText.data, mathElements[i], {
-      displayMode: mathElements[i].classList.contains('display'),
-      throwOnError: false,
-      macros: macros,
-      fleqn: false
-     });
-  }}});
+ var mathElements = document.getElementsByClassName("math");
+ var macros = [];
+ for (var i = 0; i < mathElements.length; i++) {
+  var texText = mathElements[i].firstChild;
+  if (mathElements[i].tagName == "SPAN") {
+   katex.render(texText.data, mathElements[i], {
+    displayMode: mathElements[i].classList.contains('display'),
+    throwOnError: false,
+    macros: macros,
+    fleqn: false
+   });
+}}});
   </script>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.11.1/katex.min.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.css" />
 </head>
 <body>
 
@@ -44,32 +44,32 @@
     <strong>Contents</strong><label for="contents">⊕</label>
   <input type="checkbox" id="contents">
   <ul>
-  <li><a href="#prose">Prose</a></li>
-  <li><a href="#math">Math</a></li>
-  <li><a href="#headings">Headings</a>
+  <li><a href="#prose" id="toc-prose">Prose</a></li>
+  <li><a href="#math" id="toc-math">Math</a></li>
+  <li><a href="#headings" id="toc-headings">Headings</a>
   <ul>
-  <li><a href="#smaller-heading">Smaller heading</a>
+  <li><a href="#smaller-heading" id="toc-smaller-heading">Smaller heading</a>
   <ul>
-  <li><a href="#even-smaller-heading-code">Even smaller heading <code>code</code></a></li>
-  <li><a href="#really-long-heading-that-takes-up-nearly-the-full-main-width-of-the-page.">Really long heading that takes up nearly the full main width of the page.</a></li>
+  <li><a href="#even-smaller-heading-code" id="toc-even-smaller-heading-code">Even smaller heading <code>code</code></a></li>
+  <li><a href="#really-long-heading-that-takes-up-nearly-the-full-main-width-of-the-page." id="toc-really-long-heading-that-takes-up-nearly-the-full-main-width-of-the-page.">Really long heading that takes up nearly the full main width of the page.</a></li>
   </ul></li>
   </ul></li>
-  <li><a href="#level-1-heading-code">Level 1 heading <code>code</code></a>
+  <li><a href="#level-1-heading-code" id="toc-level-1-heading-code">Level 1 heading <code>code</code></a>
   <ul>
-  <li><a href="#level-2-heading-code">Level 2 heading <code>code</code></a></li>
-  <li><a href="#another-level-2-heading">Another level 2 heading</a></li>
+  <li><a href="#level-2-heading-code" id="toc-level-2-heading-code">Level 2 heading <code>code</code></a></li>
+  <li><a href="#another-level-2-heading" id="toc-another-level-2-heading">Another level 2 heading</a></li>
   </ul></li>
-  <li><a href="#lists">Lists</a>
+  <li><a href="#lists" id="toc-lists">Lists</a>
   <ul>
-  <li><a href="#list-after-heading">List after heading</a></li>
-  <li><a href="#paragraph-list-after-heading">Paragraph list after heading</a></li>
+  <li><a href="#list-after-heading" id="toc-list-after-heading">List after heading</a></li>
+  <li><a href="#paragraph-list-after-heading" id="toc-paragraph-list-after-heading">Paragraph list after heading</a></li>
   </ul></li>
-  <li><a href="#code-blocks">Code blocks</a></li>
-  <li><a href="#block-quotes">Block quotes</a></li>
-  <li><a href="#colored-notes">Colored notes</a></li>
-  <li><a href="#side-notes">Side notes</a></li>
-  <li><a href="#images">Images</a></li>
-  <li><a href="#tables">Tables</a></li>
+  <li><a href="#code-blocks" id="toc-code-blocks">Code blocks</a></li>
+  <li><a href="#block-quotes" id="toc-block-quotes">Block quotes</a></li>
+  <li><a href="#colored-notes" id="toc-colored-notes">Colored notes</a></li>
+  <li><a href="#side-notes" id="toc-side-notes">Side notes</a></li>
+  <li><a href="#images" id="toc-images">Images</a></li>
+  <li><a href="#tables" id="toc-tables">Tables</a></li>
   </ul>
 </nav>
 
@@ -502,7 +502,8 @@ It can have line breaks too. This should be a test of what happens when the marg
 <h1 id="images">Images</h1>
 <p>We can also handle images:</p>
 <figure>
-<img src="../img/sugarloaf-hill-forest-green.jpg" alt="Sugarloaf Hill, San Mateo, CA, April 2021" /><figcaption aria-hidden="true">Sugarloaf Hill, San Mateo, CA, April 2021</figcaption>
+<img src="../img/sugarloaf-hill-forest-green.jpg" alt="Sugarloaf Hill, San Mateo, CA, April 2021" />
+<figcaption aria-hidden="true">Sugarloaf Hill, San Mateo, CA, April 2021</figcaption>
 </figure>
 <p>This is some text after the image. The interesting thing is that the presence of a caption pushes the following paragraph down. For example, here’s an image without a caption:</p>
 <p><img src="../img/el-capitan-from-four-mile-trail.jpg" /></p>
@@ -515,13 +516,15 @@ It can have line breaks too. This should be a test of what happens when the marg
 <p>This project provides CSS files and a template for using Pandoc to generate standalone HTML files. It supports most features Pandoc Markdown has to offer, and some extras. The default look can be tweaked via CSS variables, and it does not need JavaScript, even for side notes.</p>
 <div class="wide extra-wide">
 <figure>
-<img src="../img/sugarloaf-hill-trail-april-june.jpg" alt="Sugarloaf Hill, San Mateo, CA. Left: April 2021, right: June 2021" /><figcaption aria-hidden="true">Sugarloaf Hill, San Mateo, CA. Left: April 2021, right: June 2021</figcaption>
+<img src="../img/sugarloaf-hill-trail-april-june.jpg" alt="Sugarloaf Hill, San Mateo, CA. Left: April 2021, right: June 2021" />
+<figcaption aria-hidden="true">Sugarloaf Hill, San Mateo, CA. Left: April 2021, right: June 2021</figcaption>
 </figure>
 </div>
 <p>This project provides CSS files and a template for using Pandoc to generate standalone HTML files. It supports most features Pandoc Markdown has to offer, and some extras. The default look can be tweaked via CSS variables, and it does not need JavaScript, even for side notes.</p>
 <div class="wide full-width left-align-caption">
 <figure>
-<img src="../img/upper-crystal-springs-reservoir-facing-northwest.jpg" alt="Upper Crystal Springs Reservoir, near Belmont, CA" /><figcaption aria-hidden="true">Upper Crystal Springs Reservoir, near Belmont, CA</figcaption>
+<img src="../img/upper-crystal-springs-reservoir-facing-northwest.jpg" alt="Upper Crystal Springs Reservoir, near Belmont, CA" />
+<figcaption aria-hidden="true">Upper Crystal Springs Reservoir, near Belmont, CA</figcaption>
 </figure>
 </div>
 <p>And some text after the extra wide image. There’s <strong>currently a bug</strong> making it so that this text isn’t as tight as text for non-extra-wide images because there’s an extra div around it. But maybe that’s actually a feature not a bug.</p>
@@ -929,7 +932,7 @@ Meanwhile, <code>wide</code> will expand past the right column when the center c
 </tr>
 </tbody>
 </table>
-<section class="footnotes" role="doc-endnotes">
+<section class="footnotes footnotes-end-of-document" role="doc-endnotes">
 <hr />
 <ol>
 <li id="fn1" role="doc-endnote"><p>Use a prefix of <code>{.}</code> to leave it as a footnote. Unfortunately, side notes and margin notes don’t share the same namespace. If you want to mix side notes and footnotes in the same document, you might want to use margin notes, so that there is only one kind of numbered note.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>

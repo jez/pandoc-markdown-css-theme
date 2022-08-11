@@ -9,22 +9,22 @@
   <title>Features</title>
   <link rel="stylesheet" href="../css/theme.css" />
   <link rel="stylesheet" href="../css/skylighting-solarized-theme.css" />
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.11.1/katex.min.js"></script>
+  <script defer="" src="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.js"></script>
   <script>document.addEventListener("DOMContentLoaded", function () {
-   var mathElements = document.getElementsByClassName("math");
-   var macros = [];
-   for (var i = 0; i < mathElements.length; i++) {
-    var texText = mathElements[i].firstChild;
-    if (mathElements[i].tagName == "SPAN") {
-     katex.render(texText.data, mathElements[i], {
-      displayMode: mathElements[i].classList.contains('display'),
-      throwOnError: false,
-      macros: macros,
-      fleqn: false
-     });
-  }}});
+ var mathElements = document.getElementsByClassName("math");
+ var macros = [];
+ for (var i = 0; i < mathElements.length; i++) {
+  var texText = mathElements[i].firstChild;
+  if (mathElements[i].tagName == "SPAN") {
+   katex.render(texText.data, mathElements[i], {
+    displayMode: mathElements[i].classList.contains('display'),
+    throwOnError: false,
+    macros: macros,
+    fleqn: false
+   });
+}}});
   </script>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.11.1/katex.min.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.css" />
 </head>
 <body>
 
@@ -44,27 +44,27 @@
     <strong>Contents</strong><label for="contents">⊕</label>
   <input type="checkbox" id="contents">
   <ul>
-  <li><a href="#document-metadata">Document metadata</a></li>
-  <li><a href="#assorted-prose-elements">Assorted prose elements</a></li>
-  <li><a href="#side-notes-and-margin-notes">Side notes and margin notes</a>
+  <li><a href="#document-metadata" id="toc-document-metadata">Document metadata</a></li>
+  <li><a href="#assorted-prose-elements" id="toc-assorted-prose-elements">Assorted prose elements</a></li>
+  <li><a href="#side-notes-and-margin-notes" id="toc-side-notes-and-margin-notes">Side notes and margin notes</a>
   <ul>
-  <li><a href="#choosing-a-side-note-anchor-spot">Choosing a side note anchor spot</a></li>
+  <li><a href="#choosing-a-side-note-anchor-spot" id="toc-choosing-a-side-note-anchor-spot">Choosing a side note anchor spot</a></li>
   </ul></li>
-  <li><a href="#code-blocks">Code blocks</a>
+  <li><a href="#code-blocks" id="toc-code-blocks">Code blocks</a>
   <ul>
-  <li><a href="#numbered-and-highlighted-lines">Numbered and highlighted lines</a>
+  <li><a href="#numbered-and-highlighted-lines" id="toc-numbered-and-highlighted-lines">Numbered and highlighted lines</a>
   <ul>
-  <li><a href="#line-highlight-limit">Line highlight limit</a></li>
+  <li><a href="#line-highlight-limit" id="toc-line-highlight-limit">Line highlight limit</a></li>
   </ul></li>
-  <li><a href="#tight-code-blocks">Tight code blocks</a></li>
+  <li><a href="#tight-code-blocks" id="toc-tight-code-blocks">Tight code blocks</a></li>
   </ul></li>
-  <li><a href="#math">Math</a></li>
-  <li><a href="#images-tables-and-captioned-code-blocks">Images, tables, and captioned code blocks</a></li>
-  <li><a href="#wide-extra-wide-and-full-width">Wide, extra-wide, and full-width</a></li>
-  <li><a href="#colored-note-callouts">Colored note callouts</a></li>
-  <li><a href="#table-of-contents">Table of contents</a></li>
-  <li><a href="#tweaking-the-css-variables">Tweaking the CSS variables</a></li>
-  <li><a href="#print-styles">Print styles</a></li>
+  <li><a href="#math" id="toc-math">Math</a></li>
+  <li><a href="#images-tables-and-captioned-code-blocks" id="toc-images-tables-and-captioned-code-blocks">Images, tables, and captioned code blocks</a></li>
+  <li><a href="#wide-extra-wide-and-full-width" id="toc-wide-extra-wide-and-full-width">Wide, extra-wide, and full-width</a></li>
+  <li><a href="#colored-note-callouts" id="toc-colored-note-callouts">Colored note callouts</a></li>
+  <li><a href="#table-of-contents" id="toc-table-of-contents">Table of contents</a></li>
+  <li><a href="#tweaking-the-css-variables" id="toc-tweaking-the-css-variables">Tweaking the CSS variables</a></li>
+  <li><a href="#print-styles" id="toc-print-styles">Print styles</a></li>
   </ul>
 </nav>
 
@@ -278,7 +278,8 @@ So is this: <span class="math inline">F = ma</span>.</p>
 <p>Pandoc Markdown has special syntax for images and tables, and their captions. For example:</p>
 <pre><code>![Sugarloaf Hill, San Mateo, CA, April 2021](../img/sugarloaf-hill-forest-green.jpg)</code></pre>
 <figure>
-<img src="../img/sugarloaf-hill-forest-green.jpg" alt="Sugarloaf Hill, San Mateo, CA, April 2021" /><figcaption aria-hidden="true">Sugarloaf Hill, San Mateo, CA, April 2021</figcaption>
+<img src="../img/sugarloaf-hill-forest-green.jpg" alt="Sugarloaf Hill, San Mateo, CA, April 2021" />
+<figcaption aria-hidden="true">Sugarloaf Hill, San Mateo, CA, April 2021</figcaption>
 </figure>
 <p>Note how the image’s <code>alt</code> text became the caption. With tables, the syntax is slightly different:</p>
 <table>
@@ -396,7 +397,8 @@ An example Gemfile
 </div>
 <div class="wide full-width left-align-caption">
 <figure>
-<img src="../img/upper-crystal-springs-reservoir-facing-northwest.jpg" alt="Upper Crystal Springs Reservoir, near Belmont, CA" /><figcaption aria-hidden="true">Upper Crystal Springs Reservoir, near Belmont, CA</figcaption>
+<img src="../img/upper-crystal-springs-reservoir-facing-northwest.jpg" alt="Upper Crystal Springs Reservoir, near Belmont, CA" />
+<figcaption aria-hidden="true">Upper Crystal Springs Reservoir, near Belmont, CA</figcaption>
 </figure>
 </div>
 <figure class="wide extra-wide">

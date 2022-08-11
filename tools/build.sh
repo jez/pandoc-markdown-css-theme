@@ -60,5 +60,6 @@ pandoc \
   --css="$css_rel_path/theme.css" \
   --css="$css_rel_path/skylighting-solarized-theme.css" \
   --toc \
+  --wrap=none \
   --output "$dest" \
   "$src"

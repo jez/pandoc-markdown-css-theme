@@ -183,7 +183,7 @@ body {
 }
 
 @media (prefers-color-scheme: dark) {
-  .only-light-mode: {
+  .only-light-mode {
     display: none;
   }
   .only-dark-mode {

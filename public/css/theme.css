@@ -211,7 +211,7 @@ body {
   color: var(--color-sidenote);
 }
 
-body {
+main {
   counter-reset: sidenote-counter;
 }
 

@@ -64,6 +64,7 @@
   <li><a href="#colored-note-callouts" id="toc-colored-note-callouts">Colored note callouts</a></li>
   <li><a href="#table-of-contents" id="toc-table-of-contents">Table of contents</a></li>
   <li><a href="#tweaking-the-css-variables" id="toc-tweaking-the-css-variables">Tweaking the CSS variables</a></li>
+  <li><a href="#automatic-light-and-dark-theme" id="toc-automatic-light-and-dark-theme">Automatic light and dark theme</a></li>
   <li><a href="#print-styles" id="toc-print-styles">Print styles</a></li>
   </ul>
 </nav>
@@ -520,6 +521,31 @@ Typing rules for System F, From PFPL Chapter 16
 </ul>
 <p>As an example, see the <a href="../tufte/">Kitchen Sink Tufte</a> page, which tweaks these CSS variables to approximate the look of <a href="https://edwardtufte.github.io/tufte-css/">Tufte CSS</a>.</p>
 <p>It’s also easy to change the syntax theme used for code highlights, because it lives in a separate file. The default theme is Solarized Light, which can be found in <a href="https://github.com/jez/pandoc-markdown-css-theme/blob/27d0aa58bfc6eafe296e2cef1900a39c9c2507a7/public/css/skylighting-solarized-theme.css#L1">skylighting-solarized-theme.css</a>.</p>
+<h1 id="automatic-light-and-dark-theme">Automatic light and dark theme</h1>
+<p>Pages will automatically choose light mode or dark mode styles based on the user’s preferences, detected via CSS <code>@media</code> queries.<span class="sidenote-wrapper"><label for="sn-4" class="margin-toggle sidenote-number"></label><input type="checkbox" id="sn-4" class="margin-toggle"/><span class="sidenote">At the moment, this means there is no way to programmatically toggle between light and dark mode except by toggling the OS or browser’s setting.<br />
+<br />
+</span></span></p>
+<p>You can also use the <code>.only-light-mode</code> and <code>.only-dark-mode</code> CSS classes to make something appear only in light or dark mode. One use case for this is with images. For example, here’s some Pandoc markdown using <a href="https://pandoc.org/MANUAL.html#extension-fenced_divs"><code>fenced_divs</code></a> that shows a light or dark mode version of an image:</p>
+<div class="sourceCode" id="cb26"><pre class="sourceCode numberSource markdown numberLines hl-1 hl-5"><code class="sourceCode markdown"><span id="cb26-1"><a href="#cb26-1"></a>:::{.only-light-mode}</span>
+<span id="cb26-2"><a href="#cb26-2"></a><span class="al">![The light-mode version of the image](../img/light-desktop.png)</span></span>
+<span id="cb26-3"><a href="#cb26-3"></a>:::</span>
+<span id="cb26-4"><a href="#cb26-4"></a></span>
+<span id="cb26-5"><a href="#cb26-5"></a>:::{.only-dark-mode}</span>
+<span id="cb26-6"><a href="#cb26-6"></a><span class="al">![The dark-mode version of the image](../img/dark-desktop.png)</span></span>
+<span id="cb26-7"><a href="#cb26-7"></a>:::</span></code></pre></div>
+<p>Only one of those divs will be rendered, depending on which theme is active. You can see the result below, and you can toggle your light or dark mode theme to see how the image updates:</p>
+<div class="only-light-mode">
+<figure>
+<img src="../img/light-desktop.png" alt="The light-mode version of the image" />
+<figcaption aria-hidden="true">The light-mode version of the image</figcaption>
+</figure>
+</div>
+<div class="only-dark-mode">
+<figure>
+<img src="../img/dark-desktop.png" alt="The dark-mode version of the image" />
+<figcaption aria-hidden="true">The dark-mode version of the image</figcaption>
+</figure>
+</div>
 <h1 id="print-styles">Print styles</h1>
 <p>As a reminder, this theme has custom print styles for U.S. Letter size paper. The print styles look similar to a somewhat narrow desktop screen, with enough room for a right margin with sidenotes, but not quite enough width to support the full 745px that the main body would normally take up. There is no large left margin, so the table of contents is shown at the top of the page (expanded).</p>
 <p>If print styles matter to you, take care to make sure that things don’t wrap. Some things like tables or math that would normally overflow and scroll on a screen will be clipped when printed. Always test your content before publishing.</p>

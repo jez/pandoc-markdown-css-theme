@@ -47,9 +47,15 @@ screen sizes, and in the margins on wide enough screens. Extra wide images,
 tables, and code blocks shrink when space isn't available. CSS `@media print`
 styles declare first-class print styles.
 
-:::{.wide .extra-wide}
+:::{.wide .extra-wide .only-light-mode}
 
-![Only right margin at tablet width, and no margins on mobile](img/mobile-responsive.png)
+![Only right margin at tablet width, and no margins on mobile](img/light-mobile-responsive.png)
+
+:::
+
+:::{.wide .extra-wide .only-dark-mode}
+
+![Only right margin at tablet width, and no margins on mobile](img/dark-mobile-responsive.png)
 
 :::
 

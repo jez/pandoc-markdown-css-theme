@@ -601,6 +601,44 @@ found in [skylighting-solarized-theme.css].
 
 [skylighting-solarized-theme.css]: https://github.com/jez/pandoc-markdown-css-theme/blob/27d0aa58bfc6eafe296e2cef1900a39c9c2507a7/public/css/skylighting-solarized-theme.css#L1
 
+# Automatic light and dark theme
+
+Pages will automatically choose light mode or dark mode styles based on the
+user's preferences, detected via CSS `@media` queries.[^media]
+
+You can also use the `.only-light-mode` and `.only-dark-mode` CSS classes to
+make something appear only in light or dark mode. One use case for this is with
+images. For example, here's some Pandoc markdown using [`fenced_divs`] that
+shows a light or dark mode version of an image:
+
+[`fenced_divs`]: https://pandoc.org/MANUAL.html#extension-fenced_divs
+
+```{.markdown .numberLines .hl-1 .hl-5}
+:::{.only-light-mode}
+![The light-mode version of the image](../img/light-desktop.png)
+:::
+
+:::{.only-dark-mode}
+![The dark-mode version of the image](../img/dark-desktop.png)
+:::
+```
+
+Only one of those divs will be rendered, depending on which theme is active. You
+can see the result below, and you can toggle your light or dark mode theme to
+see how the image updates:
+
+:::{.only-light-mode}
+![The light-mode version of the image](../img/light-desktop.png)
+:::
+
+:::{.only-dark-mode}
+![The dark-mode version of the image](../img/dark-desktop.png)
+:::
+
+[^media]:
+  At the moment, this means there is no way to programmatically toggle between
+  light and dark mode except by toggling the OS or browser's setting.
+
 # Print styles
 
 As a reminder, this theme has custom print styles for U.S. Letter size paper.

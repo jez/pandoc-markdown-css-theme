@@ -153,10 +153,8 @@ This text is ~~strikethrough~~.</code></pre>
 - [ ] Not done yet</code></pre>
 <blockquote>
 <ul class="task-list">
-<li><input type="checkbox" disabled="" checked="" />
-<em>Already done</em></li>
-<li><input type="checkbox" disabled="" />
-<em>Not done yet</em></li>
+<li><input type="checkbox" disabled="" checked="" /><em>Already done</em></li>
+<li><input type="checkbox" disabled="" /><em>Not done yet</em></li>
 </ul>
 </blockquote>
 <p>Pandoc renders task list checkboxes as disabled, so they can’t be clicked. This theme inserts a few lines of JavaScript to make them enabled in HTML but disabled with JavaScript because it is the easiest way to apply custom styles to checkboxes. If you prefer the <code>disabled</code> appearance or don’t want JavaScript, feel free to remove the <code>&lt;script&gt;</code> tag at the end of the theme template.</p>

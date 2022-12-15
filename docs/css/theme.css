@@ -868,7 +868,7 @@ nav#TOC > input:checked + ul {
 
     max-width: calc((100vw - var(--main-width)) / 2 - 2 * var(--line-height));
     max-height: calc(100vh - 2 * var(--line-height));
-    overflow-y: scroll;
+    overflow-y: auto;
   }
 
   nav#TOC label {
@@ -952,7 +952,7 @@ nav#TOC > input:checked + ul {
 
   .wide {
     width: 100%;
-    overflow-x: scroll;
+    overflow-x: auto;
   }
 
   .wide.extra-wide {
@@ -1007,7 +1007,7 @@ nav#TOC > input:checked + ul {
 
   .wide {
     width: 100%;
-    overflow-x: scroll;
+    overflow-x: auto;
     overflow-y: hidden;
   }
 
@@ -1073,7 +1073,7 @@ nav#TOC > input:checked + ul {
 
   .wide {
     width: var(--main-width);
-    overflow-x: scroll;
+    overflow-x: auto;
     overflow-y: hidden;
   }
 
@@ -1125,7 +1125,7 @@ nav#TOC > input:checked + ul {
 
   .wide {
     width: 100%;
-    overflow-x: scroll;
+    overflow-x: auto;
     overflow-y: hidden;
   }
 

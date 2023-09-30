@@ -737,6 +737,18 @@ table {
   background-color: var(--background-color);
 }
 
+thead, tbody {
+  vertical-align: top;
+}
+
+td > *:first-child {
+  margin-top: 0;
+}
+td > *:last-child {
+  margin-bottom: 0;
+}
+
+
 @media print {
   table {
     background-color: initial;

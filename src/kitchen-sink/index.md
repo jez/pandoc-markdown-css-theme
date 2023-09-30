@@ -709,3 +709,61 @@ This is a really wide column using pandoc's fancy tables.    This is narrow.
 |           |             |
 | ---       | ---         |
 | No header | Still works |
+
++----------------------------------------------------------+----------------------------------------------------------+
+| Column 1                                                 | Column 2                                                 |
++==========================================================+==========================================================+
+| This is some text                                        | These kinds of tables are called grid                    |
+|                                                          | tables. The nice thing is that you can make them         |
+| It spans multiple lines in one grid.                     | span multiple lines, at the cost of being                |
+|                                                          | annnoying to reformat.                                   |
+| ```ruby                                                  |                                                          |
+| puts("Hello, world!)                                     | - A list inside a table cell                             |
+| ```                                                      | - Another list item in the list                          |
+|                                                          |                                                          |
+| This table cell is considerably longer than the first,   |                                                          |
+| which is a test of whether we are properly vertically    |                                                          |
+| aligning the content in the second column. By default,   |                                                          |
+| it seems like Chrome (maybe all browsers?) vertically    |                                                          |
+| align table content to the middle.                       |                                                          |
++----------------------------------------------------------+----------------------------------------------------------+
+| This is some text                                        | These kinds of tables are called grid                    |
+|                                                          | tables. The nice thing is that you can make them         |
+| It spans multiple lines in one grid.                     | span multiple lines, at the cost of being                |
+|                                                          | annnoying to reformat.                                   |
+| ```ruby                                                  |                                                          |
+| puts("Hello, world!)                                     | - A list inside a table cell                             |
+| ```                                                      | - Another list item in the list                          |
++----------------------------------------------------------+----------------------------------------------------------+
+
+:::{.wide .extra-wide}
+
++----------------------------------------------------------+----------------------------------------------------------+
+| Column 1                                                 | Column 2                                                 |
++==========================================================+==========================================================+
+| This is some text                                        | These kinds of tables are called grid                    |
+|                                                          | tables. The nice thing is that you can make them         |
+| It spans multiple lines in one grid.                     | span multiple lines, at the cost of being                |
+|                                                          | annnoying to reformat.                                   |
+| ```ruby                                                  |                                                          |
+| puts("Hello, world!)                                     | - A list inside a table cell                             |
+| ```                                                      | - Another list item in the list                          |
+|                                                          |                                                          |
+| This table cell is considerably longer than the first,   |                                                          |
+| which is a test of whether we are properly vertically    |                                                          |
+| aligning the content in the second column. By default,   |                                                          |
+| it seems like Chrome (maybe all browsers?) vertically    |                                                          |
+| align table content to the middle.                       |                                                          |
++----------------------------------------------------------+----------------------------------------------------------+
+| This is some text                                        | These kinds of tables are called grid                    |
+|                                                          | tables. The nice thing is that you can make them         |
+| It spans multiple lines in one grid.                     | span multiple lines, at the cost of being                |
+|                                                          | annnoying to reformat.                                   |
+| ```ruby                                                  |                                                          |
+| puts("Hello, world!)                                     | - A list inside a table cell                             |
+| ```                                                      | - Another list item in the list                          |
++----------------------------------------------------------+----------------------------------------------------------+
+
+Table: A wide table with a caption.
+
+:::

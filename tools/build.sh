@@ -52,7 +52,7 @@ mkdir -p "$dest_dir"
 css_rel_path="$("$realpath" "docs/css/" --relative-to "$dest_dir")"
 
 pandoc \
-  --katex \
+  --katex="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/" \
   --from markdown+tex_math_single_backslash \
   --filter pandoc-sidenote \
   --to html5+smart \

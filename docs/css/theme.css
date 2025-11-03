@@ -528,11 +528,6 @@ pre > code {
   padding: 0 var(--code-block-side-padding);
 }
 
-code.sourceCode::selection {
-  /* Prevent bug where far right edge of text box shows as selected. */
-  background: transparent;
-}
-
 .wide > pre, .wide > div.sourceCode {
   /* Put this in front of the table of contents */
   transform: translateZ(0px);
@@ -550,7 +545,7 @@ pre > code.sourceCode > span {
   line-height: var(--line-height);
 
   display: inline-block;
-  min-width: 100%;
+  position: relative;
 }
 
 div.sourceCode {
@@ -568,8 +563,7 @@ pre.numberSource > code.sourceCode > span {
   counter-increment: source-line;
   padding-left: var(--line-numbers-width);
   text-indent: var(--line-numbers-negative-width);
-  position: relative;
-  left: var(--line-numbers-negative-width);
+  margin-left: var(--line-numbers-negative-width);
 }
 pre.numberSource > code.sourceCode > span > a:first-child::before {
   -webkit-touch-callout: none;
@@ -626,10 +620,14 @@ pre > code.sourceCode > span::after {
   position: absolute;
   background-color: var(--color-code-highlight-bg);
   z-index: -1;
-  left: calc(var(--line-numbers-width) - var(--code-block-side-padding));
-  right: calc(var(--line-numbers-negative-width) - var(--code-block-side-padding));
+  left: calc(-1 * var(--code-block-side-padding));
+  right: calc(-1 * var(--code-block-side-padding));
   top: 0;
   height: 100%;
+}
+
+pre.numberSource > code.sourceCode > span::after {
+  left: calc(var(--line-numbers-width) - var(--code-block-side-padding));
 }
 
 pre.hl-1  > code.sourceCode > span:nth-of-type(1)::after  { content: ""; }
@@ -672,6 +670,107 @@ pre.hl-37 > code.sourceCode > span:nth-of-type(37)::after { content: ""; }
 pre.hl-38 > code.sourceCode > span:nth-of-type(38)::after { content: ""; }
 pre.hl-39 > code.sourceCode > span:nth-of-type(39)::after { content: ""; }
 pre.hl-40 > code.sourceCode > span:nth-of-type(40)::after { content: ""; }
+
+/**
+ * The span needs to be at least as big as the enclosing code block, or else
+ * the ::after highlight will not be wide enough.
+ *
+ * Ideally, we would set this on all spans, regardless of whether it's got a
+ * highlight or not. But in Chrome, setting a min-width on an inline-block
+ * element makes Chrome think that the newline character is at the very end of
+ * the element. It's like Chrome puts empty space bewteen the last character of
+ * the line and the newline to get it up to the min-width, instead of putting
+ * that extra space after the newline.
+ *
+ * This is normally invisible, unless you're selecting text to copy it, in
+ * which case it's jarring to see Chrome selecting a newline character off in
+ * space. We want to minimize that so that it happens as little as possible.
+ * Namely, selecting code that does not have a background `.hl-*` will not show
+ * a weird floating newline.
+ *
+ * This seems to only affect Chrome, because only Chrome shows the newline as a
+ * part of the selection.
+ */
+pre.hl-1  > code.sourceCode > span:nth-of-type(1)  { min-width: 100%; }
+pre.hl-2  > code.sourceCode > span:nth-of-type(2)  { min-width: 100%; }
+pre.hl-3  > code.sourceCode > span:nth-of-type(3)  { min-width: 100%; }
+pre.hl-4  > code.sourceCode > span:nth-of-type(4)  { min-width: 100%; }
+pre.hl-5  > code.sourceCode > span:nth-of-type(5)  { min-width: 100%; }
+pre.hl-6  > code.sourceCode > span:nth-of-type(6)  { min-width: 100%; }
+pre.hl-7  > code.sourceCode > span:nth-of-type(7)  { min-width: 100%; }
+pre.hl-8  > code.sourceCode > span:nth-of-type(8)  { min-width: 100%; }
+pre.hl-9  > code.sourceCode > span:nth-of-type(9)  { min-width: 100%; }
+pre.hl-10 > code.sourceCode > span:nth-of-type(10) { min-width: 100%; }
+pre.hl-11 > code.sourceCode > span:nth-of-type(11) { min-width: 100%; }
+pre.hl-12 > code.sourceCode > span:nth-of-type(12) { min-width: 100%; }
+pre.hl-13 > code.sourceCode > span:nth-of-type(13) { min-width: 100%; }
+pre.hl-14 > code.sourceCode > span:nth-of-type(14) { min-width: 100%; }
+pre.hl-15 > code.sourceCode > span:nth-of-type(15) { min-width: 100%; }
+pre.hl-16 > code.sourceCode > span:nth-of-type(16) { min-width: 100%; }
+pre.hl-17 > code.sourceCode > span:nth-of-type(17) { min-width: 100%; }
+pre.hl-18 > code.sourceCode > span:nth-of-type(18) { min-width: 100%; }
+pre.hl-19 > code.sourceCode > span:nth-of-type(19) { min-width: 100%; }
+pre.hl-20 > code.sourceCode > span:nth-of-type(20) { min-width: 100%; }
+pre.hl-21 > code.sourceCode > span:nth-of-type(21) { min-width: 100%; }
+pre.hl-22 > code.sourceCode > span:nth-of-type(22) { min-width: 100%; }
+pre.hl-23 > code.sourceCode > span:nth-of-type(23) { min-width: 100%; }
+pre.hl-24 > code.sourceCode > span:nth-of-type(24) { min-width: 100%; }
+pre.hl-25 > code.sourceCode > span:nth-of-type(25) { min-width: 100%; }
+pre.hl-26 > code.sourceCode > span:nth-of-type(26) { min-width: 100%; }
+pre.hl-27 > code.sourceCode > span:nth-of-type(27) { min-width: 100%; }
+pre.hl-28 > code.sourceCode > span:nth-of-type(28) { min-width: 100%; }
+pre.hl-29 > code.sourceCode > span:nth-of-type(29) { min-width: 100%; }
+pre.hl-30 > code.sourceCode > span:nth-of-type(30) { min-width: 100%; }
+pre.hl-31 > code.sourceCode > span:nth-of-type(31) { min-width: 100%; }
+pre.hl-32 > code.sourceCode > span:nth-of-type(32) { min-width: 100%; }
+pre.hl-33 > code.sourceCode > span:nth-of-type(33) { min-width: 100%; }
+pre.hl-34 > code.sourceCode > span:nth-of-type(34) { min-width: 100%; }
+pre.hl-35 > code.sourceCode > span:nth-of-type(35) { min-width: 100%; }
+pre.hl-36 > code.sourceCode > span:nth-of-type(36) { min-width: 100%; }
+pre.hl-37 > code.sourceCode > span:nth-of-type(37) { min-width: 100%; }
+pre.hl-38 > code.sourceCode > span:nth-of-type(38) { min-width: 100%; }
+pre.hl-39 > code.sourceCode > span:nth-of-type(39) { min-width: 100%; }
+pre.hl-40 > code.sourceCode > span:nth-of-type(40) { min-width: 100%; }
+pre.numberSource.hl-1  > code.sourceCode > span:nth-of-type(1)  { min-width: calc(100% + var(--line-numbers-width)); }
+pre.numberSource.hl-2  > code.sourceCode > span:nth-of-type(2)  { min-width: calc(100% + var(--line-numbers-width)); }
+pre.numberSource.hl-3  > code.sourceCode > span:nth-of-type(3)  { min-width: calc(100% + var(--line-numbers-width)); }
+pre.numberSource.hl-4  > code.sourceCode > span:nth-of-type(4)  { min-width: calc(100% + var(--line-numbers-width)); }
+pre.numberSource.hl-5  > code.sourceCode > span:nth-of-type(5)  { min-width: calc(100% + var(--line-numbers-width)); }
+pre.numberSource.hl-6  > code.sourceCode > span:nth-of-type(6)  { min-width: calc(100% + var(--line-numbers-width)); }
+pre.numberSource.hl-7  > code.sourceCode > span:nth-of-type(7)  { min-width: calc(100% + var(--line-numbers-width)); }
+pre.numberSource.hl-8  > code.sourceCode > span:nth-of-type(8)  { min-width: calc(100% + var(--line-numbers-width)); }
+pre.numberSource.hl-9  > code.sourceCode > span:nth-of-type(9)  { min-width: calc(100% + var(--line-numbers-width)); }
+pre.numberSource.hl-10 > code.sourceCode > span:nth-of-type(10) { min-width: calc(100% + var(--line-numbers-width)); }
+pre.numberSource.hl-11 > code.sourceCode > span:nth-of-type(11) { min-width: calc(100% + var(--line-numbers-width)); }
+pre.numberSource.hl-12 > code.sourceCode > span:nth-of-type(12) { min-width: calc(100% + var(--line-numbers-width)); }
+pre.numberSource.hl-13 > code.sourceCode > span:nth-of-type(13) { min-width: calc(100% + var(--line-numbers-width)); }
+pre.numberSource.hl-14 > code.sourceCode > span:nth-of-type(14) { min-width: calc(100% + var(--line-numbers-width)); }
+pre.numberSource.hl-15 > code.sourceCode > span:nth-of-type(15) { min-width: calc(100% + var(--line-numbers-width)); }
+pre.numberSource.hl-16 > code.sourceCode > span:nth-of-type(16) { min-width: calc(100% + var(--line-numbers-width)); }
+pre.numberSource.hl-17 > code.sourceCode > span:nth-of-type(17) { min-width: calc(100% + var(--line-numbers-width)); }
+pre.numberSource.hl-18 > code.sourceCode > span:nth-of-type(18) { min-width: calc(100% + var(--line-numbers-width)); }
+pre.numberSource.hl-19 > code.sourceCode > span:nth-of-type(19) { min-width: calc(100% + var(--line-numbers-width)); }
+pre.numberSource.hl-20 > code.sourceCode > span:nth-of-type(20) { min-width: calc(100% + var(--line-numbers-width)); }
+pre.numberSource.hl-21 > code.sourceCode > span:nth-of-type(21) { min-width: calc(100% + var(--line-numbers-width)); }
+pre.numberSource.hl-22 > code.sourceCode > span:nth-of-type(22) { min-width: calc(100% + var(--line-numbers-width)); }
+pre.numberSource.hl-23 > code.sourceCode > span:nth-of-type(23) { min-width: calc(100% + var(--line-numbers-width)); }
+pre.numberSource.hl-24 > code.sourceCode > span:nth-of-type(24) { min-width: calc(100% + var(--line-numbers-width)); }
+pre.numberSource.hl-25 > code.sourceCode > span:nth-of-type(25) { min-width: calc(100% + var(--line-numbers-width)); }
+pre.numberSource.hl-26 > code.sourceCode > span:nth-of-type(26) { min-width: calc(100% + var(--line-numbers-width)); }
+pre.numberSource.hl-27 > code.sourceCode > span:nth-of-type(27) { min-width: calc(100% + var(--line-numbers-width)); }
+pre.numberSource.hl-28 > code.sourceCode > span:nth-of-type(28) { min-width: calc(100% + var(--line-numbers-width)); }
+pre.numberSource.hl-29 > code.sourceCode > span:nth-of-type(29) { min-width: calc(100% + var(--line-numbers-width)); }
+pre.numberSource.hl-30 > code.sourceCode > span:nth-of-type(30) { min-width: calc(100% + var(--line-numbers-width)); }
+pre.numberSource.hl-31 > code.sourceCode > span:nth-of-type(31) { min-width: calc(100% + var(--line-numbers-width)); }
+pre.numberSource.hl-32 > code.sourceCode > span:nth-of-type(32) { min-width: calc(100% + var(--line-numbers-width)); }
+pre.numberSource.hl-33 > code.sourceCode > span:nth-of-type(33) { min-width: calc(100% + var(--line-numbers-width)); }
+pre.numberSource.hl-34 > code.sourceCode > span:nth-of-type(34) { min-width: calc(100% + var(--line-numbers-width)); }
+pre.numberSource.hl-35 > code.sourceCode > span:nth-of-type(35) { min-width: calc(100% + var(--line-numbers-width)); }
+pre.numberSource.hl-36 > code.sourceCode > span:nth-of-type(36) { min-width: calc(100% + var(--line-numbers-width)); }
+pre.numberSource.hl-37 > code.sourceCode > span:nth-of-type(37) { min-width: calc(100% + var(--line-numbers-width)); }
+pre.numberSource.hl-38 > code.sourceCode > span:nth-of-type(38) { min-width: calc(100% + var(--line-numbers-width)); }
+pre.numberSource.hl-39 > code.sourceCode > span:nth-of-type(39) { min-width: calc(100% + var(--line-numbers-width)); }
+pre.numberSource.hl-40 > code.sourceCode > span:nth-of-type(40) { min-width: calc(100% + var(--line-numbers-width)); }
 
 /* }}} */
 

@@ -161,8 +161,8 @@ This text is ~~strikethrough~~.</code></pre>
 <p>Pandoc renders task list checkboxes as disabled, so they can’t be clicked. This theme inserts a few lines of JavaScript to make them enabled in HTML but disabled with JavaScript because it is the easiest way to apply custom styles to checkboxes. If you prefer the <code>disabled</code> appearance or don’t want JavaScript, feel free to remove the <code>&lt;script&gt;</code> tag at the end of the theme template.</p>
 <h1 id="side-notes-and-margin-notes">Side notes and margin notes</h1>
 <p>Side notes and margin notes work very similarly to how they work in <a href="https://edwardtufte.github.io/tufte-css/">Tufte CSS</a>, but made easier to use in Markdown with the <a href="https://github.com/jez/pandoc-sidenote"><code>pandoc-sidenote</code></a> Pandoc filter.</p>
-<p>To get started, install <code>pandoc-sidenote</code> and pass <code>--filter pandoc-sidenote</code> when invoking Pandoc, like the <a href="https://github.com/jez/pandoc-markdown-css-theme/blob/27d0aa58bfc6eafe296e2cef1900a39c9c2507a7/tools/build.sh#L57">Makefile</a> for this project does:</p>
-<pre><code>pandoc --filter pandoc-sidenote [...]</code></pre>
+<p>To get started, install <code>pandoc-sidenote</code> and pass <code>--lua-filter pandoc-sidenote.lua</code> when invoking Pandoc, like the <a href="https://github.com/jez/pandoc-markdown-css-theme/blob/27d0aa58bfc6eafe296e2cef1900a39c9c2507a7/tools/build.sh#L57">Makefile</a> for this project does:</p>
+<pre><code>pandoc --lua-filter pandoc-sidenote.lua [...]</code></pre>
 <p>With this filter active, the syntax for footnotes becomes the syntax for side notes and margin notes (specifically, it is no longer possible for the document to use footnotes).</p>
 <pre><code>For example this is a side note[^example-side-note]. Side notes
 are numbered, and the number shows at the anchor point in the

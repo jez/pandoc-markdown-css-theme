@@ -120,11 +120,12 @@ feel free to remove the `<script>` tag at the end of the theme template.
 Side notes and margin notes work very similarly to how they work in [Tufte CSS],
 but made easier to use in Markdown with the [`pandoc-sidenote`] Pandoc filter.
 
-To get started, install `pandoc-sidenote` and pass `--filter pandoc-sidenote`
-when invoking Pandoc, like the [Makefile] for this project does:
+To get started, install `pandoc-sidenote` and pass `--lua-filter
+pandoc-sidenote.lua` when invoking Pandoc, like the [Makefile] for this project
+does:
 
 ```
-pandoc --filter pandoc-sidenote [...]
+pandoc --lua-filter pandoc-sidenote.lua [...]
 ```
 
 With this filter active, the syntax for footnotes becomes the syntax for side

@@ -115,8 +115,10 @@ installation is as easy as:
 
 ```{.numberLines}
 brew install pandoc coreutils
-brew tap jez/formulae
-brew install pandoc-sidenote
+
+curl --remote-name --no-clobber --create-dirs \
+  --output-dir "${XDG_DATA_DIR:-$HOME/.local/share/}/pandoc/filters" \
+  -sSL "https://github.com/jez/pandoc-sidenote/raw/refs/heads/master/pandoc-sidenote.lua"
 ```
 
 Then you can clone this project and run `make watch`:

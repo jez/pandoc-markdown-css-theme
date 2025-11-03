@@ -120,8 +120,10 @@
 </ul>
 <p>Follow the installation instructions for your platform. If you’re using macOS, installation is as easy as:</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode numberSource numberLines"><code class="sourceCode"><span id="cb1-1"><a href="#cb1-1"></a>brew install pandoc coreutils</span>
-<span id="cb1-2"><a href="#cb1-2"></a>brew tap jez/formulae</span>
-<span id="cb1-3"><a href="#cb1-3"></a>brew install pandoc-sidenote</span></code></pre></div>
+<span id="cb1-2"><a href="#cb1-2"></a></span>
+<span id="cb1-3"><a href="#cb1-3"></a>curl --remote-name --no-clobber --create-dirs \</span>
+<span id="cb1-4"><a href="#cb1-4"></a>  --output-dir &quot;${XDG_DATA_DIR:-$HOME/.local/share/}/pandoc/filters&quot; \</span>
+<span id="cb1-5"><a href="#cb1-5"></a>  -sSL &quot;https://github.com/jez/pandoc-sidenote/raw/refs/heads/master/pandoc-sidenote.lua&quot;</span></code></pre></div>
 <p>Then you can clone this project and run <code>make watch</code>:</p>
 <div class="sourceCode" id="cb2"><pre class="sourceCode numberSource bash numberLines hl-7 hl-10"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1"></a><span class="fu">git</span> clone https://github.com/jez/pandoc-markdown-css-theme</span>
 <span id="cb2-2"><a href="#cb2-2"></a><span class="bu">cd</span> pandoc-markdown-css-theme</span>

@@ -260,13 +260,15 @@ Next line</li>
 </ol>
 <p>This is some body text between lists. This project provides CSS files and a template for using Pandoc to generate standalone HTML files. It supports most features Pandoc Markdown has to offer, and some extras.</p>
 <ul class="task-list">
-<li><input type="checkbox" disabled="" />Line starts with a short bullet point<ul class="task-list">
-<li><input type="checkbox" disabled="" />First line<br />
-Next line</li>
+<li><label><input type="checkbox" />Line starts with a short bullet point</label>
+<ul class="task-list">
+<li><label><input type="checkbox" />First line<br />
+Next line</label></li>
 </ul></li>
-<li><input type="checkbox" disabled="" checked="" />Line starts with a short bullet point<ul class="task-list">
-<li><input type="checkbox" disabled="" checked="" />First line, <strong>checklists are different by browser, even on same OS</strong><br />
-Next line</li>
+<li><label><input type="checkbox" checked="" />Line starts with a short bullet point</label>
+<ul class="task-list">
+<li><label><input type="checkbox" checked="" />First line, <strong>checklists are different by browser, even on same OS</strong><br />
+Next line</label></li>
 </ul></li>
 </ul>
 <p>This is some body text between lists. This project provides CSS files and a template for using Pandoc to generate standalone HTML files.</p>
@@ -275,10 +277,10 @@ Next line</li>
 </ul>
 <!-- force break -->
 <ul class="task-list">
-<li><input type="checkbox" disabled="" />First is unchecked<br />
-Next line</li>
-<li><input type="checkbox" disabled="" checked="" />Last is checked<br />
-</li>
+<li><label><input type="checkbox" />First is unchecked<br />
+Next line</label></li>
+<li><label><input type="checkbox" checked="" />Last is checked<br />
+</label></li>
 </ul>
 <!-- force break -->
 <ol type="1">
@@ -320,10 +322,10 @@ Next line</li>
 <div class="sourceCode" id="cb1"><pre class="sourceCode numberSource ruby numberLines hl-7 hl-8 hl-9 hl-10"><code class="sourceCode ruby"><span id="cb1-1"><a href="#cb1-1"></a><span class="co"># typed: true</span></span>
 <span id="cb1-2"><a href="#cb1-2"></a><span class="fu">require</span> <span class="vs">&#39;sorbet-runtime&#39;</span></span>
 <span id="cb1-3"><a href="#cb1-3"></a></span>
-<span id="cb1-4"><a href="#cb1-4"></a><span class="cf">class</span> A</span>
-<span id="cb1-5"><a href="#cb1-5"></a>  <span class="fu">extend</span> T<span class="kw">::</span><span class="dt">Sig</span></span>
+<span id="cb1-4"><a href="#cb1-4"></a><span class="cf">class</span> <span class="cn">A</span></span>
+<span id="cb1-5"><a href="#cb1-5"></a>  <span class="fu">extend</span> <span class="cn">T</span><span class="op">::</span><span class="dt">Sig</span></span>
 <span id="cb1-6"><a href="#cb1-6"></a></span>
-<span id="cb1-7"><a href="#cb1-7"></a>  sig <span class="kw">{</span>void<span class="kw">}</span></span>
+<span id="cb1-7"><a href="#cb1-7"></a>  sig <span class="op">{</span>void<span class="op">}</span></span>
 <span id="cb1-8"><a href="#cb1-8"></a>  <span class="cf">def</span> <span class="dv">self</span><span class="at">.main</span></span>
 <span id="cb1-9"><a href="#cb1-9"></a>    <span class="fu">puts</span> <span class="st">&quot;Hello, world!&quot;</span></span>
 <span id="cb1-10"><a href="#cb1-10"></a>  <span class="cf">end</span></span>
@@ -425,7 +427,7 @@ Followed by normal text again</p>
 <div class="note red">
 <table>
 <tbody>
-<tr class="odd">
+<tr>
 <td>🛑 Look before you leap!</td>
 </tr>
 </tbody>
@@ -434,7 +436,7 @@ Followed by normal text again</p>
 <div class="note yellow">
 <table>
 <tbody>
-<tr class="odd">
+<tr>
 <td>⚠️ This is a warning!</td>
 </tr>
 </tbody>
@@ -447,7 +449,7 @@ Followed by normal text again</p>
 <col style="width: 100%" />
 </colgroup>
 <tbody>
-<tr class="odd">
+<tr>
 <td>✅ Success! The deed is now done.<br><br>Feel free to retry whatever it is you were trying to do.</td>
 </tr>
 </tbody>
@@ -456,7 +458,7 @@ Followed by normal text again</p>
 <div class="note blue">
 <table>
 <tbody>
-<tr class="odd">
+<tr>
 <td>ℹ️ Consecutive notes are like consecutive tables.</td>
 </tr>
 </tbody>
@@ -465,7 +467,7 @@ Followed by normal text again</p>
 <div class="note purple">
 <table>
 <tbody>
-<tr class="odd">
+<tr>
 <td>🔮 Can you see into the future?</td>
 </tr>
 </tbody>
@@ -525,17 +527,17 @@ It can have line breaks too. This should be a test of what happens when the marg
 <h1 id="tables">Tables</h1>
 <table>
 <thead>
-<tr class="header">
+<tr>
 <th><strong>Column 1</strong></th>
 <th><strong>Column 2</strong></th>
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
+<tr>
 <td>This is <code>some</code> text.</td>
 <td>This is some text.</td>
 </tr>
-<tr class="even">
+<tr>
 <td>This is some text.</td>
 <td>This is some text.</td>
 </tr>
@@ -543,17 +545,17 @@ It can have line breaks too. This should be a test of what happens when the marg
 </table>
 <table>
 <thead>
-<tr class="header">
+<tr>
 <th><strong>Column 1</strong></th>
 <th><strong>Column 2</strong></th>
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
+<tr>
 <td>This is some text.</td>
 <td>This is some text.</td>
 </tr>
-<tr class="even">
+<tr>
 <td>This is some text.</td>
 <td>This is some text.</td>
 </tr>
@@ -566,17 +568,17 @@ It can have line breaks too. This should be a test of what happens when the marg
 <col style="width: 27%" />
 </colgroup>
 <thead>
-<tr class="header">
+<tr>
 <th style="text-align: left;">Column 1</th>
 <th style="text-align: left;">Column 2</th>
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
+<tr>
 <td style="text-align: left;">This is some text.</td>
 <td style="text-align: left;">This is some text.</td>
 </tr>
-<tr class="even">
+<tr>
 <td style="text-align: left;">This is some text.</td>
 <td style="text-align: left;">This is some text.</td>
 </tr>
@@ -585,17 +587,17 @@ It can have line breaks too. This should be a test of what happens when the marg
 <table>
 <caption>This table has a caption.</caption>
 <thead>
-<tr class="header">
+<tr>
 <th><strong>Column 1</strong></th>
 <th><strong>Column 2</strong></th>
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
+<tr>
 <td>This is some text.</td>
 <td>This is some text.</td>
 </tr>
-<tr class="even">
+<tr>
 <td>This is some text.</td>
 <td>This is some text.</td>
 </tr>
@@ -615,7 +617,7 @@ Meanwhile, <code>wide</code> will expand past the right column when the center c
 <col style="width: 20%" />
 </colgroup>
 <thead>
-<tr class="header">
+<tr>
 <th><strong>Column 1</strong></th>
 <th><strong>Column 2</strong></th>
 <th><strong>Column 3</strong></th>
@@ -624,14 +626,14 @@ Meanwhile, <code>wide</code> will expand past the right column when the center c
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
+<tr>
 <td>This is some text. This is some text.</td>
 <td>This is some text. This is some text.</td>
 <td>This is some text. This is some text.</td>
 <td>This is some text. This is some text.</td>
 <td>This is some text. This is some text.</td>
 </tr>
-<tr class="even">
+<tr>
 <td>This is some text. This is some text.</td>
 <td>This is some text. This is some text.</td>
 <td>This is some text. This is some text.</td>
@@ -657,7 +659,7 @@ Meanwhile, <code>wide</code> will expand past the right column when the center c
 <col style="width: 10%" />
 </colgroup>
 <thead>
-<tr class="header">
+<tr>
 <th><strong>Column 1</strong></th>
 <th><strong>Column 2</strong></th>
 <th><strong>Column 3</strong></th>
@@ -671,7 +673,7 @@ Meanwhile, <code>wide</code> will expand past the right column when the center c
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
+<tr>
 <td>This is some text.</td>
 <td>This is some text.</td>
 <td>This is some text.</td>
@@ -683,7 +685,7 @@ Meanwhile, <code>wide</code> will expand past the right column when the center c
 <td>This is some text.</td>
 <td>This is some text.</td>
 </tr>
-<tr class="even">
+<tr>
 <td>This is some text.</td>
 <td>This is some text.</td>
 <td>This is some text.</td>
@@ -724,7 +726,7 @@ Meanwhile, <code>wide</code> will expand past the right column when the center c
 <col style="width: 4%" />
 </colgroup>
 <thead>
-<tr class="header">
+<tr>
 <th><strong>Column 1</strong></th>
 <th><strong>Column 2</strong></th>
 <th><strong>Column 3</strong></th>
@@ -748,7 +750,7 @@ Meanwhile, <code>wide</code> will expand past the right column when the center c
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
+<tr>
 <td>This is some text.</td>
 <td>This is some text.</td>
 <td>This is some text.</td>
@@ -770,7 +772,7 @@ Meanwhile, <code>wide</code> will expand past the right column when the center c
 <td>This is some text.</td>
 <td>This is some text.</td>
 </tr>
-<tr class="even">
+<tr>
 <td>This is some text.</td>
 <td>This is some text.</td>
 <td>This is some text.</td>
@@ -821,7 +823,7 @@ Meanwhile, <code>wide</code> will expand past the right column when the center c
 <col style="width: 4%" />
 </colgroup>
 <thead>
-<tr class="header">
+<tr>
 <th><strong>Column 1</strong></th>
 <th><strong>Column 2</strong></th>
 <th><strong>Column 3</strong></th>
@@ -845,7 +847,7 @@ Meanwhile, <code>wide</code> will expand past the right column when the center c
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
+<tr>
 <td>This is some text.</td>
 <td>This is some text.</td>
 <td>This is some text.</td>
@@ -867,7 +869,7 @@ Meanwhile, <code>wide</code> will expand past the right column when the center c
 <td>This is some text.</td>
 <td>This is some text.</td>
 </tr>
-<tr class="even">
+<tr>
 <td>This is some text.</td>
 <td>This is some text.</td>
 <td>This is some text.</td>
@@ -901,17 +903,17 @@ Meanwhile, <code>wide</code> will expand past the right column when the center c
 <col style="width: 25%" />
 </colgroup>
 <thead>
-<tr class="header">
+<tr>
 <th style="text-align: left;">Column 1</th>
 <th style="text-align: left;">Column 2</th>
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
+<tr>
 <td style="text-align: left;">This is a really wide column using pandoc’s fancy tables.</td>
 <td style="text-align: left;">This is narrow.</td>
 </tr>
-<tr class="even">
+<tr>
 <td style="text-align: left;">This is a really wide column using pandoc’s fancy tables.</td>
 <td style="text-align: left;">This is narrow.</td>
 </tr>
@@ -920,7 +922,7 @@ Meanwhile, <code>wide</code> will expand past the right column when the center c
 </div>
 <table>
 <tbody>
-<tr class="odd">
+<tr>
 <td>No header</td>
 <td>Still works</td>
 </tr>
@@ -932,13 +934,13 @@ Meanwhile, <code>wide</code> will expand past the right column when the center c
 <col style="width: 50%" />
 </colgroup>
 <thead>
-<tr class="header">
+<tr>
 <th>Column 1</th>
 <th>Column 2</th>
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
+<tr>
 <td><p>This is some text</p>
 <p>It spans multiple lines in one grid.</p>
 <div class="sourceCode" id="cb11"><pre class="sourceCode ruby"><code class="sourceCode ruby"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">puts</span>(<span class="st">&quot;Hello, world!)</span></span></code></pre></div>
@@ -949,7 +951,7 @@ Meanwhile, <code>wide</code> will expand past the right column when the center c
 <li>Another list item in the list</li>
 </ul></td>
 </tr>
-<tr class="even">
+<tr>
 <td><p>This is some text</p>
 <p>It spans multiple lines in one grid.</p>
 <div class="sourceCode" id="cb12"><pre class="sourceCode ruby"><code class="sourceCode ruby"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">puts</span>(<span class="st">&quot;Hello, world!)</span></span></code></pre></div></td>
@@ -969,13 +971,13 @@ Meanwhile, <code>wide</code> will expand past the right column when the center c
 <col style="width: 50%" />
 </colgroup>
 <thead>
-<tr class="header">
+<tr>
 <th>Column 1</th>
 <th>Column 2</th>
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
+<tr>
 <td><p>This is some text</p>
 <p>It spans multiple lines in one grid.</p>
 <div class="sourceCode" id="cb13"><pre class="sourceCode ruby"><code class="sourceCode ruby"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">puts</span>(<span class="st">&quot;Hello, world!)</span></span></code></pre></div>
@@ -986,7 +988,7 @@ Meanwhile, <code>wide</code> will expand past the right column when the center c
 <li>Another list item in the list</li>
 </ul></td>
 </tr>
-<tr class="even">
+<tr>
 <td><p>This is some text</p>
 <p>It spans multiple lines in one grid.</p>
 <div class="sourceCode" id="cb14"><pre class="sourceCode ruby"><code class="sourceCode ruby"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">puts</span>(<span class="st">&quot;Hello, world!)</span></span></code></pre></div></td>

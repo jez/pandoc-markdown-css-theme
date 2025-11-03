@@ -154,8 +154,8 @@ This text is ~~strikethrough~~.</code></pre>
 - [ ] Not done yet</code></pre>
 <blockquote>
 <ul class="task-list">
-<li><input type="checkbox" disabled="" checked="" /><em>Already done</em></li>
-<li><input type="checkbox" disabled="" /><em>Not done yet</em></li>
+<li><label><input type="checkbox" checked="" /><em>Already done</em></label></li>
+<li><label><input type="checkbox" /><em>Not done yet</em></label></li>
 </ul>
 </blockquote>
 <p>Pandoc renders task list checkboxes as disabled, so they can’t be clicked. This theme inserts a few lines of JavaScript to make them enabled in HTML but disabled with JavaScript because it is the easiest way to apply custom styles to checkboxes. If you prefer the <code>disabled</code> appearance or don’t want JavaScript, feel free to remove the <code>&lt;script&gt;</code> tag at the end of the theme template.</p>
@@ -284,32 +284,32 @@ So is this: <span class="math inline">F = ma</span>.</p>
 <table>
 <caption>This is the caption.</caption>
 <thead>
-<tr class="header">
+<tr>
 <th><strong>Column 1</strong></th>
 <th><strong>Column 2</strong></th>
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
+<tr>
 <td>This is some text.</td>
 <td>This is some text.</td>
 </tr>
-<tr class="even">
+<tr>
 <td>This is some text.</td>
 <td>This is some text.</td>
 </tr>
 </tbody>
 </table>
 <p>On top of the syntax Pandoc Markdown provides, this theme supports attaching captions to code blocks by wrapping the code block in a <code>&lt;figure&gt;</code> tag.</p>
-<div class="sourceCode" id="cb20"><pre class="sourceCode numberSource html numberLines hl-1 hl-8 hl-9"><code class="sourceCode html"><span id="cb20-1"><a href="#cb20-1"></a><span class="kw">&lt;figure&gt;</span></span>
+<div class="sourceCode" id="cb20"><pre class="sourceCode numberSource html numberLines hl-1 hl-8 hl-9"><code class="sourceCode html"><span id="cb20-1"><a href="#cb20-1"></a><span class="dt">&lt;</span><span class="kw">figure</span><span class="dt">&gt;</span></span>
 <span id="cb20-2"><a href="#cb20-2"></a>```ruby</span>
 <span id="cb20-3"><a href="#cb20-3"></a>source &#39;https://rubygems.org&#39;</span>
 <span id="cb20-4"><a href="#cb20-4"></a></span>
 <span id="cb20-5"><a href="#cb20-5"></a>gem &#39;sorbet&#39;</span>
 <span id="cb20-6"><a href="#cb20-6"></a>gem &#39;sorbet-runtime&#39;</span>
 <span id="cb20-7"><a href="#cb20-7"></a>```</span>
-<span id="cb20-8"><a href="#cb20-8"></a><span class="kw">&lt;figcaption&gt;</span>An example Gemfile<span class="kw">&lt;/figcaption&gt;</span></span>
-<span id="cb20-9"><a href="#cb20-9"></a><span class="kw">&lt;/figure&gt;</span></span></code></pre></div>
+<span id="cb20-8"><a href="#cb20-8"></a><span class="dt">&lt;</span><span class="kw">figcaption</span><span class="dt">&gt;</span>An example Gemfile<span class="dt">&lt;/</span><span class="kw">figcaption</span><span class="dt">&gt;</span></span>
+<span id="cb20-9"><a href="#cb20-9"></a><span class="dt">&lt;/</span><span class="kw">figure</span><span class="dt">&gt;</span></span></code></pre></div>
 <figure>
 <div class="sourceCode" id="cb21"><pre class="sourceCode ruby"><code class="sourceCode ruby"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>source <span class="vs">&#39;https://rubygems.org&#39;</span></span>
 <span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a></span>
@@ -359,7 +359,7 @@ An example Gemfile
 <col style="width: 12%" />
 </colgroup>
 <thead>
-<tr class="header">
+<tr>
 <th><strong>Column 1</strong></th>
 <th><strong>Column 2</strong></th>
 <th><strong>Column 3</strong></th>
@@ -371,7 +371,7 @@ An example Gemfile
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
+<tr>
 <td>This is some text.</td>
 <td>This is some text.</td>
 <td>This is some text.</td>
@@ -381,7 +381,7 @@ An example Gemfile
 <td>This is some text.</td>
 <td>This is some text.</td>
 </tr>
-<tr class="even">
+<tr>
 <td>This is some text.</td>
 <td>This is some text.</td>
 <td>This is some text.</td>
@@ -443,7 +443,7 @@ Typing rules for System F, From PFPL Chapter 16
 <col style="width: 100%" />
 </colgroup>
 <tbody>
-<tr class="odd">
+<tr>
 <td>ℹ️ You probably want to wrap all math and tables in <code>.wide</code> unless they’re less than ~300px. It will never display wider than the main body, but the <code>overflow-x</code> property on <code>.wide</code> ensures that it scrolls just the figure, not the whole page body.</td>
 </tr>
 </tbody>
@@ -459,7 +459,7 @@ Typing rules for System F, From PFPL Chapter 16
 <div class="note blue">
 <table>
 <tbody>
-<tr class="odd">
+<tr>
 <td>ℹ️ This is a note.</td>
 </tr>
 </tbody>
@@ -470,7 +470,7 @@ Typing rules for System F, From PFPL Chapter 16
 <div class="note red">
 <table>
 <tbody>
-<tr class="odd">
+<tr>
 <td>🛑 Don’t do it!</td>
 </tr>
 </tbody>
@@ -479,7 +479,7 @@ Typing rules for System F, From PFPL Chapter 16
 <div class="note yellow">
 <table>
 <tbody>
-<tr class="odd">
+<tr>
 <td>☢️ Warning!</td>
 </tr>
 </tbody>
@@ -488,7 +488,7 @@ Typing rules for System F, From PFPL Chapter 16
 <div class="note green">
 <table>
 <tbody>
-<tr class="odd">
+<tr>
 <td>✅ Nice job!</td>
 </tr>
 </tbody>
@@ -497,7 +497,7 @@ Typing rules for System F, From PFPL Chapter 16
 <div class="note purple">
 <table>
 <tbody>
-<tr class="odd">
+<tr>
 <td>🔮 Can you see the future?</td>
 </tr>
 </tbody>

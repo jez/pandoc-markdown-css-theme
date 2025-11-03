@@ -54,7 +54,7 @@ css_rel_path="$("$realpath" "docs/css/" --relative-to "$dest_dir")"
 pandoc \
   --katex="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/" \
   --from markdown+tex_math_single_backslash \
-  --filter pandoc-sidenote \
+  --lua-filter pandoc-sidenote.lua \
   --to html5+smart \
   --template=template \
   --css="$css_rel_path/theme.css" \

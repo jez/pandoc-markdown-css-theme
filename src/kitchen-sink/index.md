@@ -411,6 +411,25 @@ L
 +Just kidding, this is the actual last line of the file.
 ```
 
+```{.hl-2}
+This code block has no syntax highlighting and therefore,
+line highlights cannot be used,
+because the line-by-line spans will not get inserted by pandoc.
+```
+
+```{.plaintext .hl-2}
+Because pandoc does not recognize languages like plain or plaintext,
+you can't even use that trick to get the spans to get inserted.
+Thus if you want no syntax highlighting and line highlights,
+the only option is to turn on line numbers with `.numberLines`
+```
+
+```{.ruby .hl-2}
+def example
+  puts("this line is highlighted, even without .numberLines")
+end
+```
+
 # Block quotes
 
 > Block quote, right under heading.

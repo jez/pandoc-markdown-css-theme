@@ -89,7 +89,7 @@ background on the techniques used.
 # Usage
 
 This project merely provides a CSS files and a standalone HTML template to give
-to Pandoc.  The imporant files that you might want to copy out to start your own
+to Pandoc. The important files that you might want to copy out to start your own
 project:
 
 - [`public/css/theme.css`], the core CSS implementing theme

@@ -1,0 +1,16 @@
+[package]
+name = "pandoc-pretty"
+version = "0.1.0"
+edition = "2021"
+license = "BlueOak-1.0.0"
+description = "Wrapper that runs pandoc with bundled template, CSS, and sidenote filter."
+
+[profile.release]
+lto = true
+codegen-units = 1
+strip = true
+
+[dev-dependencies]
+assert_cmd = "2.0"
+predicates = "3.0"
+tempfile = "3.10"

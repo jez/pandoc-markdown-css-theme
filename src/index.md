@@ -9,7 +9,7 @@ date: "2021-06-20"
 This project provides CSS files and a template for using Pandoc[^pandoc] to
 generate standalone HTML files. It supports most features Pandoc Markdown has to
 offer, and some extras. The default look can be tweaked via CSS variables, and
-it does not need JavaScript, even for side notes.
+it does not require JavaScript, even for side notes.
 
 # Features
 
@@ -75,16 +75,19 @@ completely overhaul them if desired.
 
 
 And finally, there's basically only HTML and CSS. The theme doesn't use custom
-fonts by default, and only uses JavaScript for two things:
+fonts by default, and only uses JavaScript for three things:
 
 - Rendering math (via [\(\KaTeX\)][KaTeX]), only if used.
 - Slightly tweaking the appearance of checklist items. (Pandoc emits them as
   disabled, but they look better when enabled in my opinion.) This is entirely
   presentational.
+- Progressively enhance the location of certain margin notes on mobile. See [the
+  docs](features/#TODO) for more, but know that even without this bit of
+  JavaScript, side notes are still readable and interactive on all platforms.
 
-Placement of side notes, the table of contents, and code block line highlights
-are all controlled with CSS. See the [credits](#credits) below for more
-background on the techniques used.
+Default placement of side notes, the table of contents, and code block line
+highlights are all controlled with CSS. See the [credits](#credits) below for
+more background on the techniques used.
 
 # Usage
 

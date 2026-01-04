@@ -180,14 +180,151 @@ render the notes in the margin, they will be hidden by default, and the anchor
 point will leave a clickable link to expand the side note inline. Try viewing
 this page on a phone to see how that looks.
 
+## Block-based side notes
+
+By default, side notes and margin notes are rendered **inline**. When using
+`pandoc-sidenote`, which must operate on Pandoc's internal document
+representation, inline elements cannot contain block elements, despite footnotes
+being allowed to contain block elements.
+
+`pandoc-sidenote` can produce a different document structure which allows side
+notes and margin notes to contain block elements:
+
+````
+Some text which has a block-based side note[^1] and margin note[^2]. Be sure to
+prefix multi-element side notes with four spaces of indentation, or a tab or
+else Pandoc will not put subsequent block elements in the note.
+
+[^1]:
+    {^} This is a block-based side note. It can contain, e.g. code blocks:
+
+    ```ruby
+    puts "Hello, world!"
+    ```
+
+[^2]:
+    {^-} This is a block-based margin note. It can contain, e.g. code blocks:
+
+    ```ruby
+    puts "Hello, world!"
+    ```
+````
+
+Some text which has a block-based side note[^1] and margin note[^2]. Be sure to
+prefix multi-element side notes with four spaces of indentation, or a tab or
+else Pandoc will not put subsequent block elements in the note.
+
+
+[^1]:
+    {^} This is a block-based side note. It can contain, e.g. code blocks:
+
+
+    ```ruby
+    puts "Hello, world!"
+    ```
+
+[^2]:
+    {^-} This is a block-based margin note. It can contain, e.g. code blocks:
+
+
+    ```ruby
+    puts "Hello, world!"
+    ```
+
+Block-based side notes are neither strictly better nor worse than inline side
+notes:
+
+- Block-based side notes support block elements, like code blocks.
+  By contrast, `pandoc-sidenote` silently drops non-block elements from inline
+  side notes.
+
+- Block-based side notes always render next to the top of the enclosing
+  paragraph even if the enclosing paragraph is very long and the corresponding
+  anchor point for the side note is nowhere near the top of the paragraph.
+  Inline side notes always render immediately to the right of the anchor point.
+
+- When selecting text that spans a side note anchor point, inline based side
+  notes include the side note text in the selection.
+
+  ![An inline side note, with the selection spanning the anchor point](../img/inline-selection-span.png)
+
+  By contrast, block-based side notes only include the side note text if the selection
+  crosses a paragraph boundary.
+
+- Block-based side notes are best viewed with JavaScript (though JavaScript is
+  not required). Inline side notes look and behave the same regardless of
+  JavaScript. [See below](#javascript-for-block-based-side-notes) for more.
+
+Also, note that Pandoc chooses not to render images with captions as figures
+when the image is in a Markdown footnote. To get images with captions in
+footnotes in Markdown, use HTML for the figure directly:
+
+```
+Example margin note that contains a figure with a caption.[^fig]
+
+[^fig]:
+  {^-} <figure><img src="../img/crystal-springs.jpg"><figcaption>near Belmont, CA</figcaption></figure>
+```
+
+Example margin note that contains a figure with a caption.[^fig]
+
+[^fig]:
+  {^-} <figure><img src="../img/upper-crystal-springs-reservoir-facing-northwest.jpg"><figcaption>near Belmont, CA</figcaption></figure>
+
+### JavaScript for block-based side notes
+
+Some JavaScript is included to make block-based side notes render on mobile.
+This JavaScript does not affect inline side notes, and can be omitted entirely
+for pages that do not use block side notes
+
+Making block-based side notes when the screen is wide enough to render them in
+the margins work requires hoisting the side note body to be a sibling element
+that comes **before** its enclosing paragraph in the text. But this would mean
+that expanding a collapsed block-based side note on mobile would present the
+note **above** the paragraph that it anchors to.
+
+To solve this, the default template file included with this theme inserts some
+JavaScript that reorders side notes below the paragraph they anchor too if the
+screen is too small and the side notes will be collapsed. It runs on page load
+and on page resize.
+
+This JavaScript is _not_ required for side notes to work on mobile: users with
+JavaScript disabled will see block-based side notes expand above the enclosing
+paragraph, but they will still be fully interactive and readable.
+
+## Footnote
+
+To leave a note as a footnote instead of a side note or margin note, use the
+`{.}` syntax:
+
+```
+This will render as a footnote, instead of a side note.[^foot]
+
+[^foot]:
+  {.} Footnotes render at the foot of the page, like normal.
+```
+
+This will render as a footnote, instead of a side note.[^foot]
+
+[^foot]:
+  {.} Footnotes render at the foot of the page, like normal.
+
+Be careful mixing (numbered) side notes with footnotes because they will be
+numbered independently. Documents that make heavy use of footnotes will be
+better off using (unnumbered) margin notes, so that the numbering scheme does
+not confuse readers.
+
 ## Choosing a side note anchor spot
+
+> Note: this section largely doesn't apply to block-based side notes, because
+> the side note body renders somewhere other than the text anchor point.
 
 Side notes and margin notes look best when they anchor to text within the first
 ~500px of the text (this is where the first line will break on tablets). This
-ensures that the baseline of the sidenote and the baseline of the body text will
-align on the first line.
+ensures that the baseline of the side note and the baseline of the body text
+will align on the first line.
 
-For example, note the difference between the side note and margin note exaple
+For example, note the difference between the side note and margin note example
 above. The side note anchors to the first line of the paragraph, while the
 margin note anchors to the last line. This makes the side note even with its
 corresponding paragraph, but makes the margin note look like it's hanging.
@@ -498,6 +635,13 @@ There are two supported syntaxes for marking things wide:
     ```
 
     Code blocks and display-mode math don't have special syntax for adding captions, so this is the only option then.
+
+The `.wide` class cannot be placed on a code block directly using
+<code>```{.ruby .wide}```</code> due to limitations in the HTML structure
+(Pandoc places CSS classes on the `pre` tag but wraps the code blocks in a `div`
+tag. The `wide` class must be on or enclosing the surrounding `div`).
+Instead, the code block must be wrapped with an element (as in both the
+`fenced_divs` and `figure` examples above).
 
 On large screens, the captions will generally be center aligned. This can look strange, especially for captions whose text wraps onto multiple lines. To avoid centering captions, add the `.left-align-caption`.
 

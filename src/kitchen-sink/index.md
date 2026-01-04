@@ -375,6 +375,8 @@ gem 'sorbet-runtime'
 <figcaption>`Gemfile`</figcaption>
 </figure>
 
+This is a paragraph before the `.wide > .sourceCode` block that follows.
+
 <figure class="wide left-align-caption">
 ```{.numberLines .hl-3}
 This code block has an absolutely large amount of text in it for who knows what reason. Who is the kind of heathen who would willfully write code with lines this long?
@@ -574,6 +576,227 @@ subsequent notes further away from their anchor. But also, footnotes.[^foot]
 [^3]:
   This side note attaches to a `blockquote`. Why would that be any
   different? Not sure. We reset the `font-style` and that's it.
+
+Some text after the paragraph, to make sure that the inline and block sections
+don't overlap with each other. Some text after the paragraph, to make sure that
+the inline and block sections don't overlap with each other. Some text after the
+paragraph, to make sure that the inline and block sections don't overlap with
+each other. Some text after the paragraph, to make sure that the inline and
+block sections don't overlap with each other.
+
+## Block margin notes
+
+Markdown footnotes become side notes. After the note. It would be neat to
+associate a range of text with a footnote, rather than a single point. This is
+longer text to give the paragraph some heft to it, so that the side note doesn't
+feel overpowering.[^marginnote-block] Let's make this paragraph even longer, so
+that it's clear that the next two notes are fully independent of this note's
+size.
+
+[^marginnote-block]:
+  {^-} Should align with start of associated paragraph, despite being anchored
+  to the end of the paragraph.
+
+Markdown footnotes become side notes. After the note. It would be neat to
+associate a range of text with a footnote, rather than a single point. This is
+longer text to give the paragraph some heft to it, so that the side note doesn't
+feel[^block1] overpowering.[^block2]
+
+[^block1]:
+    {^-} This block margin note is a bit longer, so that it wraps when shown in
+    the margins. This block margin note is a bit longer, so that it wraps when
+    shown in the margins.
+
+    It contains multiple paragraphs, where we want the paragraph break to be
+    smaller than the gap between unrelated margin notes.
+
+[^block2]:
+  {^-} The second block margin note in the same paragraph should get pushed
+  down. The second block margin note in the same paragraph should get pushed
+  down. The second block margin note in the same paragraph should get pushed
+  down.
+
+Markdown footnotes become side notes.[^block3]
+
+[^block3]:
+  {^-} The first margin note in the following paragraph should also get pushed
+  down.
+
+Spacer paragraph, so that the code block example resets back to normal. Spacer
+paragraph, so that the code block example resets back to normal. Spacer
+paragraph, so that the code block example resets back to normal. Spacer
+paragraph, so that the code block example resets back to normal. Spacer
+paragraph, so that the code block example resets back to normal.
+
+Spacer paragraph, so that the code block example resets back to normal. Spacer
+paragraph, so that the code block example resets back to normal. Spacer
+paragraph, so that the code block example resets back to normal. Spacer
+paragraph, so that the code block example resets back to normal. Spacer
+paragraph, so that the code block example resets back to normal.
+
+Spacer paragraph, so that the code block example resets back to normal. Spacer
+paragraph, so that the code block example resets back to normal. Spacer
+paragraph, so that the code block example resets back to normal. Spacer
+paragraph, so that the code block example resets back to normal. Spacer
+paragraph, so that the code block example resets back to normal.
+
+A paragraph accompanied by a block margin note with a syntax-highlighted code
+block. Be careful when using this. You probably want to make sure that the code
+block is marked `.wide` so that the content overflows the edges.
+This is longer text to give the paragraph some heft to it, so that the side note
+doesn't feel overpowering.[^code-note]
+
+[^code-note]:
+    {^-} You can use code blocks. They must be four-space indented for pandoc to
+    recognize them.
+
+
+    ```ruby
+    def main
+      # This is not marked .wide, so long lines will wrap instead of overflowing.
+      puts "Hello, world!"
+    end
+    ```
+
+    ```{.ruby .numberLines .hl-2}
+    def main
+      # This is not marked .wide, so long lines will wrap instead of overflowing.
+      puts "Hello, world!"
+    end
+    ```
+
+    :::{.wide}
+    ```ruby
+    def main
+      # This one is .wide, meaning that long lines overflow horizontally.
+      puts "Hello, world!"
+    end
+    ```
+    :::
+
+    :::{.wide}
+    ```{.ruby .numberLines .hl-2}
+    def main
+      # This one is .wide, meaning that long lines overflow horizontally.
+      # (The .wide .numberLines bug still applies.)
+      puts "Hello, world!"
+    end
+    ```
+    :::
+
+<!--
+  Also, I have to put a double blank line before the code block to avoid
+  confusing my markdown syntax highlighter.
+-->
+
+A paragraph accompanied by a block margin note with a syntax-highlighted code
+block. Be careful when using this. You probably want to make sure that the code
+block is marked `.wide` so that the content overflows the edges. This is longer
+text to give the paragraph some heft to it, so that the side note doesn't feel
+overpowering.
+
+A paragraph accompanied by a block margin note with a syntax-highlighted code
+block. Be careful when using this. You probably want to make sure that the code
+block is marked `.wide` so that the content overflows the edges. This is longer
+text to give the paragraph some heft to it, so that the side note doesn't feel
+overpowering.
+
+A paragraph accompanied by a block margin note with a syntax-highlighted code
+block. Be careful when using this. You probably want to make sure that the code
+block is marked `.wide` so that the content overflows the edges. This is longer
+text to give the paragraph some heft to it, so that the side note doesn't feel
+overpowering.
+
+A paragraph accompanied by a block margin note with a syntax-highlighted code
+block. Be careful when using this. You probably want to make sure that the code
+block is marked `.wide` so that the content overflows the edges. This is longer
+text to give the paragraph some heft to it, so that the side note doesn't feel
+overpowering.
+
+A paragraph accompanied by a block margin note with a syntax-highlighted code
+block. Be careful when using this. You probably want to make sure that the code
+block is marked `.wide` so that the content overflows the edges. This is longer
+text to give the paragraph some heft to it, so that the side note doesn't feel
+overpowering.
+
+An image in an inline margin note.[^inline-image] Markdown footnotes become side
+notes. After the note. It would be neat to associate a range of text with a
+footnote, rather than a single point. This is longer text to give the paragraph
+some heft to it, so that the side note doesn't feel overpowering.
+
+[^inline-image]:
+  {-} ![Only alt text here, not caption](../img/sugarloaf-hill-forest-green.jpg)
+
+Markdown footnotes become side notes. After the note. It would be neat to
+associate a range of text with a footnote, rather than a single point. This is
+longer text to give the paragraph some heft to it, so that the side note doesn't
+feel overpowering.
+
+Markdown footnotes become side notes. After the note. It would be neat to
+associate a range of text with a footnote, rather than a single point. This is
+longer text to give the paragraph some heft to it, so that the side note doesn't
+feel overpowering. **This paragraph ends with a block image.**[^block-image]
+
+[^block-image]:
+  {^-} ![Only alt text here, not caption](../img/sugarloaf-hill-forest-green.jpg)
+
+The image that comes before it pushes this image down. It still has no caption,
+but that's a limitation of Pandoc markdown. There's an extra big gap, but that's
+because we generate `<br><br>` at the end of every inline margin note.
+`pandoc-sidenote` could be changed to stop doing that if we want?
+
+The image that comes before it pushes this image down. It still has no caption,
+but that's a limitation of Pandoc markdown. There's an extra big gap, but that's
+because we generate `<br><br>` at the end of every inline margin note.
+`pandoc-sidenote` could be changed to stop doing that if we want?
+
+The image that comes before it pushes this image down. It still has no caption,
+but that's a limitation of Pandoc markdown. There's an extra big gap, but that's
+because we generate `<br><br>` at the end of every inline margin note.
+`pandoc-sidenote` could be changed to stop doing that if we want?
+
+This time, there's enough room for the block image to hoist to the top of the
+associated paragraph. This time, there's enough room for the block image to
+hoist to the top of the associated paragraph. This time, there's enough room for
+the block image to hoist to the top of the associated
+paragraph.[^block-image-start]
+
+[^block-image-start]:
+    {^-} ![Only alt text here, not caption](../img/sugarloaf-hill-forest-green.jpg)
+
+    _Faking a caption with italics._
+
+This time, there's enough room for the block image to hoist to the top of the
+associated paragraph. This time, there's enough room for the block image to
+hoist to the top of the associated paragraph. This time, there's enough room for
+the block image to hoist to the top of the associated
+paragraph.
+
+This time, there's enough room for the block image to hoist to the top of the
+associated paragraph. This time, there's enough room for the block image to
+hoist to the top of the associated paragraph. This time, there's enough room for
+the block image to hoist to the top of the associated
+paragraph.
+
+This time, there's enough room for the block image to hoist to the top of the
+associated paragraph. This time, there's enough room for the block image to
+hoist to the top of the associated paragraph. This time, there's enough room for
+the block image to hoist to the top of the associated
+paragraph.
+
+An explicit figure in a side note. Unfortunately, Pandoc markdown doesn't turn
+images in footnotes into figures automatically, so if you want this behavior
+you have to write the `figure` HTML directly.[^figure-note]
+
+[^figure-note]:
+  {^-} <figure><img src="../img/sugarloaf-hill-forest-green.jpg" alt="Alt text is not caption"><figcaption aria-hidden="true">Proper caption now</figcaption></figure>
+
+This time, there's enough room for the block image to hoist to the top of the
+associated paragraph. This time, there's enough room for the block image to
+hoist to the top of the associated paragraph. This time, there's enough room for
+the block image to hoist to the top of the associated
+paragraph.
+
 
 # Images
 

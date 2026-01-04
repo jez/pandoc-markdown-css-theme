@@ -206,9 +206,27 @@ body {
   margin-top: var(--side-note-baseline-offset);
 }
 
+:is(.sidenote, .marginnote) figcaption {
+  font-size: var(--side-note-font-size);
+  line-height: var(--side-note-line-height);
+}
+
 .sidenote code,
 .marginnote code {
   color: var(--color-sidenote);
+}
+
+/* Make paragraph breaks within sidenotes smaller. */
+main > .sidenote-wrapper > :is(.marginnote, .sidenote) {
+  margin-bottom: var(--side-note-line-height);
+}
+
+/* Block-style sidenotes will have `p` tags in them, but we need to not have extra margins. */
+.sidenote-wrapper > :is(.marginnote, .sidenote) > *:first-child {
+  margin-top: 0;
+}
+.sidenote-wrapper > :is(.marginnote, .sidenote) > *:last-child {
+  margin-bottom: 0;
 }
 
 main {
@@ -345,16 +363,50 @@ h3 {
   font-weight: bold;
 }
 
-h1:not(.title) + *, h1:not(.title) + p { margin-top: var(--h1-margin-bottom); }
-h2 + *, h2 + p                         { margin-top: var(--h2-margin-bottom); }
-h3 + *, h3 + p                         { margin-top: 0; }
+/* No one should ever have more than 4 sidenotes immediately after a heading */
+/* 0 */ h1:not(.title) + :is(*:not(.sidenote-wrapper), p),
+/* 1 */ h1:not(.title) + .sidenote-wrapper + :is(*:not(.sidenote-wrapper), p),
+/* 2 */ h1:not(.title) + .sidenote-wrapper + .sidenote-wrapper + :is(*:not(.sidenote-wrapper), p),
+/* 3 */ h1:not(.title) + .sidenote-wrapper + .sidenote-wrapper + .sidenote-wrapper + :is(*:not(.sidenote-wrapper), p),
+/* 4 */ h1:not(.title) + .sidenote-wrapper + .sidenote-wrapper + .sidenote-wrapper + .sidenote-wrapper + :is(*:not(.sidenote-wrapper), p) {
+  margin-top: var(--h1-margin-bottom);
+}
+/* 0 */ h2 + :is(*:not(.sidenote-wrapper), p),
+/* 1 */ h2 + .sidenote-wrapper + :is(*:not(.sidenote-wrapper), p),
+/* 2 */ h2 + .sidenote-wrapper + .sidenote-wrapper + :is(*:not(.sidenote-wrapper), p),
+/* 3 */ h2 + .sidenote-wrapper + .sidenote-wrapper + .sidenote-wrapper + :is(*:not(.sidenote-wrapper), p),
+/* 4 */ h2 + .sidenote-wrapper + .sidenote-wrapper + .sidenote-wrapper + .sidenote-wrapper + :is(*:not(.sidenote-wrapper), p) {
+  margin-top: var(--h2-margin-bottom);
+}
+/* 0 */ h3 + :is(*:not(.sidenote-wrapper), p),
+/* 1 */ h3 + .sidenote-wrapper + :is(*:not(.sidenote-wrapper), p),
+/* 2 */ h3 + .sidenote-wrapper + .sidenote-wrapper + :is(*:not(.sidenote-wrapper), p),
+/* 3 */ h3 + .sidenote-wrapper + .sidenote-wrapper + .sidenote-wrapper + :is(*:not(.sidenote-wrapper), p),
+/* 4 */ h3 + .sidenote-wrapper + .sidenote-wrapper + .sidenote-wrapper + .sidenote-wrapper + :is(*:not(.sidenote-wrapper), p) {
+  margin-top: 0;
+}
 
 /* }}} */
 /* ----- Prose --------------------------------------------------------- {{{ */
 
-p, main > ul, main > ol, div.sourceCode, main > pre, img, table {
+p, main > ul, main > ol, .wide, :not(.wide) > div.sourceCode, main > pre, img, table, blockquote {
   margin-top: var(--line-height);
   margin-bottom: var(--line-height)
+}
+
+:is(.marginnote, .sidenote) :where(p, main > ul, main > ol, :not(.wide) > div.sourceCode, main > pre, img, table, blockquote) {
+  margin-top: var(--side-note-font-size);
+  margin-bottom: var(--side-note-font-size);
+}
+
+.wide > p:first-child,
+.wide > table:first-child,
+:is(p, figure) > img:first-child {
+  margin-top: 0;
+}
+.wide > p:last-child,
+:is(p, figure) > img:last-child {
+  margin-bottom: 0;
 }
 
 ul:not(.task-list) {
@@ -786,7 +838,10 @@ figure + p {
   margin-top: var(--captioned-figure-gap);
 }
 
-figure > img, figure > pre, figure > div.sourceCode {
+figure > img, figure > pre, figure > div.sourceCode, figure:not(.wide) > div.sourceCode {
+  margin-bottom: var(--figcaption-gap);
+}
+:is(.sidenote, .marginnote) :where(figure > img, figure > pre, figure > div.sourceCode, figure:not(.wide) > div.sourceCode) {
   margin-bottom: var(--figcaption-gap);
 }
 
@@ -1184,6 +1239,11 @@ nav#TOC > input:checked + ul {
 
   .wide {
     width: var(--main-width);
+  }
+  .sidenote-wrapper .wide {
+    width: 100%;
+  }
+  .wide {
     overflow-x: auto;
     overflow-y: hidden;
   }

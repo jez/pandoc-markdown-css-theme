@@ -2,7 +2,7 @@
 --                            pandoc-sidenote.lua
 --
 -- Author:    Jacob Zimmerman (@jez)
--- Version:   0.24.0
+-- Version:   0.25.0
 -- Modified:  2025-11-02
 -- URL:       https://github.com/jez/pandoc-sidenote
 --

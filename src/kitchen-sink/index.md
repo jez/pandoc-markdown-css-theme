@@ -640,6 +640,46 @@ paragraph, so that the code block example resets back to normal. Spacer
 paragraph, so that the code block example resets back to normal. Spacer
 paragraph, so that the code block example resets back to normal.
 
+The side note numbers should continue as normal.[^block-sidenote]
+
+[^block-sidenote]: {^} A block-based side note
+
+The side note numbers should continue as normal.[^block-sidenote2] Even with
+multiple.[^block-sidenote3]
+
+[^block-sidenote2]:
+    {^}
+
+    - There's a list in here
+    - With some elements
+
+[^block-sidenote3]:
+    {^}
+
+
+    ```ruby
+    def hello; end
+    ```
+
+The side note numbers should continue as normal.
+
+The side note numbers should work even if they get to double
+digits.[^sn-extra-1] [^sn-extra-2] [^sn-extra-3] [^sn-extra-4] [^sn-extra-5]
+
+[^sn-extra-1]: Back to inline side note, should continue numbering.
+[^sn-extra-2]: Bump
+[^sn-extra-3]: Bump
+[^sn-extra-4]: Bump
+[^sn-extra-5]: Bump
+
+Lots of spacer paragraphs.
+
+Lots of spacer paragraphs.
+
+Lots of spacer paragraphs.
+
+Lots of spacer paragraphs.
+
 A paragraph accompanied by a block margin note with a syntax-highlighted code
 block. Be careful when using this. You probably want to make sure that the code
 block is marked `.wide` so that the content overflows the edges.

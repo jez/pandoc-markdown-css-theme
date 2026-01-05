@@ -48,6 +48,11 @@
   <li><a href="#assorted-prose-elements" id="toc-assorted-prose-elements">Assorted prose elements</a></li>
   <li><a href="#side-notes-and-margin-notes" id="toc-side-notes-and-margin-notes">Side notes and margin notes</a>
   <ul>
+  <li><a href="#block-based-side-notes" id="toc-block-based-side-notes">Block-based side notes</a>
+  <ul>
+  <li><a href="#javascript-for-block-based-side-notes" id="toc-javascript-for-block-based-side-notes">JavaScript for block-based side notes</a></li>
+  </ul></li>
+  <li><a href="#footnote" id="toc-footnote">Footnote</a></li>
   <li><a href="#choosing-a-side-note-anchor-spot" id="toc-choosing-a-side-note-anchor-spot">Choosing a side note anchor spot</a></li>
   </ul></li>
   <li><a href="#code-blocks" id="toc-code-blocks">Code blocks</a>
@@ -191,9 +196,89 @@ text, like this.[^example-margin-note]
 </span></span></em></p>
 </blockquote>
 <p>Side notes and margin notes are fully responsive. When there is no space to render the notes in the margin, they will be hidden by default, and the anchor point will leave a clickable link to expand the side note inline. Try viewing this page on a phone to see how that looks.</p>
+<h2 id="block-based-side-notes">Block-based side notes</h2>
+<p>By default, side notes and margin notes are rendered <strong>inline</strong>. When using <code>pandoc-sidenote</code>, which must operate on Pandoc’s internal document representation, inline elements cannot contain block elements, despite footnotes being allowed to contain block elements.</p>
+<p><code>pandoc-sidenote</code> can produce a different document structure which allows side notes and margin notes to contain block elements:</p>
+<pre><code>Some text which has a block-based side note[^1] and margin note[^2]. Be sure to
+prefix multi-element side notes with four spaces of indentation, or a tab or
+else Pandoc will not put subsequent block elements in the note.
+
+[^1]:
+    {^} This is a block-based side note. It can contain, e.g. code blocks:
+
+    ```ruby
+    puts &quot;Hello, world!&quot;
+    ```
+
+[^2]:
+    {^-} This is a block-based margin note. It can contain, e.g. code blocks:
+
+    ```ruby
+    puts &quot;Hello, world!&quot;
+    ```</code></pre>
+<div class="sidenote-wrapper">
+<input type="checkbox" id="sn-2" class="margin-toggle"/>
+<div class="sidenote">
+<p>This is a block-based side note. It can contain, e.g. code blocks:</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode ruby"><code class="sourceCode ruby"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">puts</span> <span class="st">&quot;Hello, world!&quot;</span></span></code></pre></div>
+</div>
+</div>
+<div class="sidenote-wrapper">
+<input type="checkbox" id="sn-3" class="margin-toggle"/>
+<div class="marginnote">
+<p>This is a block-based margin note. It can contain, e.g. code blocks:</p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode ruby"><code class="sourceCode ruby"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">puts</span> <span class="st">&quot;Hello, world!&quot;</span></span></code></pre></div>
+</div>
+</div>
+<p>Some text which has a block-based side note<label for="sn-2" class="margin-toggle sidenote-number"></label> and margin note<label for="sn-3" class="margin-toggle">&#8853;</label>. Be sure to prefix multi-element side notes with four spaces of indentation, or a tab or else Pandoc will not put subsequent block elements in the note.</p>
+<p>Block-based side notes are neither strictly better nor worse than inline side notes:</p>
+<ul>
+<li><p>Block-based side notes support block elements, like code blocks. By contrast, <code>pandoc-sidenote</code> silently drops non-block elements from inline side notes.</p></li>
+<li><p>Block-based side notes always render next to the top of the enclosing paragraph even if the enclosing paragraph is very long and the corresponding anchor point for the side note is nowhere near the top of the paragraph. Inline side notes always render immediately to the right of the anchor point.</p></li>
+<li><p>When selecting text that spans a side note anchor point, inline based side notes include the side note text in the selection.</p>
+<figure>
+<img src="../img/inline-selection-span.png" alt="An inline side note, with the selection spanning the anchor point" />
+<figcaption aria-hidden="true">An inline side note, with the selection spanning the anchor point</figcaption>
+</figure>
+<p>By contrast, block-based side notes only include the side note text if the selection crosses a paragraph boundary.</p></li>
+<li><p>Block-based side notes are best viewed with JavaScript (though JavaScript is not required). Inline side notes look and behave the same regardless of JavaScript. <a href="#javascript-for-block-based-side-notes">See below</a> for more.</p></li>
+</ul>
+<p>Also, note that Pandoc chooses not to render images with captions as figures when the image is in a Markdown footnote. To get images with captions in footnotes in Markdown, use HTML for the figure directly:</p>
+<pre><code>Example margin note that contains a figure with a caption.[^fig]
+
+[^fig]:
+  {^-} &lt;figure&gt;&lt;img src=&quot;../img/crystal-springs.jpg&quot;&gt;&lt;figcaption&gt;near Belmont, CA&lt;/figcaption&gt;&lt;/figure&gt;</code></pre>
+<div class="sidenote-wrapper">
+<input type="checkbox" id="sn-4" class="margin-toggle"/>
+<div class="marginnote">
+<figure>
+<img src="../img/upper-crystal-springs-reservoir-facing-northwest.jpg">
+<figcaption>
+near Belmont, CA
+</figcaption>
+</figure>
+</div>
+</div>
+<p>Example margin note that contains a figure with a caption.<label for="sn-4" class="margin-toggle">&#8853;</label></p>
+<h3 id="javascript-for-block-based-side-notes">JavaScript for block-based side notes</h3>
+<p>Some JavaScript is included to make block-based side notes render on mobile. This JavaScript does not affect inline side notes, and can be omitted entirely for pages that do not use block side notes</p>
+<p>Making block-based side notes when the screen is wide enough to render them in the margins work requires hoisting the side note body to be a sibling element that comes <strong>before</strong> its enclosing paragraph in the text. But this would mean that expanding a collapsed block-based side note on mobile would present the note <strong>above</strong> the paragraph that it anchors to.</p>
+<p>To solve this, the default template file included with this theme inserts some JavaScript that reorders side notes below the paragraph they anchor too if the screen is too small and the side notes will be collapsed. It runs on page load and on page resize.</p>
+<p>This JavaScript is <em>not</em> required for side notes to work on mobile: users with JavaScript disabled will see block-based side notes expand above the enclosing paragraph, but they will still be fully interactive and readable.</p>
+<h2 id="footnote">Footnote</h2>
+<p>To leave a note as a footnote instead of a side note or margin note, use the <code>{.}</code> syntax:</p>
+<pre><code>This will render as a footnote, instead of a side note.[^foot]
+
+[^foot]:
+  {.} Footnotes render at the foot of the page, like normal.</code></pre>
+<p>This will render as a footnote, instead of a side note.<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a></p>
+<p>Be careful mixing (numbered) side notes with footnotes because they will be numbered independently. Documents that make heavy use of footnotes will be better off using (unnumbered) margin notes, so that the numbering scheme does not confuse readers.</p>
 <h2 id="choosing-a-side-note-anchor-spot">Choosing a side note anchor spot</h2>
-<p>Side notes and margin notes look best when they anchor to text within the first ~500px of the text (this is where the first line will break on tablets). This ensures that the baseline of the sidenote and the baseline of the body text will align on the first line.</p>
-<p>For example, note the difference between the side note and margin note exaple above. The side note anchors to the first line of the paragraph, while the margin note anchors to the last line. This makes the side note even with its corresponding paragraph, but makes the margin note look like it’s hanging.</p>
+<blockquote>
+<p>Note: this section largely doesn’t apply to block-based side notes, because the side note body renders somewhere other than the text anchor point.</p>
+</blockquote>
+<p>Side notes and margin notes look best when they anchor to text within the first ~500px of the text (this is where the first line will break on tablets). This ensures that the baseline of the side note and the baseline of the body text will align on the first line.</p>
+<p>For example, note the difference between the side note and margin note example above. The side note anchors to the first line of the paragraph, while the margin note anchors to the last line. This makes the side note even with its corresponding paragraph, but makes the margin note look like it’s hanging.</p>
 <p>Sometimes the prose dictates where the margin note must attach, making the problem unavoidable. But when there’s a choice of where to attach it, use this as a guide.</p>
 <h1 id="code-blocks">Code blocks</h1>
 <p>Pandoc Markdown supports a number of code block features. First, plain delimited code blocks with no syntax highlighting:</p>
@@ -205,13 +290,13 @@ This is a code block.
 <pre><code>```ruby
 def greet; &quot;Hello, world!&quot;; end
 ```</code></pre>
-<div class="sourceCode" id="cb10"><pre class="sourceCode ruby"><code class="sourceCode ruby"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="cf">def</span> greet; <span class="st">&quot;Hello, world!&quot;</span>; <span class="cf">end</span></span></code></pre></div>
+<div class="sourceCode" id="cb15"><pre class="sourceCode ruby"><code class="sourceCode ruby"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="cf">def</span> greet; <span class="st">&quot;Hello, world!&quot;</span>; <span class="cf">end</span></span></code></pre></div>
 <h2 id="numbered-and-highlighted-lines">Numbered and highlighted lines</h2>
 <p>Pandoc Markdown also supports attaching line numbers to a code block, plain or with syntax highlighting using the <code>.numberLines</code> CSS class:</p>
 <pre><code>```{.ruby .numberLines}
 def greet; &quot;Hello, world!&quot;; end
 ```</code></pre>
-<div class="sourceCode" id="cb12"><pre class="sourceCode numberSource ruby numberLines"><code class="sourceCode ruby"><span id="cb12-1"><a href="#cb12-1"></a><span class="cf">def</span> greet; <span class="st">&quot;Hello, world!&quot;</span>; <span class="cf">end</span></span></code></pre></div>
+<div class="sourceCode" id="cb17"><pre class="sourceCode numberSource ruby numberLines"><code class="sourceCode ruby"><span id="cb17-1"><a href="#cb17-1"></a><span class="cf">def</span> greet; <span class="st">&quot;Hello, world!&quot;</span>; <span class="cf">end</span></span></code></pre></div>
 <p>The line numbers are clickable and all have HTML IDs attached to them, making them linkable.</p>
 <p>This theme extends Pandoc’s code blocks with line numbers by allowing individual lines to be highlighted. Emphasize specific lines in a code block by adding various <code>.hl-*</code> classes for the lines you’d like to highlight, like this:</p>
 <pre><code>```{.numberLines .hl-2 .hl-3}
@@ -220,18 +305,18 @@ This line is highlighted.
 This line is also highlighted.
 This is another line.
 ```</code></pre>
-<div class="sourceCode" id="cb14"><pre class="sourceCode numberSource numberLines hl-2 hl-3"><code class="sourceCode"><span id="cb14-1"><a href="#cb14-1"></a>This is the first line.</span>
-<span id="cb14-2"><a href="#cb14-2"></a>This line is highlighted.</span>
-<span id="cb14-3"><a href="#cb14-3"></a>This line is also highlighted.</span>
-<span id="cb14-4"><a href="#cb14-4"></a>This is another line.</span></code></pre></div>
+<div class="sourceCode" id="cb19"><pre class="sourceCode numberSource numberLines hl-2 hl-3"><code class="sourceCode"><span id="cb19-1"><a href="#cb19-1"></a>This is the first line.</span>
+<span id="cb19-2"><a href="#cb19-2"></a>This line is highlighted.</span>
+<span id="cb19-3"><a href="#cb19-3"></a>This line is also highlighted.</span>
+<span id="cb19-4"><a href="#cb19-4"></a>This is another line.</span></code></pre></div>
 <p>The <code>.numberLines</code> class is required for these line highlights to render correctly.</p>
 <h3 id="line-highlight-limit">Line highlight limit</h3>
 <p>A quick note on line highlights: this feature is implemented in CSS, and is currently limited to a max line highlight of the 40<sup>th</sup> line. More lines can always be specified by adding <a href="https://github.com/jez/pandoc-markdown-css-theme/blob/27d0aa58bfc6eafe296e2cef1900a39c9c2507a7/public/css/theme.css#L539-L578">more lines like this</a> using the <code>header-includes</code> variable:</p>
-<div class="sourceCode" id="cb15"><pre class="sourceCode yaml"><code class="sourceCode yaml"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="pp">---</span></span>
-<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a><span class="co"># ...</span></span>
-<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a><span class="fu">header-includes</span><span class="kw">:</span></span>
-<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a><span class="kw">-</span><span class="at"> </span><span class="st">&#39;&lt;style&gt;pre.hl-41 &gt; code.sourceCode &gt; span:nth-of-type(41)::after { content: &quot;&quot;; }&lt;/style&gt;&#39;</span></span>
-<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a><span class="pp">---</span></span></code></pre></div>
+<div class="sourceCode" id="cb20"><pre class="sourceCode yaml"><code class="sourceCode yaml"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="pp">---</span></span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a><span class="co"># ...</span></span>
+<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a><span class="fu">header-includes</span><span class="kw">:</span></span>
+<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a><span class="kw">-</span><span class="at"> </span><span class="st">&#39;&lt;style&gt;pre.hl-41 &gt; code.sourceCode &gt; span:nth-of-type(41)::after { content: &quot;&quot;; }&lt;/style&gt;&#39;</span></span>
+<span id="cb20-5"><a href="#cb20-5" aria-hidden="true" tabindex="-1"></a><span class="pp">---</span></span></code></pre></div>
 <h2 id="tight-code-blocks">Tight code blocks</h2>
 <p>Another feature unique to this theme is is <code>.tight-code</code>. Sometimes for drawing ASCII art it’s important that there be no gaps between lines, so that things like unicode box drawing characters attach:</p>
 <pre><code>```{.tight-code}
@@ -301,20 +386,20 @@ So is this: <span class="math inline">F = ma</span>.</p>
 </tbody>
 </table>
 <p>On top of the syntax Pandoc Markdown provides, this theme supports attaching captions to code blocks by wrapping the code block in a <code>&lt;figure&gt;</code> tag.</p>
-<div class="sourceCode" id="cb20"><pre class="sourceCode numberSource html numberLines hl-1 hl-8 hl-9"><code class="sourceCode html"><span id="cb20-1"><a href="#cb20-1"></a><span class="dt">&lt;</span><span class="kw">figure</span><span class="dt">&gt;</span></span>
-<span id="cb20-2"><a href="#cb20-2"></a>```ruby</span>
-<span id="cb20-3"><a href="#cb20-3"></a>source &#39;https://rubygems.org&#39;</span>
-<span id="cb20-4"><a href="#cb20-4"></a></span>
-<span id="cb20-5"><a href="#cb20-5"></a>gem &#39;sorbet&#39;</span>
-<span id="cb20-6"><a href="#cb20-6"></a>gem &#39;sorbet-runtime&#39;</span>
-<span id="cb20-7"><a href="#cb20-7"></a>```</span>
-<span id="cb20-8"><a href="#cb20-8"></a><span class="dt">&lt;</span><span class="kw">figcaption</span><span class="dt">&gt;</span>An example Gemfile<span class="dt">&lt;/</span><span class="kw">figcaption</span><span class="dt">&gt;</span></span>
-<span id="cb20-9"><a href="#cb20-9"></a><span class="dt">&lt;/</span><span class="kw">figure</span><span class="dt">&gt;</span></span></code></pre></div>
+<div class="sourceCode" id="cb25"><pre class="sourceCode numberSource html numberLines hl-1 hl-8 hl-9"><code class="sourceCode html"><span id="cb25-1"><a href="#cb25-1"></a><span class="dt">&lt;</span><span class="kw">figure</span><span class="dt">&gt;</span></span>
+<span id="cb25-2"><a href="#cb25-2"></a>```ruby</span>
+<span id="cb25-3"><a href="#cb25-3"></a>source &#39;https://rubygems.org&#39;</span>
+<span id="cb25-4"><a href="#cb25-4"></a></span>
+<span id="cb25-5"><a href="#cb25-5"></a>gem &#39;sorbet&#39;</span>
+<span id="cb25-6"><a href="#cb25-6"></a>gem &#39;sorbet-runtime&#39;</span>
+<span id="cb25-7"><a href="#cb25-7"></a>```</span>
+<span id="cb25-8"><a href="#cb25-8"></a><span class="dt">&lt;</span><span class="kw">figcaption</span><span class="dt">&gt;</span>An example Gemfile<span class="dt">&lt;/</span><span class="kw">figcaption</span><span class="dt">&gt;</span></span>
+<span id="cb25-9"><a href="#cb25-9"></a><span class="dt">&lt;/</span><span class="kw">figure</span><span class="dt">&gt;</span></span></code></pre></div>
 <figure>
-<div class="sourceCode" id="cb21"><pre class="sourceCode ruby"><code class="sourceCode ruby"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>source <span class="vs">&#39;https://rubygems.org&#39;</span></span>
-<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a>gem <span class="vs">&#39;sorbet&#39;</span></span>
-<span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a>gem <span class="vs">&#39;sorbet-runtime&#39;</span></span></code></pre></div>
+<div class="sourceCode" id="cb26"><pre class="sourceCode ruby"><code class="sourceCode ruby"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a>source <span class="vs">&#39;https://rubygems.org&#39;</span></span>
+<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a>gem <span class="vs">&#39;sorbet&#39;</span></span>
+<span id="cb26-4"><a href="#cb26-4" aria-hidden="true" tabindex="-1"></a>gem <span class="vs">&#39;sorbet-runtime&#39;</span></span></code></pre></div>
 <figcaption>
 An example Gemfile
 </figcaption>
@@ -326,14 +411,14 @@ An example Gemfile
 <li><code>.wide</code>
 <ul>
 <li>On smaller screens, sets <code>overflow-x: scroll</code>.</li>
-<li>Takes up to <code>--main-width</code> space,<span class="sidenote-wrapper"><label for="sn-2" class="margin-toggle">&#8853;</label><input type="checkbox" id="sn-2" class="margin-toggle"/><span class="marginnote">The <code>--main-width</code> CSS variable defaults to 745px.<br />
+<li>Takes up to <code>--main-width</code> space,<span class="sidenote-wrapper"><label for="sn-5" class="margin-toggle">&#8853;</label><input type="checkbox" id="sn-5" class="margin-toggle"/><span class="marginnote">The <code>--main-width</code> CSS variable defaults to 745px.<br />
 <br />
 </span></span> potentially expanding into the margin to do so. For example: when the browser takes up half of a 1920x1080 screen.</li>
 </ul></li>
 <li><code>.wide.extra-wide</code>
 <ul>
 <li>From <code>.wide</code>: on smaller screens, sets <code>overflow-x: scroll</code>.</li>
-<li>Takes up to <code>1.5 * --main-width</code> space,<span class="sidenote-wrapper"><label for="sn-3" class="margin-toggle">&#8853;</label><input type="checkbox" id="sn-3" class="margin-toggle"/><span class="marginnote">This multiple is configurable with <code>--extra-wide-scale-factor</code>.<br />
+<li>Takes up to <code>1.5 * --main-width</code> space,<span class="sidenote-wrapper"><label for="sn-6" class="margin-toggle">&#8853;</label><input type="checkbox" id="sn-6" class="margin-toggle"/><span class="marginnote">This multiple is configurable with <code>--extra-wide-scale-factor</code>.<br />
 <br />
 </span></span> potentially expanding into the margin to do so.</li>
 <li>If the right margin is not collapsed, the content will expand equally into both margins and be centered.</li>
@@ -415,11 +500,11 @@ Typing rules for System F, From PFPL Chapter 16
 </figcaption>
 </figure>
 <div class="wide">
-<div class="sourceCode" id="cb22"><pre class="sourceCode numberSource yaml numberLines hl-4"><code class="sourceCode yaml"><span id="cb22-1"><a href="#cb22-1"></a><span class="pp">---</span></span>
-<span id="cb22-2"><a href="#cb22-2"></a><span class="co"># ...</span></span>
-<span id="cb22-3"><a href="#cb22-3"></a><span class="fu">header-includes</span><span class="kw">:</span></span>
-<span id="cb22-4"><a href="#cb22-4"></a><span class="kw">-</span><span class="at"> </span><span class="st">&#39;&lt;style&gt;pre.hl-41 &gt; code.sourceCode &gt; span:nth-of-type(41)::after { content: &quot;&quot;; }&lt;/style&gt;&#39;</span></span>
-<span id="cb22-5"><a href="#cb22-5"></a><span class="pp">---</span></span></code></pre></div>
+<div class="sourceCode" id="cb27"><pre class="sourceCode numberSource yaml numberLines hl-4"><code class="sourceCode yaml"><span id="cb27-1"><a href="#cb27-1"></a><span class="pp">---</span></span>
+<span id="cb27-2"><a href="#cb27-2"></a><span class="co"># ...</span></span>
+<span id="cb27-3"><a href="#cb27-3"></a><span class="fu">header-includes</span><span class="kw">:</span></span>
+<span id="cb27-4"><a href="#cb27-4"></a><span class="kw">-</span><span class="at"> </span><span class="st">&#39;&lt;style&gt;pre.hl-41 &gt; code.sourceCode &gt; span:nth-of-type(41)::after { content: &quot;&quot;; }&lt;/style&gt;&#39;</span></span>
+<span id="cb27-5"><a href="#cb27-5"></a><span class="pp">---</span></span></code></pre></div>
 </div>
 <p>(There is currently a bug where using <code>.wide</code> with <code>.numberLines</code> code blocks causes the line numbers to be hidden. They are still highlightable and linkable.)</p>
 <p>There are two supported syntaxes for marking things wide:</p>
@@ -436,6 +521,7 @@ Typing rules for System F, From PFPL Chapter 16
 &lt;/figure&gt;</code></pre>
 <p>Code blocks and display-mode math don’t have special syntax for adding captions, so this is the only option then.</p></li>
 </ul>
+<p>The <code>.wide</code> class cannot be placed on a code block directly using <code><code>{.ruby .wide}</code></code> due to limitations in the HTML structure (Pandoc places CSS classes on the <code>pre</code> tag but wraps the code blocks in a <code>div</code> tag. The <code>wide</code> class must be on or enclosing the surrounding <code>div</code>). Instead, the code block must be wrapped with an element (as in both the <code>fenced_divs</code> and <code>figure</code> examples above).</p>
 <p>On large screens, the captions will generally be center aligned. This can look strange, especially for captions whose text wraps onto multiple lines. To avoid centering captions, add the <code>.left-align-caption</code>.</p>
 <div class="note blue">
 <table>
@@ -522,17 +608,17 @@ Typing rules for System F, From PFPL Chapter 16
 <p>As an example, see the <a href="../tufte/">Kitchen Sink Tufte</a> page, which tweaks these CSS variables to approximate the look of <a href="https://edwardtufte.github.io/tufte-css/">Tufte CSS</a>.</p>
 <p>It’s also easy to change the syntax theme used for code highlights, because it lives in a separate file. The default theme is Solarized Light, which can be found in <a href="https://github.com/jez/pandoc-markdown-css-theme/blob/27d0aa58bfc6eafe296e2cef1900a39c9c2507a7/public/css/skylighting-solarized-theme.css#L1">skylighting-solarized-theme.css</a>.</p>
 <h1 id="automatic-light-and-dark-theme">Automatic light and dark theme</h1>
-<p>Pages will automatically choose light mode or dark mode styles based on the user’s preferences, detected via CSS <code>@media</code> queries.<span class="sidenote-wrapper"><label for="sn-4" class="margin-toggle sidenote-number"></label><input type="checkbox" id="sn-4" class="margin-toggle"/><span class="sidenote">At the moment, this means there is no way to programmatically toggle between light and dark mode except by toggling the OS or browser’s setting.<br />
+<p>Pages will automatically choose light mode or dark mode styles based on the user’s preferences, detected via CSS <code>@media</code> queries.<span class="sidenote-wrapper"><label for="sn-7" class="margin-toggle sidenote-number"></label><input type="checkbox" id="sn-7" class="margin-toggle"/><span class="sidenote">At the moment, this means there is no way to programmatically toggle between light and dark mode except by toggling the OS or browser’s setting.<br />
 <br />
 </span></span></p>
 <p>You can also use the <code>.only-light-mode</code> and <code>.only-dark-mode</code> CSS classes to make something appear only in light or dark mode. One use case for this is with images. For example, here’s some Pandoc markdown using <a href="https://pandoc.org/MANUAL.html#extension-fenced_divs"><code>fenced_divs</code></a> that shows a light or dark mode version of an image:</p>
-<div class="sourceCode" id="cb26"><pre class="sourceCode numberSource markdown numberLines hl-1 hl-5"><code class="sourceCode markdown"><span id="cb26-1"><a href="#cb26-1"></a>:::{.only-light-mode}</span>
-<span id="cb26-2"><a href="#cb26-2"></a><span class="al">![The light-mode version of the image](../img/light-desktop.png)</span></span>
-<span id="cb26-3"><a href="#cb26-3"></a>:::</span>
-<span id="cb26-4"><a href="#cb26-4"></a></span>
-<span id="cb26-5"><a href="#cb26-5"></a>:::{.only-dark-mode}</span>
-<span id="cb26-6"><a href="#cb26-6"></a><span class="al">![The dark-mode version of the image](../img/dark-desktop.png)</span></span>
-<span id="cb26-7"><a href="#cb26-7"></a>:::</span></code></pre></div>
+<div class="sourceCode" id="cb31"><pre class="sourceCode numberSource markdown numberLines hl-1 hl-5"><code class="sourceCode markdown"><span id="cb31-1"><a href="#cb31-1"></a>:::{.only-light-mode}</span>
+<span id="cb31-2"><a href="#cb31-2"></a><span class="al">![The light-mode version of the image](../img/light-desktop.png)</span></span>
+<span id="cb31-3"><a href="#cb31-3"></a>:::</span>
+<span id="cb31-4"><a href="#cb31-4"></a></span>
+<span id="cb31-5"><a href="#cb31-5"></a>:::{.only-dark-mode}</span>
+<span id="cb31-6"><a href="#cb31-6"></a><span class="al">![The dark-mode version of the image](../img/dark-desktop.png)</span></span>
+<span id="cb31-7"><a href="#cb31-7"></a>:::</span></code></pre></div>
 <p>Only one of those divs will be rendered, depending on which theme is active. You can see the result below, and you can toggle your light or dark mode theme to see how the image updates:</p>
 <div class="only-light-mode">
 <figure>
@@ -551,6 +637,12 @@ Typing rules for System F, From PFPL Chapter 16
 <p>If print styles matter to you, take care to make sure that things don’t wrap. Some things like tables or math that would normally overflow and scroll on a screen will be clipped when printed. Always test your content before publishing.</p>
 <p>Feel free to test on this page. The tables and math are wide enough to demonstrate the problems.</p>
 <p>Most browsers will offer the user a choice of whether to include background colors or not. Things like code block backgrounds and table header backgrounds won’t show up unless the browser’s “Print backgrounds” option (or equivalent) is checked.</p>
+<section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes">
+<hr />
+<ol>
+<li id="fn1"><p>Footnotes render at the foot of the page, like normal.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
+</section>
 </main>
 
 <footer>
@@ -568,6 +660,51 @@ Typing rules for System F, From PFPL Chapter 16
     checkbox.disabled = false;
     checkbox.addEventListener('click', (ev) => {ev.target.checked = wasChecked});
   });
+
+  function hoistAbove() {
+    const toHoist = document.querySelectorAll('main > .sidenote-wrapper + :not(.sidenote-wrapper)');
+    for (let i = toHoist.length - 1; i >= 0; i--) {
+      const source = toHoist[i];
+      let target = source.previousElementSibling;
+      while (target.previousElementSibling.classList.contains('sidenote-wrapper')) {
+        target = target.previousElementSibling;
+      }
+      source.parentNode.insertBefore(source, target);
+    }
+  }
+
+  function sinkBelow() {
+    const toHoist = document.querySelectorAll('main > :not(.sidenote-wrapper) + .sidenote-wrapper');
+    for (let i = 0; i < toHoist.length; i++) {
+      const source = toHoist[i].previousElementSibling;
+      let target = source.nextElementSibling;
+      while (target.classList.contains('sidenote-wrapper')) {
+        target = target.nextElementSibling;
+      }
+      source.parentNode.insertBefore(source, target);
+    }
+  }
+
+  if (window.matchMedia('screen')) {
+    if (window.innerWidth <= 796) {
+      hoistAbove();
+    }
+    let prevSize = window.innerWidth;
+    // Needs to mirror breakpoints in :root settings in CSS variables
+    // 745px = --main-width-narrow
+    // 26px = --line-height
+    // 169px = side note min width narrow
+    const breakpoint = 26 + 550 + 26 + 169 + 26 - 1;
+    window.addEventListener('resize', function() {
+      const newSize = window.innerWidth;
+      if (prevSize >= breakpoint && newSize < breakpoint) {
+        hoistAbove();
+      } else if (prevSize < breakpoint && newSize >= breakpoint) {
+        sinkBelow();
+      }
+      prevSize = newSize;
+    });
+  }
 })();
 </script>
 </body>

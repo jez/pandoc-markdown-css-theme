@@ -67,7 +67,10 @@
   <li><a href="#code-blocks" id="toc-code-blocks">Code blocks</a></li>
   <li><a href="#block-quotes" id="toc-block-quotes">Block quotes</a></li>
   <li><a href="#colored-notes" id="toc-colored-notes">Colored notes</a></li>
-  <li><a href="#side-notes" id="toc-side-notes">Side notes</a></li>
+  <li><a href="#side-notes" id="toc-side-notes">Side notes</a>
+  <ul>
+  <li><a href="#block-margin-notes" id="toc-block-margin-notes">Block margin notes</a></li>
+  </ul></li>
   <li><a href="#images" id="toc-images">Images</a></li>
   <li><a href="#tables" id="toc-tables">Tables</a></li>
   </ul>
@@ -360,6 +363,7 @@ This is tight code in action.</code></pre>
 <code>Gemfile</code>
 </figcaption>
 </figure>
+<p>This is a paragraph before the <code>.wide &gt; .sourceCode</code> block that follows.</p>
 <figure class="wide left-align-caption">
 <div class="sourceCode" id="cb8"><pre class="sourceCode numberSource numberLines hl-3"><code class="sourceCode"><span id="cb8-1"><a href="#cb8-1"></a>This code block has an absolutely large amount of text in it for who knows what reason. Who is the kind of heathen who would willfully write code with lines this long?</span>
 <span id="cb8-2"><a href="#cb8-2"></a></span>
@@ -505,6 +509,153 @@ It can have line breaks too. This should be a test of what happens when the marg
 <br />
 </span></span> side notes that attach to text inside a block quote would magically become italic, because they’d inherit the styles of the surrounding block quote. Luckily, we have a test for this case, and that does not to happen because we fixed it.</p>
 </blockquote>
+<p>Some text after the paragraph, to make sure that the inline and block sections don’t overlap with each other. Some text after the paragraph, to make sure that the inline and block sections don’t overlap with each other. Some text after the paragraph, to make sure that the inline and block sections don’t overlap with each other. Some text after the paragraph, to make sure that the inline and block sections don’t overlap with each other.</p>
+<h2 id="block-margin-notes">Block margin notes</h2>
+<div class="sidenote-wrapper">
+<input type="checkbox" id="sn-5" class="margin-toggle"/>
+<div class="marginnote">
+<p>Should align with start of associated paragraph, despite being anchored to the end of the paragraph.</p>
+</div>
+</div>
+<p>Markdown footnotes become side notes. After the note. It would be neat to associate a range of text with a footnote, rather than a single point. This is longer text to give the paragraph some heft to it, so that the side note doesn’t feel overpowering.<label for="sn-5" class="margin-toggle">&#8853;</label> Let’s make this paragraph even longer, so that it’s clear that the next two notes are fully independent of this note’s size.</p>
+<div class="sidenote-wrapper">
+<input type="checkbox" id="sn-6" class="margin-toggle"/>
+<div class="marginnote">
+<p>This block margin note is a bit longer, so that it wraps when shown in the margins. This block margin note is a bit longer, so that it wraps when shown in the margins.</p>
+<p>It contains multiple paragraphs, where we want the paragraph break to be smaller than the gap between unrelated margin notes.</p>
+</div>
+</div>
+<div class="sidenote-wrapper">
+<input type="checkbox" id="sn-7" class="margin-toggle"/>
+<div class="marginnote">
+<p>The second block margin note in the same paragraph should get pushed down. The second block margin note in the same paragraph should get pushed down. The second block margin note in the same paragraph should get pushed down.</p>
+</div>
+</div>
+<p>Markdown footnotes become side notes. After the note. It would be neat to associate a range of text with a footnote, rather than a single point. This is longer text to give the paragraph some heft to it, so that the side note doesn’t feel<label for="sn-6" class="margin-toggle">&#8853;</label> overpowering.<label for="sn-7" class="margin-toggle">&#8853;</label></p>
+<div class="sidenote-wrapper">
+<input type="checkbox" id="sn-8" class="margin-toggle"/>
+<div class="marginnote">
+<p>The first margin note in the following paragraph should also get pushed down.</p>
+</div>
+</div>
+<p>Markdown footnotes become side notes.<label for="sn-8" class="margin-toggle">&#8853;</label></p>
+<p>Spacer paragraph, so that the code block example resets back to normal. Spacer paragraph, so that the code block example resets back to normal. Spacer paragraph, so that the code block example resets back to normal. Spacer paragraph, so that the code block example resets back to normal. Spacer paragraph, so that the code block example resets back to normal.</p>
+<p>Spacer paragraph, so that the code block example resets back to normal. Spacer paragraph, so that the code block example resets back to normal. Spacer paragraph, so that the code block example resets back to normal. Spacer paragraph, so that the code block example resets back to normal. Spacer paragraph, so that the code block example resets back to normal.</p>
+<p>Spacer paragraph, so that the code block example resets back to normal. Spacer paragraph, so that the code block example resets back to normal. Spacer paragraph, so that the code block example resets back to normal. Spacer paragraph, so that the code block example resets back to normal. Spacer paragraph, so that the code block example resets back to normal.</p>
+<div class="sidenote-wrapper">
+<input type="checkbox" id="sn-9" class="margin-toggle"/>
+<div class="sidenote">
+<p>A block-based side note</p>
+</div>
+</div>
+<p>The side note numbers should continue as normal.<label for="sn-9" class="margin-toggle sidenote-number"></label></p>
+<div class="sidenote-wrapper">
+<input type="checkbox" id="sn-10" class="margin-toggle"/>
+<div class="sidenote">
+<ul>
+<li>There’s a list in here</li>
+<li>With some elements</li>
+</ul>
+</div>
+</div>
+<div class="sidenote-wrapper">
+<input type="checkbox" id="sn-11" class="margin-toggle"/>
+<div class="sidenote">
+<div class="sourceCode" id="cb14"><pre class="sourceCode ruby"><code class="sourceCode ruby"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="cf">def</span> hello; <span class="cf">end</span></span></code></pre></div>
+</div>
+</div>
+<p>The side note numbers should continue as normal.<label for="sn-10" class="margin-toggle sidenote-number"></label> Even with multiple.<label for="sn-11" class="margin-toggle sidenote-number"></label></p>
+<p>The side note numbers should continue as normal.</p>
+<p>The side note numbers should work even if they get to double digits.<span class="sidenote-wrapper"><label for="sn-12" class="margin-toggle sidenote-number"></label><input type="checkbox" id="sn-12" class="margin-toggle"/><span class="sidenote">Back to inline side note, should continue numbering.<br />
+<br />
+</span></span> <span class="sidenote-wrapper"><label for="sn-13" class="margin-toggle sidenote-number"></label><input type="checkbox" id="sn-13" class="margin-toggle"/><span class="sidenote">Bump<br />
+<br />
+</span></span> <span class="sidenote-wrapper"><label for="sn-14" class="margin-toggle sidenote-number"></label><input type="checkbox" id="sn-14" class="margin-toggle"/><span class="sidenote">Bump<br />
+<br />
+</span></span> <span class="sidenote-wrapper"><label for="sn-15" class="margin-toggle sidenote-number"></label><input type="checkbox" id="sn-15" class="margin-toggle"/><span class="sidenote">Bump<br />
+<br />
+</span></span> <span class="sidenote-wrapper"><label for="sn-16" class="margin-toggle sidenote-number"></label><input type="checkbox" id="sn-16" class="margin-toggle"/><span class="sidenote">Bump<br />
+<br />
+</span></span></p>
+<p>Lots of spacer paragraphs.</p>
+<p>Lots of spacer paragraphs.</p>
+<p>Lots of spacer paragraphs.</p>
+<p>Lots of spacer paragraphs.</p>
+<div class="sidenote-wrapper">
+<input type="checkbox" id="sn-17" class="margin-toggle"/>
+<div class="marginnote">
+<p>You can use code blocks. They must be four-space indented for pandoc to recognize them.</p>
+<div class="sourceCode" id="cb15"><pre class="sourceCode ruby"><code class="sourceCode ruby"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="cf">def</span> main</span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>  <span class="co"># This is not marked .wide, so long lines will wrap instead of overflowing.</span></span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">puts</span> <span class="st">&quot;Hello, world!&quot;</span></span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a><span class="cf">end</span></span></code></pre></div>
+<div class="sourceCode" id="cb16"><pre class="sourceCode numberSource ruby numberLines hl-2"><code class="sourceCode ruby"><span id="cb16-1"><a href="#cb16-1"></a><span class="cf">def</span> main</span>
+<span id="cb16-2"><a href="#cb16-2"></a>  <span class="co"># This is not marked .wide, so long lines will wrap instead of overflowing.</span></span>
+<span id="cb16-3"><a href="#cb16-3"></a>  <span class="fu">puts</span> <span class="st">&quot;Hello, world!&quot;</span></span>
+<span id="cb16-4"><a href="#cb16-4"></a><span class="cf">end</span></span></code></pre></div>
+<div class="wide">
+<div class="sourceCode" id="cb17"><pre class="sourceCode ruby"><code class="sourceCode ruby"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="cf">def</span> main</span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>  <span class="co"># This one is .wide, meaning that long lines overflow horizontally.</span></span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">puts</span> <span class="st">&quot;Hello, world!&quot;</span></span>
+<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a><span class="cf">end</span></span></code></pre></div>
+</div>
+<div class="wide">
+<div class="sourceCode" id="cb18"><pre class="sourceCode numberSource ruby numberLines hl-2"><code class="sourceCode ruby"><span id="cb18-1"><a href="#cb18-1"></a><span class="cf">def</span> main</span>
+<span id="cb18-2"><a href="#cb18-2"></a>  <span class="co"># This one is .wide, meaning that long lines overflow horizontally.</span></span>
+<span id="cb18-3"><a href="#cb18-3"></a>  <span class="co"># (The .wide .numberLines bug still applies.)</span></span>
+<span id="cb18-4"><a href="#cb18-4"></a>  <span class="fu">puts</span> <span class="st">&quot;Hello, world!&quot;</span></span>
+<span id="cb18-5"><a href="#cb18-5"></a><span class="cf">end</span></span></code></pre></div>
+</div>
+</div>
+</div>
+<p>A paragraph accompanied by a block margin note with a syntax-highlighted code block. Be careful when using this. You probably want to make sure that the code block is marked <code>.wide</code> so that the content overflows the edges. This is longer text to give the paragraph some heft to it, so that the side note doesn’t feel overpowering.<label for="sn-17" class="margin-toggle">&#8853;</label></p>
+<!--
+  Also, I have to put a double blank line before the code block to avoid
+  confusing my markdown syntax highlighter.
+-->
+<p>A paragraph accompanied by a block margin note with a syntax-highlighted code block. Be careful when using this. You probably want to make sure that the code block is marked <code>.wide</code> so that the content overflows the edges. This is longer text to give the paragraph some heft to it, so that the side note doesn’t feel overpowering.</p>
+<p>A paragraph accompanied by a block margin note with a syntax-highlighted code block. Be careful when using this. You probably want to make sure that the code block is marked <code>.wide</code> so that the content overflows the edges. This is longer text to give the paragraph some heft to it, so that the side note doesn’t feel overpowering.</p>
+<p>A paragraph accompanied by a block margin note with a syntax-highlighted code block. Be careful when using this. You probably want to make sure that the code block is marked <code>.wide</code> so that the content overflows the edges. This is longer text to give the paragraph some heft to it, so that the side note doesn’t feel overpowering.</p>
+<p>A paragraph accompanied by a block margin note with a syntax-highlighted code block. Be careful when using this. You probably want to make sure that the code block is marked <code>.wide</code> so that the content overflows the edges. This is longer text to give the paragraph some heft to it, so that the side note doesn’t feel overpowering.</p>
+<p>A paragraph accompanied by a block margin note with a syntax-highlighted code block. Be careful when using this. You probably want to make sure that the code block is marked <code>.wide</code> so that the content overflows the edges. This is longer text to give the paragraph some heft to it, so that the side note doesn’t feel overpowering.</p>
+<p>An image in an inline margin note.<span class="sidenote-wrapper"><label for="sn-18" class="margin-toggle">&#8853;</label><input type="checkbox" id="sn-18" class="margin-toggle"/><span class="marginnote"><img src="../img/sugarloaf-hill-forest-green.jpg" alt="Only alt text here, not caption" /><br />
+<br />
+</span></span> Markdown footnotes become side notes. After the note. It would be neat to associate a range of text with a footnote, rather than a single point. This is longer text to give the paragraph some heft to it, so that the side note doesn’t feel overpowering.</p>
+<p>Markdown footnotes become side notes. After the note. It would be neat to associate a range of text with a footnote, rather than a single point. This is longer text to give the paragraph some heft to it, so that the side note doesn’t feel overpowering.</p>
+<div class="sidenote-wrapper">
+<input type="checkbox" id="sn-19" class="margin-toggle"/>
+<div class="marginnote">
+<p><img src="../img/sugarloaf-hill-forest-green.jpg" alt="Only alt text here, not caption" /></p>
+</div>
+</div>
+<p>Markdown footnotes become side notes. After the note. It would be neat to associate a range of text with a footnote, rather than a single point. This is longer text to give the paragraph some heft to it, so that the side note doesn’t feel overpowering. <strong>This paragraph ends with a block image.</strong><label for="sn-19" class="margin-toggle">&#8853;</label></p>
+<p>The image that comes before it pushes this image down. It still has no caption, but that’s a limitation of Pandoc markdown. There’s an extra big gap, but that’s because we generate <code>&lt;br&gt;&lt;br&gt;</code> at the end of every inline margin note. <code>pandoc-sidenote</code> could be changed to stop doing that if we want?</p>
+<p>The image that comes before it pushes this image down. It still has no caption, but that’s a limitation of Pandoc markdown. There’s an extra big gap, but that’s because we generate <code>&lt;br&gt;&lt;br&gt;</code> at the end of every inline margin note. <code>pandoc-sidenote</code> could be changed to stop doing that if we want?</p>
+<p>The image that comes before it pushes this image down. It still has no caption, but that’s a limitation of Pandoc markdown. There’s an extra big gap, but that’s because we generate <code>&lt;br&gt;&lt;br&gt;</code> at the end of every inline margin note. <code>pandoc-sidenote</code> could be changed to stop doing that if we want?</p>
+<div class="sidenote-wrapper">
+<input type="checkbox" id="sn-20" class="margin-toggle"/>
+<div class="marginnote">
+<p><img src="../img/sugarloaf-hill-forest-green.jpg" alt="Only alt text here, not caption" /></p>
+<p><em>Faking a caption with italics.</em></p>
+</div>
+</div>
+<p>This time, there’s enough room for the block image to hoist to the top of the associated paragraph. This time, there’s enough room for the block image to hoist to the top of the associated paragraph. This time, there’s enough room for the block image to hoist to the top of the associated paragraph.<label for="sn-20" class="margin-toggle">&#8853;</label></p>
+<p>This time, there’s enough room for the block image to hoist to the top of the associated paragraph. This time, there’s enough room for the block image to hoist to the top of the associated paragraph. This time, there’s enough room for the block image to hoist to the top of the associated paragraph.</p>
+<p>This time, there’s enough room for the block image to hoist to the top of the associated paragraph. This time, there’s enough room for the block image to hoist to the top of the associated paragraph. This time, there’s enough room for the block image to hoist to the top of the associated paragraph.</p>
+<p>This time, there’s enough room for the block image to hoist to the top of the associated paragraph. This time, there’s enough room for the block image to hoist to the top of the associated paragraph. This time, there’s enough room for the block image to hoist to the top of the associated paragraph.</p>
+<div class="sidenote-wrapper">
+<input type="checkbox" id="sn-21" class="margin-toggle"/>
+<div class="marginnote">
+<figure>
+<img src="../img/sugarloaf-hill-forest-green.jpg" alt="Alt text is not caption">
+<figcaption aria-hidden="true">
+Proper caption now
+</figcaption>
+</figure>
+</div>
+</div>
+<p>An explicit figure in a side note. Unfortunately, Pandoc markdown doesn’t turn images in footnotes into figures automatically, so if you want this behavior you have to write the <code>figure</code> HTML directly.<label for="sn-21" class="margin-toggle">&#8853;</label></p>
+<p>This time, there’s enough room for the block image to hoist to the top of the associated paragraph. This time, there’s enough room for the block image to hoist to the top of the associated paragraph. This time, there’s enough room for the block image to hoist to the top of the associated paragraph.</p>
 <h1 id="images">Images</h1>
 <p>We can also handle images:</p>
 <figure>
@@ -953,7 +1104,7 @@ Meanwhile, <code>wide</code> will expand past the right column when the center c
 <tr>
 <td><p>This is some text</p>
 <p>It spans multiple lines in one grid.</p>
-<div class="sourceCode" id="cb14"><pre class="sourceCode ruby"><code class="sourceCode ruby"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">puts</span>(<span class="st">&quot;Hello, world!)</span></span></code></pre></div>
+<div class="sourceCode" id="cb19"><pre class="sourceCode ruby"><code class="sourceCode ruby"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="fu">puts</span>(<span class="st">&quot;Hello, world!)</span></span></code></pre></div>
 <p>This table cell is considerably longer than the first, which is a test of whether we are properly vertically aligning the content in the second column. By default, it seems like Chrome (maybe all browsers?) vertically align table content to the middle.</p></td>
 <td><p>These kinds of tables are called grid tables. The nice thing is that you can make them span multiple lines, at the cost of being annnoying to reformat.</p>
 <ul>
@@ -964,7 +1115,7 @@ Meanwhile, <code>wide</code> will expand past the right column when the center c
 <tr>
 <td><p>This is some text</p>
 <p>It spans multiple lines in one grid.</p>
-<div class="sourceCode" id="cb15"><pre class="sourceCode ruby"><code class="sourceCode ruby"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="fu">puts</span>(<span class="st">&quot;Hello, world!)</span></span></code></pre></div></td>
+<div class="sourceCode" id="cb20"><pre class="sourceCode ruby"><code class="sourceCode ruby"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="fu">puts</span>(<span class="st">&quot;Hello, world!)</span></span></code></pre></div></td>
 <td><p>These kinds of tables are called grid tables. The nice thing is that you can make them span multiple lines, at the cost of being annnoying to reformat.</p>
 <ul>
 <li>A list inside a table cell</li>
@@ -990,7 +1141,7 @@ Meanwhile, <code>wide</code> will expand past the right column when the center c
 <tr>
 <td><p>This is some text</p>
 <p>It spans multiple lines in one grid.</p>
-<div class="sourceCode" id="cb16"><pre class="sourceCode ruby"><code class="sourceCode ruby"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="fu">puts</span>(<span class="st">&quot;Hello, world!)</span></span></code></pre></div>
+<div class="sourceCode" id="cb21"><pre class="sourceCode ruby"><code class="sourceCode ruby"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="fu">puts</span>(<span class="st">&quot;Hello, world!)</span></span></code></pre></div>
 <p>This table cell is considerably longer than the first, which is a test of whether we are properly vertically aligning the content in the second column. By default, it seems like Chrome (maybe all browsers?) vertically align table content to the middle.</p></td>
 <td><p>These kinds of tables are called grid tables. The nice thing is that you can make them span multiple lines, at the cost of being annnoying to reformat.</p>
 <ul>
@@ -1001,7 +1152,7 @@ Meanwhile, <code>wide</code> will expand past the right column when the center c
 <tr>
 <td><p>This is some text</p>
 <p>It spans multiple lines in one grid.</p>
-<div class="sourceCode" id="cb17"><pre class="sourceCode ruby"><code class="sourceCode ruby"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="fu">puts</span>(<span class="st">&quot;Hello, world!)</span></span></code></pre></div></td>
+<div class="sourceCode" id="cb22"><pre class="sourceCode ruby"><code class="sourceCode ruby"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="fu">puts</span>(<span class="st">&quot;Hello, world!)</span></span></code></pre></div></td>
 <td><p>These kinds of tables are called grid tables. The nice thing is that you can make them span multiple lines, at the cost of being annnoying to reformat.</p>
 <ul>
 <li>A list inside a table cell</li>
@@ -1034,6 +1185,51 @@ Meanwhile, <code>wide</code> will expand past the right column when the center c
     checkbox.disabled = false;
     checkbox.addEventListener('click', (ev) => {ev.target.checked = wasChecked});
   });
+
+  function hoistAbove() {
+    const toHoist = document.querySelectorAll('main > .sidenote-wrapper + :not(.sidenote-wrapper)');
+    for (let i = toHoist.length - 1; i >= 0; i--) {
+      const source = toHoist[i];
+      let target = source.previousElementSibling;
+      while (target.previousElementSibling.classList.contains('sidenote-wrapper')) {
+        target = target.previousElementSibling;
+      }
+      source.parentNode.insertBefore(source, target);
+    }
+  }
+
+  function sinkBelow() {
+    const toHoist = document.querySelectorAll('main > :not(.sidenote-wrapper) + .sidenote-wrapper');
+    for (let i = 0; i < toHoist.length; i++) {
+      const source = toHoist[i].previousElementSibling;
+      let target = source.nextElementSibling;
+      while (target.classList.contains('sidenote-wrapper')) {
+        target = target.nextElementSibling;
+      }
+      source.parentNode.insertBefore(source, target);
+    }
+  }
+
+  if (window.matchMedia('screen')) {
+    if (window.innerWidth <= 796) {
+      hoistAbove();
+    }
+    let prevSize = window.innerWidth;
+    // Needs to mirror breakpoints in :root settings in CSS variables
+    // 745px = --main-width-narrow
+    // 26px = --line-height
+    // 169px = side note min width narrow
+    const breakpoint = 26 + 550 + 26 + 169 + 26 - 1;
+    window.addEventListener('resize', function() {
+      const newSize = window.innerWidth;
+      if (prevSize >= breakpoint && newSize < breakpoint) {
+        hoistAbove();
+      } else if (prevSize < breakpoint && newSize >= breakpoint) {
+        sinkBelow();
+      }
+      prevSize = newSize;
+    });
+  }
 })();
 </script>
 </body>

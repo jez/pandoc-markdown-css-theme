@@ -58,13 +58,22 @@ local function stripNoteAttribute(inlines, canOmitSpace)
 
     -- '{^-}' indicates that it should be a margin note, but using the
     -- hoisted block markup, instead of remaining inline.
-    -- TODO(jez) Also implement sidenote-block
     if inlines[1].text == "{^-}" then
       inlines:remove(1)
       if inlines[1] and inlines[1].tag == 'Space' then
         inlines:remove(1)
       end
       return "marginnote-block"
+    end
+
+    -- '{^}' indicates that it should be a side note, but using the
+    -- hoisted block markup, instead of remaining inline.
+    if inlines[1].text == "{^}" then
+      inlines:remove(1)
+      if inlines[1] and inlines[1].tag == 'Space' then
+        inlines:remove(1)
+      end
+      return "sidenote-block"
     end
 
     -- '{.}' indicates whether to leave the footnote untouched (a footnote)
@@ -150,7 +159,7 @@ end
 
 local function makeLabel(snIdx, noteKind)
   local labelCls = "margin-toggle"
-  if noteKind == "sidenote" then
+  if noteKind == "sidenote" or noteKind == "sidenote-block" then
     labelCls = labelCls .. " sidenote-number"
   end
 
@@ -190,7 +199,7 @@ local function makeBlockWalker()
         -- Generate a unique number for the `for=` attribute
         snIdx = snIdx + 1
 
-        if noteKind ~= "marginnote-block" then
+        if noteKind ~= "marginnote-block" and noteKind ~= "sidenote-block" then
           local inlines = coerceToInline(note.content)
           return pandoc.Span({
             makeLabel(snIdx, noteKind),
@@ -233,11 +242,13 @@ function Blocks(blocks)
       local note = blockWalker.notes[j]
 
       local contentClass = note.kind
+      -- Use original classes for backwards compatibility.
+      -- If people really want to care about the distinction,
+      -- they can write `div.marginnote` or `span.marginnote`
       if contentClass == "marginnote-block" then
-        -- Use .marginnote class for backwards compatibility.
-        -- If people really want to care about the distinction,
-        -- they can write `div.marginnote` or `span.marginnote`
         contentClass = "marginnote"
+      elseif contentClass == "sidenote-block" then
+        contentClass = "sidenote"
       end
 
       result[#result + 1] = pandoc.Div(

@@ -230,16 +230,20 @@ main > .sidenote-wrapper > :is(.marginnote, .sidenote) {
 }
 
 main {
-  counter-reset: sidenote-counter;
+  counter-reset: sidenote-counter-anchor sidenote-counter;
 }
 
-.sidenote-number {
+.sidenote-number:after {
+  counter-increment: sidenote-counter-anchor;
+  content: counter(sidenote-counter-anchor);
+}
+
+.sidenote:before {
   counter-increment: sidenote-counter;
+  content: counter(sidenote-counter);
 }
-
 .sidenote-number:after,
 .sidenote:before {
-  content: counter(sidenote-counter);
   position: relative;
 }
 
@@ -266,10 +270,11 @@ sup {
   font-weight: inherit;
 }
 
-/* Make the superscript hang. */
-.sidenote:before { left: var(--side-note-number-hang-left); }
-/* Get first first column of first row to line up with other rows. */
-.sidenote { text-indent: var(--side-note-text-indent); }
+/* Make the superscript hang in the margin. */
+.sidenote:before {
+  position: absolute;
+  right: calc(100% + 0.5ch);
+}
 
 /*}}} */
 /* --- Side note input controls --- {{{ */
@@ -1280,9 +1285,19 @@ nav#TOC > input:checked + ul {
     margin-right: var(--line-height);
   }
 
-  .sidenote,
-  .marginnote {
+  .margin-toggle:not(:checked) + .marginnote {
     display: none;
+  }
+  .margin-toggle:not(:checked) + .sidenote {
+    /* .sidenote is special because .sidenote:before tracks the counter,
+     * and counters don't increment for display: none;
+     * https://stackoverflow.com/a/36600119
+     * */
+    position: absolute;
+    left: -9999px;
+    max-height: 0px;
+    overflow: hidden;
+    opacity: 0;
   }
 
   .margin-toggle:checked + .sidenote,

@@ -221,14 +221,6 @@ main > .sidenote-wrapper > :is(.marginnote, .sidenote) {
   margin-bottom: var(--side-note-line-height);
 }
 
-/* Block-style sidenotes will have `p` tags in them, but we need to not have extra margins. */
-.sidenote-wrapper > :is(.marginnote, .sidenote) > *:first-child {
-  margin-top: 0;
-}
-.sidenote-wrapper > :is(.marginnote, .sidenote) > *:last-child {
-  margin-bottom: 0;
-}
-
 main {
   counter-reset: sidenote-counter-anchor sidenote-counter;
 }
@@ -399,9 +391,17 @@ p, main > ul, main > ol, .wide, :not(.wide) > div.sourceCode, main > pre, img, t
   margin-bottom: var(--line-height)
 }
 
-:is(.marginnote, .sidenote) :where(p, main > ul, main > ol, :not(.wide) > div.sourceCode, main > pre, img, table, blockquote) {
+:is(.marginnote, .sidenote) :is(p, main > ul, main > ol, .wide, :not(.wide) > div.sourceCode, main > pre, img, table, blockquote) {
   margin-top: var(--side-note-font-size);
   margin-bottom: var(--side-note-font-size);
+}
+
+/* Block-style sidenotes will have `p` tags in them, but we need to not have extra margins. */
+.sidenote-wrapper > :is(.marginnote, .sidenote) > :is(p, main > ul, main > ol, .wide, :not(.wide) > div.sourceCode, main > pre, img, table, blockquote):first-child {
+  margin-top: 0;
+}
+.sidenote-wrapper > :is(.marginnote, .sidenote) > :is(p, main > ul, main > ol, .wide, :not(.wide) > div.sourceCode, main > pre, img, table, blockquote):last-child {
+  margin-bottom: 0;
 }
 
 .wide > p:first-child,
@@ -846,7 +846,7 @@ figure + p {
 figure > img, figure > pre, figure > div.sourceCode, figure:not(.wide) > div.sourceCode {
   margin-bottom: var(--figcaption-gap);
 }
-:is(.sidenote, .marginnote) :where(figure > img, figure > pre, figure > div.sourceCode, figure:not(.wide) > div.sourceCode) {
+:is(.sidenote, .marginnote) :is(figure > img, figure > pre, figure > div.sourceCode, figure:not(.wide) > div.sourceCode) {
   margin-bottom: var(--figcaption-gap);
 }
 

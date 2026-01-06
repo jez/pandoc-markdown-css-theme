@@ -839,7 +839,12 @@ figure {
   margin-bottom: var(--captioned-figure-gap);
 }
 
-figure + p {
+/* No one should ever have more than 4 sidenotes immediately after an image */
+/* 0 */ figure + p,
+/* 1 */ figure + .sidenote-wrapper + p,
+/* 2 */ figure + .sidenote-wrapper + .sidenote-wrapper + p,
+/* 3 */ figure + .sidenote-wrapper + .sidenote-wrapper + .sidenote-wrapper + p,
+/* 4 */ figure + .sidenote-wrapper + .sidenote-wrapper + .sidenote-wrapper + .sidenote-wrapper + p {
   margin-top: var(--captioned-figure-gap);
 }
 

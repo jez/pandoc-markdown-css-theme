@@ -618,33 +618,80 @@ It can have line breaks too. This should be a test of what happens when the marg
 <p>A paragraph accompanied by a block margin note with a syntax-highlighted code block. Be careful when using this. You probably want to make sure that the code block is marked <code>.wide</code> so that the content overflows the edges. This is longer text to give the paragraph some heft to it, so that the side note doesn’t feel overpowering.</p>
 <p>A paragraph accompanied by a block margin note with a syntax-highlighted code block. Be careful when using this. You probably want to make sure that the code block is marked <code>.wide</code> so that the content overflows the edges. This is longer text to give the paragraph some heft to it, so that the side note doesn’t feel overpowering.</p>
 <p>A paragraph accompanied by a block margin note with a syntax-highlighted code block. Be careful when using this. You probably want to make sure that the code block is marked <code>.wide</code> so that the content overflows the edges. This is longer text to give the paragraph some heft to it, so that the side note doesn’t feel overpowering.</p>
-<p>An image in an inline margin note.<span class="sidenote-wrapper"><label for="sn-18" class="margin-toggle">&#8853;</label><input type="checkbox" id="sn-18" class="margin-toggle"/><span class="marginnote"><img src="../img/sugarloaf-hill-forest-green.jpg" alt="Only alt text here, not caption" /><br />
+<ul>
+<li><p>This is a list with multiple paragraphs in it. This is a list with multiple paragraphs in it. This is a list with multiple paragraphs in it. This is a list with multiple paragraphs in it. This is a list with multiple paragraphs in it. This is a list with multiple paragraphs in it.</p>
+<div class="sidenote-wrapper">
+<input type="checkbox" id="sn-18" class="margin-toggle"/>
+<div class="sidenote">
+<p>Align to second paragraph.</p>
+</div>
+</div>
+<p>This is a list with multiple paragraphs in it. This is a list with multiple paragraphs in it. This is a list with multiple paragraphs in it. This is a list with multiple paragraphs in it. This is a list with multiple paragraphs in it. This is a list with multiple paragraphs in it.<label for="sn-18" class="margin-toggle sidenote-number"></label></p></li>
+<li><div class="sidenote-wrapper">
+<input type="checkbox" id="sn-19" class="margin-toggle"/>
+<div class="sidenote">
+<p>Align to third paragraph.</p>
+</div>
+</div>
+<p>This is a list with multiple paragraphs in it. This is a list with multiple paragraphs in it. This is a list with multiple paragraphs in it. This is a list with multiple paragraphs in it. This is a list with multiple paragraphs in it. This is a list with multiple paragraphs in it.<label for="sn-19" class="margin-toggle sidenote-number"></label></p></li>
+</ul>
+<div class="sidenote-wrapper">
+<input type="checkbox" id="sn-20" class="margin-toggle"/>
+<div class="sidenote">
+<p>Row 1, column 2. Aligned to start of table.</p>
+</div>
+</div>
+<div class="sidenote-wrapper">
+<input type="checkbox" id="sn-21" class="margin-toggle"/>
+<div class="sidenote">
+<p>Row 2, column 1</p>
+</div>
+</div>
+<table>
+<thead>
+<tr>
+<th><strong>Column 1</strong></th>
+<th><strong>Column 2</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>This is <code>some</code> text.</td>
+<td>This is some text.<label for="sn-20" class="margin-toggle sidenote-number"></label></td>
+</tr>
+<tr>
+<td>This is some text.<label for="sn-21" class="margin-toggle sidenote-number"></label></td>
+<td>This is some text.</td>
+</tr>
+</tbody>
+</table>
+<p>An image in an inline margin note.<span class="sidenote-wrapper"><label for="sn-22" class="margin-toggle">&#8853;</label><input type="checkbox" id="sn-22" class="margin-toggle"/><span class="marginnote"><img src="../img/sugarloaf-hill-forest-green.jpg" alt="Only alt text here, not caption" /><br />
 <br />
 </span></span> Markdown footnotes become side notes. After the note. It would be neat to associate a range of text with a footnote, rather than a single point. This is longer text to give the paragraph some heft to it, so that the side note doesn’t feel overpowering.</p>
 <p>Markdown footnotes become side notes. After the note. It would be neat to associate a range of text with a footnote, rather than a single point. This is longer text to give the paragraph some heft to it, so that the side note doesn’t feel overpowering.</p>
 <div class="sidenote-wrapper">
-<input type="checkbox" id="sn-19" class="margin-toggle"/>
+<input type="checkbox" id="sn-23" class="margin-toggle"/>
 <div class="marginnote">
 <p><img src="../img/sugarloaf-hill-forest-green.jpg" alt="Only alt text here, not caption" /></p>
 </div>
 </div>
-<p>Markdown footnotes become side notes. After the note. It would be neat to associate a range of text with a footnote, rather than a single point. This is longer text to give the paragraph some heft to it, so that the side note doesn’t feel overpowering. <strong>This paragraph ends with a block image.</strong><label for="sn-19" class="margin-toggle">&#8853;</label></p>
+<p>Markdown footnotes become side notes. After the note. It would be neat to associate a range of text with a footnote, rather than a single point. This is longer text to give the paragraph some heft to it, so that the side note doesn’t feel overpowering. <strong>This paragraph ends with a block image.</strong><label for="sn-23" class="margin-toggle">&#8853;</label></p>
 <p>The image that comes before it pushes this image down. It still has no caption, but that’s a limitation of Pandoc markdown. There’s an extra big gap, but that’s because we generate <code>&lt;br&gt;&lt;br&gt;</code> at the end of every inline margin note. <code>pandoc-sidenote</code> could be changed to stop doing that if we want?</p>
 <p>The image that comes before it pushes this image down. It still has no caption, but that’s a limitation of Pandoc markdown. There’s an extra big gap, but that’s because we generate <code>&lt;br&gt;&lt;br&gt;</code> at the end of every inline margin note. <code>pandoc-sidenote</code> could be changed to stop doing that if we want?</p>
 <p>The image that comes before it pushes this image down. It still has no caption, but that’s a limitation of Pandoc markdown. There’s an extra big gap, but that’s because we generate <code>&lt;br&gt;&lt;br&gt;</code> at the end of every inline margin note. <code>pandoc-sidenote</code> could be changed to stop doing that if we want?</p>
 <div class="sidenote-wrapper">
-<input type="checkbox" id="sn-20" class="margin-toggle"/>
+<input type="checkbox" id="sn-24" class="margin-toggle"/>
 <div class="marginnote">
 <p><img src="../img/sugarloaf-hill-forest-green.jpg" alt="Only alt text here, not caption" /></p>
 <p><em>Faking a caption with italics.</em></p>
 </div>
 </div>
-<p>This time, there’s enough room for the block image to hoist to the top of the associated paragraph. This time, there’s enough room for the block image to hoist to the top of the associated paragraph. This time, there’s enough room for the block image to hoist to the top of the associated paragraph.<label for="sn-20" class="margin-toggle">&#8853;</label></p>
+<p>This time, there’s enough room for the block image to hoist to the top of the associated paragraph. This time, there’s enough room for the block image to hoist to the top of the associated paragraph. This time, there’s enough room for the block image to hoist to the top of the associated paragraph.<label for="sn-24" class="margin-toggle">&#8853;</label></p>
 <p>This time, there’s enough room for the block image to hoist to the top of the associated paragraph. This time, there’s enough room for the block image to hoist to the top of the associated paragraph. This time, there’s enough room for the block image to hoist to the top of the associated paragraph.</p>
 <p>This time, there’s enough room for the block image to hoist to the top of the associated paragraph. This time, there’s enough room for the block image to hoist to the top of the associated paragraph. This time, there’s enough room for the block image to hoist to the top of the associated paragraph.</p>
 <p>This time, there’s enough room for the block image to hoist to the top of the associated paragraph. This time, there’s enough room for the block image to hoist to the top of the associated paragraph. This time, there’s enough room for the block image to hoist to the top of the associated paragraph.</p>
 <div class="sidenote-wrapper">
-<input type="checkbox" id="sn-21" class="margin-toggle"/>
+<input type="checkbox" id="sn-25" class="margin-toggle"/>
 <div class="marginnote">
 <figure>
 <img src="../img/sugarloaf-hill-forest-green.jpg" alt="Alt text is not caption">
@@ -654,7 +701,7 @@ Proper caption now
 </figure>
 </div>
 </div>
-<p>An explicit figure in a side note. Unfortunately, Pandoc markdown doesn’t turn images in footnotes into figures automatically, so if you want this behavior you have to write the <code>figure</code> HTML directly.<label for="sn-21" class="margin-toggle">&#8853;</label></p>
+<p>An explicit figure in a side note. Unfortunately, Pandoc markdown doesn’t turn images in footnotes into figures automatically, so if you want this behavior you have to write the <code>figure</code> HTML directly.<label for="sn-25" class="margin-toggle">&#8853;</label></p>
 <p>This time, there’s enough room for the block image to hoist to the top of the associated paragraph. This time, there’s enough room for the block image to hoist to the top of the associated paragraph. This time, there’s enough room for the block image to hoist to the top of the associated paragraph.</p>
 <h1 id="images">Images</h1>
 <p>We can also handle images:</p>
@@ -1191,7 +1238,7 @@ Meanwhile, <code>wide</code> will expand past the right column when the center c
     for (let i = toHoist.length - 1; i >= 0; i--) {
       const source = toHoist[i];
       let target = source.previousElementSibling;
-      while (target.previousElementSibling.classList.contains('sidenote-wrapper')) {
+      while (target.previousElementSibling?.classList.contains('sidenote-wrapper')) {
         target = target.previousElementSibling;
       }
       source.parentNode.insertBefore(source, target);

@@ -2,8 +2,8 @@
 --                            pandoc-sidenote.lua
 --
 -- Author:    Jacob Zimmerman (@jez)
--- Version:   0.25.0
--- Modified:  2025-11-02
+-- Version:   0.26.0
+-- Modified:  2026-01-04
 -- URL:       https://github.com/jez/pandoc-sidenote
 --
 
@@ -50,7 +50,7 @@ local function stripNoteAttribute(inlines, canOmitSpace)
     -- The '{-}' symbol differentiates between margin note and side note
     if inlines[1].text == "{-}" then
       inlines:remove(1)
-      if inlines[1] and inlines[1].tag == 'Space' then
+      if inlines[1] and inlines[1].tag == "Space" then
         inlines:remove(1)
       end
       return "marginnote"
@@ -60,7 +60,7 @@ local function stripNoteAttribute(inlines, canOmitSpace)
     -- hoisted block markup, instead of remaining inline.
     if inlines[1].text == "{^-}" then
       inlines:remove(1)
-      if inlines[1] and inlines[1].tag == 'Space' then
+      if inlines[1] and inlines[1].tag == "Space" then
         inlines:remove(1)
       end
       return "marginnote-block"
@@ -70,7 +70,7 @@ local function stripNoteAttribute(inlines, canOmitSpace)
     -- hoisted block markup, instead of remaining inline.
     if inlines[1].text == "{^}" then
       inlines:remove(1)
-      if inlines[1] and inlines[1].tag == 'Space' then
+      if inlines[1] and inlines[1].tag == "Space" then
         inlines:remove(1)
       end
       return "sidenote-block"
@@ -79,7 +79,7 @@ local function stripNoteAttribute(inlines, canOmitSpace)
     -- '{.}' indicates whether to leave the footnote untouched (a footnote)
     if inlines[1].text == "{.}" then
       inlines:remove(1)
-      if inlines[1] and inlines[1].tag == 'Space' then
+      if inlines[1] and inlines[1].tag == "Space" then
         inlines:remove(1)
       end
       return "footnote"
@@ -180,90 +180,169 @@ local function makeInputHTML(snIdx)
   return inputFormatStr:format(snIdx)
 end
 
-local snIdx = -1
+notesStack = {}
 
--- TODO(jez) Can you make this use whatever OOP features Lua has?
-local function makeBlockWalker()
-  local notes = {}
-  return {
-    notes = notes,
-    -- Just to be explicit, because there are two different walks in play.
-    traverse = "typewise",
-    filter = {
-      Note = function(note)
-        local noteKind = mungeBlocks(note.content)
-        if noteKind == "footnote" then
-          return note
-        end
+snIdx = -1
 
-        -- Generate a unique number for the `for=` attribute
-        snIdx = snIdx + 1
-
-        if noteKind ~= "marginnote-block" and noteKind ~= "sidenote-block" then
-          local inlines = coerceToInline(note.content)
-          return pandoc.Span({
-            makeLabel(snIdx, noteKind),
-            pandoc.RawInline("html", makeInputHTML(snIdx)),
-            pandoc.Span(inlines, { class = noteKind }),
-          }, { class = "sidenote-wrapper" })
-        end
-
-        notes[#notes + 1] = {
-          snIdx = snIdx,
-          kind = noteKind,
-          content = note.content,
-        }
-        return makeLabel(snIdx, noteKind)
-      end,
-    },
-  }
-end
-
-traverse = "topdown"
-
--- TODO(jez) Handle footnotes inside Note itself.
---
--- Actually, it looks like pandoc markdown doesn't parse recursive footnotes.
--- The AST doesn't seem to preclude building them, so maybe other readers or
--- other filters could produce such ASTs. Going to punt for now though.
-
-function Blocks(blocks)
-  local result = {}
-
-  for i = 1, #blocks do
-    local block = blocks[i]
-    local blockWalker = makeBlockWalker()
-
-    -- Handles non-block sidenotes/marginnotes, and collects the block ones
-    local newBlock = block:walk(blockWalker.filter)
-
-    -- Hoist block sidenotes/marginnotes ahead of their containing block
-    for j = 1, #blockWalker.notes do
-      local note = blockWalker.notes[j]
-
-      local contentClass = note.kind
-      -- Use original classes for backwards compatibility.
-      -- If people really want to care about the distinction,
-      -- they can write `div.marginnote` or `span.marginnote`
-      if contentClass == "marginnote-block" then
-        contentClass = "marginnote"
-      elseif contentClass == "sidenote-block" then
-        contentClass = "sidenote"
-      end
-
-      result[#result + 1] = pandoc.Div(
-        pandoc.Blocks({
-          pandoc.RawBlock("html", makeInputHTML(note.snIdx)),
-          pandoc.Div(note.content, { class = contentClass }),
-        }),
-        { class = "sidenote-wrapper" }
-      )
+noteVisitor = {
+  Note = function(note)
+    local noteKind = mungeBlocks(note.content)
+    if noteKind == "footnote" then
+      return note
     end
 
-    -- Reinsert the (transformed) block
-    result[#result + 1] = newBlock
+    -- Generate a unique number for the `for=` attribute
+    snIdx = snIdx + 1
+
+    if noteKind ~= "marginnote-block" and noteKind ~= "sidenote-block" then
+      local inlines = coerceToInline(note.content)
+      return pandoc.Span({
+        makeLabel(snIdx, noteKind),
+        pandoc.RawInline("html", makeInputHTML(snIdx)),
+        pandoc.Span(inlines, { class = noteKind }),
+      }, { class = "sidenote-wrapper" })
+    end
+
+    local notes = notesStack[#notesStack]
+    notes[#notes + 1] = {
+      snIdx = snIdx,
+      kind = noteKind,
+      content = note.content,
+    }
+    return makeLabel(snIdx, noteKind)
+  end,
+}
+
+function translateNotes(notes)
+  local translatedNotes = {}
+
+  for i = 1, #notes do
+    note = notes[i]
+    local contentClass = note.kind
+    -- Use original classes for backwards compatibility.
+    -- If people really want to care about the distinction,
+    -- they can write `div.marginnote` or `span.marginnote`
+    if contentClass == "marginnote-block" then
+      contentClass = "marginnote"
+    elseif contentClass == "sidenote-block" then
+      contentClass = "sidenote"
+    end
+
+    translatedNotes[#translatedNotes + 1] = pandoc.Div(
+      pandoc.Blocks({
+        pandoc.RawBlock("html", makeInputHTML(note.snIdx)),
+        pandoc.Div(note.content, { class = contentClass }),
+      }),
+      { class = "sidenote-wrapper" }
+    )
   end
 
-  local shouldRecurse = false
-  return pandoc.Blocks(result), shouldRecurse
+  return translatedNotes
+end
+
+function collectNotes(node)
+  notesStack[#notesStack + 1] = {}
+  node.content = node.content:walk(noteVisitor)
+  local notes = table.remove(notesStack, #notesStack)
+  return translateNotes(notes)
+end
+
+function visitListOfBlocks(blockss)
+  for i = 1, #blockss do
+    local blocks = blockss[i]
+    visitBlocks(blocks)
+  end
+  return {}
+end
+
+blockVisitor = {
+  BlockQuote = function(node)
+    visitBlocks(node.content)
+    return {}, nil
+  end,
+  BulletList = function(node)
+    return visitListOfBlocks(node.content), nil
+  end,
+  CodeBlock = function(node)
+    return {}, nil
+  end,
+  DefinitionList = function(node)
+    notesStack[#notesStack + 1] = {}
+    for i = 1, #node.content do
+      local item = node.content[i]
+      local term = item[1]
+      local definition = item[2]
+      node:walk(noteVisitor)
+      visitListOfBlocks(definition)
+    end
+
+    -- Unfortunately, the best we can do is either hoist any notes in the terms
+    -- to before the entire list, or to push the note into the start of the
+    -- definition. This implementation chooses the former. Realistically, notes
+    -- in the definitions should probably use inline side notes instead of
+    -- block-based side notes.
+    local notes = table.remove(notesStack, #notesStack)
+    return translateNotes(notes), nil
+  end,
+  Div = function(node)
+    visitBlocks(node.content)
+    return {}, nil
+  end,
+  Figure = function(node)
+    visitBlocks(node.content)
+    return {}, nil
+  end,
+  Header = function(node)
+    return collectNotes(node), nil
+  end,
+  HorizontalRule = function(node)
+    return {}, nil
+  end,
+  LineBlock = function(node)
+    return collectNotes(node), nil
+  end,
+  OrderedList = function(node)
+    return visitListOfBlocks(node.content), nil
+  end,
+  Para = function(node)
+    return collectNotes(node), nil
+  end,
+  Plain = function(node)
+    return collectNotes(node), nil
+  end,
+  RawBlock = function(node)
+    return {}, nil
+  end,
+  Table = function(node)
+    notesStack[#notesStack + 1] = {}
+
+    newTable = node:walk(noteVisitor)
+
+    local notes = table.remove(notesStack, #notesStack)
+    return translateNotes(notes), newTable
+  end,
+}
+
+function visitBlocks(blocks)
+  local result = {}
+  for i = 1, #blocks do
+    local block = blocks[i]
+    local newBlocks, replacedElem = blockVisitor[block.tag](block)
+    for j = 1, #newBlocks do
+      result[#result + 1] = newBlocks[j]
+    end
+    if replacedElem then
+      result[#result + 1] = replacedElem
+    else
+      result[#result + 1] = block
+    end
+  end
+  for i = 1, #result do
+    blocks[i] = result[i]
+  end
+end
+
+function Pandoc(doc)
+  visitBlocks(doc.blocks)
+  return doc
 end

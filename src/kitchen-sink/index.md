@@ -759,6 +759,36 @@ block is marked `.wide` so that the content overflows the edges. This is longer
 text to give the paragraph some heft to it, so that the side note doesn't feel
 overpowering.
 
+- This is a list with multiple paragraphs in it. This is a list with multiple
+  paragraphs in it. This is a list with multiple paragraphs in it. This is a
+  list with multiple paragraphs in it. This is a list with multiple paragraphs
+  in it. This is a list with multiple paragraphs in it.
+
+  This is a list with multiple paragraphs in it. This is a list with multiple
+  paragraphs in it. This is a list with multiple paragraphs in it. This is a
+  list with multiple paragraphs in it. This is a list with multiple paragraphs
+  in it. This is a list with multiple paragraphs in it.[^list2]
+
+- This is a list with multiple paragraphs in it. This is a list with multiple
+  paragraphs in it. This is a list with multiple paragraphs in it. This is a
+  list with multiple paragraphs in it. This is a list with multiple paragraphs
+  in it. This is a list with multiple paragraphs in it.[^list3]
+
+[^list2]:
+  {^} Align to second paragraph.
+
+[^list3]:
+  {^} Align to third paragraph.
+
+
+| **Column 1**                 | **Column 2**       |
+| --------------------         | ------------------ |
+| This is `some` text.         | This is some text.[^table12] |
+| This is some text.[^table21] | This is some text. |
+
+[^table12]: {^} Row 1, column 2. Aligned to start of table.
+[^table21]: {^} Row 2, column 1
+
 An image in an inline margin note.[^inline-image] Markdown footnotes become side
 notes. After the note. It would be neat to associate a range of text with a
 footnote, rather than a single point. This is longer text to give the paragraph

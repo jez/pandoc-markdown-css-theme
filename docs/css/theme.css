@@ -641,7 +641,7 @@ pre.numberSource > code.sourceCode > span > a:first-child::before {
   padding: 0 calc(2 * var(--code-block-side-padding));
   width: var(--line-numbers-width);
 }
-pre > code.sourceCode > span > a:first-child::before:hover {
+pre > code.sourceCode > span > a:first-child:hover::before {
   text-decoration: underline;
 }
 

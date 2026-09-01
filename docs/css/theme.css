@@ -182,6 +182,10 @@ body {
   display: none;
 }
 
+strong#color-scheme-button {
+  cursor: pointer;
+}
+
 @media (prefers-color-scheme: dark) {
   .only-light-mode {
     display: none;

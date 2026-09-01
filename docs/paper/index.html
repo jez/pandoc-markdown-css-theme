@@ -36,7 +36,9 @@
 
 <nav id="TOC" role="doc-toc">
     <a href="..">← Return home</a><br>
-    <strong>Contents</strong><label for="contents">⊕</label>
+    <!-- Set in Javascript. Left empty if Javascript is disabled -->
+  <strong id="color-scheme-button"></strong>
+  <strong>Contents</strong><label for="contents">⊕</label>
   <input type="checkbox" id="contents">
   <ul>
   <li><a href="#prose" id="toc-prose">Prose</a></li>
@@ -853,6 +855,8 @@ Meanwhile, <code>wide</code> will expand past the right column when the center c
     checkbox.disabled = false;
     checkbox.addEventListener('click', (ev) => {ev.target.checked = wasChecked});
   });
+  var colorSchemeButton = document.getElementById('color-scheme-button');
+  var colorSchemeState = null;
 
   function hoistAbove() {
     const toHoist = document.querySelectorAll('main > .sidenote-wrapper + :not(.sidenote-wrapper)');
@@ -898,6 +902,72 @@ Meanwhile, <code>wide</code> will expand past the right column when the center c
       prevSize = newSize;
     });
   }
+
+  function applyPreferredColorScheme(scheme) {
+    for (var s = 0; s < document.styleSheets.length; s++) {
+      try {
+        for (var i = 0; i < document.styleSheets[s].cssRules.length; i++) {
+          rule = document.styleSheets[s].cssRules[i];
+
+          if (rule && rule.media && rule.media.mediaText.includes("prefers-color-scheme")) {
+            switch (scheme) {
+            case "light":
+              rule.media.appendMedium("original-prefers-color-scheme");
+              if (rule.media.mediaText.includes("light")) rule.media.deleteMedium("(prefers-color-scheme: light)");
+              if (rule.media.mediaText.includes("dark")) rule.media.deleteMedium("(prefers-color-scheme: dark)");
+              break;
+            case "dark":
+              rule.media.appendMedium("(prefers-color-scheme: light)");
+              rule.media.appendMedium("(prefers-color-scheme: dark)");
+              if (rule.media.mediaText.includes("original")) rule.media.deleteMedium("original-prefers-color-scheme");
+              break;
+            default:
+              rule.media.appendMedium("(prefers-color-scheme: dark)");
+              if (rule.media.mediaText.includes("light")) rule.media.deleteMedium("(prefers-color-scheme: light)");
+              if (rule.media.mediaText.includes("original")) rule.media.deleteMedium("original-prefers-color-scheme");
+              break;
+            }
+          }
+        }
+      } catch (e) {
+        // Silently skip cross-origin sheets
+      }
+    }
+  }
+
+  function onColorSchemeChange() {
+    if (colorSchemeState === 1) {
+      colorSchemeButton.innerText = '😎';
+      colorSchemeButton.title = 'light color scheme';
+      applyPreferredColorScheme('light');
+    } else if (colorSchemeState === 2) {
+      colorSchemeButton.innerText = '🌙';
+      colorSchemeButton.title = 'dark color scheme';
+      applyPreferredColorScheme('dark');
+    } else {
+      colorSchemeButton.innerText = '◯';
+      colorSchemeButton.title = 'system default color scheme';
+      applyPreferredColorScheme(null);
+    }
+  }
+
+  colorSchemeButton.addEventListener('click', function() {
+    if (colorSchemeState === null) {
+      colorSchemeState = 1;
+    } else if (colorSchemeState === 1) {
+      colorSchemeState = 2;
+    } else {
+      colorSchemeState = null;
+    }
+
+    window.localStorage.setItem('isDarkColorScheme', colorSchemeState);
+    onColorSchemeChange();
+  });
+
+  document.addEventListener('DOMContentLoaded', function() {
+    colorSchemeState = parseInt(window.localStorage.getItem('isDarkColorScheme'));
+    onColorSchemeChange();
+  });
 })();
 </script>
 </body>
